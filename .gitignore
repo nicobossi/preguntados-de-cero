@@ -1,0 +1,56 @@
+# =====================
+# OS
+# =====================
+.DS_Store
+Thumbs.db
+Desktop.ini
+*~
+.directory
+
+# =====================
+# IDEs / Editors
+# =====================
+.idea/
+*.iml
+.vscode/
+*.swp
+
+# =====================
+# Frontend - Angular / bun
+# =====================
+node_modules/
+dist/
+.angular/
+.cache/
+bun-debug.log*
+
+# Package managers
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# =====================
+# Backend - Spring
+# =====================
+target/
+build/
+.gradle/
+
+# =====================
+# Environment / Secrets
+# =====================
+.env
+.env.*
+*.local
+
+# =====================
+# Logs
+# =====================
+logs/
+*.log
+
+# =====================
+# Database
+# =====================
+*.sql
+*.dump
