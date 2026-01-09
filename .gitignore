@@ -12,22 +12,24 @@ Desktop.ini
 # =====================
 .idea/
 *.iml
+*.iws
+*.ipr
 .vscode/
 *.swp
 
 # =====================
-# Frontend - Angular / bun
+# Frontend - Angular / npm
 # =====================
 node_modules/
 dist/
 .angular/
 .cache/
-bun-debug.log*
+npm-debug.log*
 
 # Package managers
-package-lock.json
 yarn.lock
 pnpm-lock.yaml
+bun.lockb
 
 # =====================
 # Backend - Spring
@@ -35,6 +37,7 @@ pnpm-lock.yaml
 target/
 build/
 .gradle/
+out/
 
 # =====================
 # Environment / Secrets
