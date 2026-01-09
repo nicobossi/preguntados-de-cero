@@ -1,4 +1,4 @@
-package com.preguntados_de_cero;
+package com.guitarradecero.preguntados_de_cero;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
