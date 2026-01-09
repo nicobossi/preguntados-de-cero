@@ -1,1 +1,16 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --primary-color: #263578;
+  --dark-color: #202438;
+  --level-color: #6640B7;
+  --tematic-color: #4DAAD7;
+  --assert-gradient: radial-gradient(#60CB48, #E7FFE2);
+  --fail-gradient: radial-gradient(#DE6075, #FFD3D3);
+  --oro-gradient: radial-gradient(#EBC554, #FFE2A5);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+

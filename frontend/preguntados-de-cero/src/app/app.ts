@@ -1,12 +1,12 @@
 import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
-  templateUrl: './app.html',
-  styleUrl: './app.css'
+  imports: [],
+  template: `
+    <p>Preguntados de cero</p>
+  `,
 })
 export class App {
-  protected readonly title = signal('preguntados-de-cero');
+
 }
