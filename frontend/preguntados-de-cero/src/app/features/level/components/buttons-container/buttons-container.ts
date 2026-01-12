@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { LevelButton } from '../level-button/level-button';
-import Difficulty from '../../../../shared/types/difficulty';
+import Difficulty from '@/app/shared/types/difficulty';
 
 @Component({
   selector: 'app-buttons-container',

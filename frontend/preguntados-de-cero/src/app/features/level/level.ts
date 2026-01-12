@@ -1,9 +1,10 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
-import { AppHeader } from '../../shared/components/app-header/header';
+import { Observable } from 'rxjs';
+import Difficulty from '@/app/shared/types/difficulty';
+import { AppHeader } from '@/app/shared/components/app-header/header';
 import { ButtonsContainer } from './components/buttons-container/buttons-container';
 import { LevelService } from './services/level/level.service';
-import { Observable } from 'rxjs';
-import Difficulty from '../../shared/types/difficulty';
+
 
 @Component({
   selector: 'app-level',
