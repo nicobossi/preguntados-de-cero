@@ -15,6 +15,7 @@ export class Level implements OnInit {
 
   private service = inject(LevelService);
   protected difficulties = signal<Difficulty[]>([]);
+  protected color = "#6640B7";
 
   ngOnInit() : void {
 
