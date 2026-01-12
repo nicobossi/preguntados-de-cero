@@ -1,9 +1,9 @@
 import { Component, input, Input } from '@angular/core';
-import { BackgroundColorDirective } from '../../directives/background-color/background-color-directive';
+import { NgStyle } from '@angular/common';
 
 @Component({
   selector: 'app-header',
-  imports: [BackgroundColorDirective],
+  imports: [NgStyle],
   templateUrl: './header.html',
   styleUrl: './header.css',
 })
