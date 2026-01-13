@@ -1,0 +1,11 @@
+
+section {
+  width: 100vw;
+  height: 100vh;
+}
+
+section div {
+  height: 20%;
+  background-color: var(--level-color);
+}
+

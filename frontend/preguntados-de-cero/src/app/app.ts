@@ -1,11 +1,10 @@
-import { Component, signal } from '@angular/core';
+import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  imports: [],
-  template: `
-    <p>Preguntados de cero</p>
-  `,
+  imports: [RouterOutlet],
+  templateUrl: './app.html'
 })
 export class App {
 
