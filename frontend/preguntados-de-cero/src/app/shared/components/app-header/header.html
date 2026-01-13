@@ -1,3 +1,5 @@
-<header [ngStyle]="{backgroundColor: color()}">
-  <h2>{{title()}}</h2>
+<header [ngStyle]="{ backgroundColor: color() }">
+  @if (title()) {
+    <h2>{{ title() }}</h2>
+  }
 </header>
