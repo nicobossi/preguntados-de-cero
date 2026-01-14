@@ -17,18 +17,18 @@ button{
 }
 
 button:hover{
-  color: var(--primary-color); /*el color de la letra*/
+  color: var(--primary-color);
   border-width: 3px;
   border-style: double;
   border-color: transparent;
   border-radius: 20px;
-  background-image: linear-gradient(white, white), var(--play-hover-border-gradient); /* esta forma de darle gradiente a un borde la saque de stack overflow*/
+  background-image: linear-gradient(white, white), var(--play-hover-border-gradient);
   background-origin: border-box;
   background-clip: content-box, border-box;
 }
 
 button:active {
-  transform: translateY(2px); /* efectito de click*/
+  transform: translateY(2px);
 }
 
 

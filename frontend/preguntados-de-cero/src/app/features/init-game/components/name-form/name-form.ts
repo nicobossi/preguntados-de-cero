@@ -1,6 +1,8 @@
-import {Component} from '@angular/core';
+import {Component, inject} from '@angular/core';
 import {FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import {PlayButton} from '@/app/features/init-game/components/play-button/play-button';
+import {PlayerName} from '@/app/core/services/player-name/player-name';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-name-form',
@@ -12,6 +14,9 @@ import {PlayButton} from '@/app/features/init-game/components/play-button/play-b
   styleUrl: './name-form.css',
 })
 export class NameForm {
+  private router = inject(Router);
+  private nameService = inject(PlayerName);
+
   nameform = new FormGroup({
     name: new FormControl('',[
       Validators.required,
@@ -25,6 +30,12 @@ export class NameForm {
   }
 
   protected onSubmit() {
+    if (this.nameform.invalid) {
+      return;
+    }
 
+    this.nameService.setName(this.name.value!);
+    console.log('Nombre guardado: ', this.nameService.getName()); /*debug hasta que se implemente la pagina de review fin de juego*/
+    this.router.navigate(['/level']);
   }
 }

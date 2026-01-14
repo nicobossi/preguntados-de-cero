@@ -6,10 +6,6 @@
 }
 
 section {
-  /*display: flex;*/
-  /*flex-direction: column;      !* MOBILE *!*/
-  /*justify-content: center;     !* centra vertical *!*/
-  /*align-items: center;         !* centra horizontal *!*/
   display: grid;
   place-items: center;
   width: 100%;
@@ -20,13 +16,8 @@ section {
 
 }
 
-/* DESKTOP */
 @media (min-width: 1024px) {
   section {
-    /*flex-direction: row;       !* imagen + form *!*/
-    /*justify-content: center;*/
-    /*align-items: center;*/
-    /*gap: 4rem;                 !* separación limpia *!*/
     grid-template-columns: 50% 50%;
   }
 }
