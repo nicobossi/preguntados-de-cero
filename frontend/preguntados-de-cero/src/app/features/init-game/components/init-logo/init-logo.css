@@ -1,5 +1,5 @@
 div{
-  position: absolute;
+  position: absolute; /*esto evita que se mueva por el flex y ademas se solapa como quiero*/
   display: grid;
   place-items: center;
 
@@ -12,4 +12,9 @@ div{
   top: -70px;
   left: 50%;
   transform: translateX(-50%);
+}
+
+img{
+  width: 100%;
+  height: 100%;
 }

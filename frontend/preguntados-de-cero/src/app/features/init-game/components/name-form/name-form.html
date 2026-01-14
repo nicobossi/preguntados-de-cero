@@ -7,19 +7,19 @@
     required
   />
 
+  <div class="validator-container">
   @if (name.invalid && (name.dirty || name.touched)) {
-    <div class="validator-alert">
       @if (name.hasError('required')) {
-        <div>Por favor ingresa un nombre.</div>
+        <p>Por favor ingresa un nombre.</p>
       }
       @if (name.hasError('minlength')) {
-        <div>El nombre debe tener al menos 3 caracteres.</div>
+        <p>Longitud miníma 3 caracteres.</p>
       }
       @if (name.hasError('maxlength')) {
-        <div>El nombre no puede tener más de 20 caracteres.</div>
+        <p>Longitud máxima 3 caracteres.</p>
       }
-    </div>
   }
+  </div>
 
   <app-play-button></app-play-button>
 

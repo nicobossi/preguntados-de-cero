@@ -1,0 +1,26 @@
+:host{
+  width: 50%;
+  height: 50%;
+}
+
+.image-container{
+  display: none;
+  width: 50%;
+  height: 50%;
+}
+
+img{
+  width: 25%;
+  height: 25%;
+}
+
+@media (min-width: 1024px) {
+  .image-container {
+    display: block;
+  }
+
+  .image-container img {
+    width: 100%;  /* ocupa todo el contenedor */
+    height: auto; /* mantiene proporción */
+  }
+}

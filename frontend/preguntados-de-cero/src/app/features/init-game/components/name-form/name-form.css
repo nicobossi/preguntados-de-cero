@@ -1,0 +1,42 @@
+form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: Inter, sans-serif;
+}
+
+.validator-container{
+  width: 242px;
+  height: 28px;
+}
+
+p{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 28px;
+  font-size: 16px;
+  color: #DE6075;
+}
+
+input{
+  width: 242px;
+  height: 58px;
+  font-size: 20px;
+  text-align: center;
+  border: 1px;
+  border-color: var(--primary-color);
+  border-style: solid;
+  border-radius: 20px;
+  background-color: #FFFFFF;
+}
+
+input::placeholder{
+  font-size: 20px;
+  text-align: center;
+}
+
+input:focus{
+  outline: none;
+}

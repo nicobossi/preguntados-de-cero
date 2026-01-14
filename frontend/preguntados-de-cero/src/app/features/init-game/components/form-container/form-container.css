@@ -1,6 +1,11 @@
 section {
+  display: flex;
+  flex-direction: row; /*lo dejo asi para probar despues poner la imagen a la izq del form en desktop*/
+  justify-content: center;
+  align-items: center;
   position: relative;
   width: 100vw;
   height: 80%;
   background-color: var(--clear-background);
+  /*gap: 2rem;*/
 }

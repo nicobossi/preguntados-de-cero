@@ -1,0 +1,29 @@
+button{
+  width: 242px;
+  height: 66px;
+  font-size: 20px;
+  color: var(--clear-background);
+  border-radius: 20px;
+  border: none;
+  background: var(--primary-color);
+  background: var(--play-gradient);
+  box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);
+  font-family: Inter, sans-serif;
+}
+
+button:hover{
+  color: var(--primary-color); /*el color de la letra*/
+  border-width: 3px;
+  border-style: double;
+  border-color: transparent;
+  border-radius: 20px;
+  background-image: linear-gradient(white, white), var(--play-hover-border-gradient); /* esta forma de darle gradiente a un borde la saque de stack overflow*/
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+}
+
+button:active {
+  transform: translateY(2px); /* efectito de click*/
+}
+
+
