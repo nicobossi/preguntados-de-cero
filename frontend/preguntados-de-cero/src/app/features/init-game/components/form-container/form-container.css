@@ -1,11 +1,33 @@
-section {
-  display: flex;
-  flex-direction: row; /*lo dejo asi para probar despues poner la imagen a la izq del form en desktop*/
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  width: 100vw;
-  height: 80%;
-  background-color: var(--clear-background);
-  /*gap: 2rem;*/
+:host {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
 }
+
+section {
+  /*display: flex;*/
+  /*flex-direction: column;      !* MOBILE *!*/
+  /*justify-content: center;     !* centra vertical *!*/
+  /*align-items: center;         !* centra horizontal *!*/
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: var(--clear-background);
+
+
+
+}
+
+/* DESKTOP */
+@media (min-width: 1024px) {
+  section {
+    /*flex-direction: row;       !* imagen + form *!*/
+    /*justify-content: center;*/
+    /*align-items: center;*/
+    /*gap: 4rem;                 !* separación limpia *!*/
+    grid-template-columns: 50% 50%;
+  }
+}
+
