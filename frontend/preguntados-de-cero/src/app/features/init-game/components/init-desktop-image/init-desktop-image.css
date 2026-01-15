@@ -11,13 +11,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 50%;
+    width: 100%;
   }
 
   .image-container {
     display: block;
-    width: 85%;
-    min-width: 800px;
+    width: 100%;
+    min-width: 500px;
   }
 
   img {
