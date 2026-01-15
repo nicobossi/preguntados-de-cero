@@ -2,7 +2,6 @@
 
 header {
   height: 20%;
-  min-height: 140px;
   display: grid;
   place-items: center;
 }
@@ -11,3 +10,4 @@ header h2 {
   text-align: center;
   color: #FFFFFF;
 }
+
