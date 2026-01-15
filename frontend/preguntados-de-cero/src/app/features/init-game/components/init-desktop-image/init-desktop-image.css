@@ -1,0 +1,30 @@
+:host {
+  display: none;
+}
+
+.image-container{
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  :host {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+  }
+
+  .image-container {
+    display: block;
+    width: 85%;
+    min-width: 800px;
+  }
+
+  img {
+    width: 85%;
+    max-width: 800px;
+    height: auto;
+    display: block;
+
+  }
+}

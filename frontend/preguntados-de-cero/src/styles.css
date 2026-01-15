@@ -3,6 +3,8 @@
   --dark-color: #202438;
   --level-color: #6640B7;
   --tematic-color: #4DAAD7;
+  --play-gradient: radial-gradient(ellipse at left bottom, #263578 0%, #4662DE 100%);
+  --play-hover-border-gradient: linear-gradient(90deg,rgba(235, 197, 84, 1) 0%, rgba(70, 98, 222, 1) 100%); /* ver de adaptar el resto de gradientes a este formato*/
   --assert-gradient: radial-gradient(#60CB48, #E7FFE2);
   --fail-gradient: radial-gradient(#DE6075, #FFD3D3);
   --oro-gradient: radial-gradient(#EBC554, #FFE2A5);
@@ -14,4 +16,7 @@
   margin: 0;
   box-sizing: border-box;
 }
+
+/*EBC554*/
+/*4662DE*/
 
