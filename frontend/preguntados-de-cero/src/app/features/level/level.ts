@@ -15,7 +15,11 @@ import { LevelService } from './services/level/level.service';
 export class Level implements OnInit {
 
   private service = inject(LevelService);
-  protected difficulties = signal<Difficulty[]>([]);
+  private difficulties = signal<Difficulty[]>([]);
+
+  getDifficulties() : Difficulty[] {
+    return this.difficulties();
+  }
 
   ngOnInit() : void {
 
