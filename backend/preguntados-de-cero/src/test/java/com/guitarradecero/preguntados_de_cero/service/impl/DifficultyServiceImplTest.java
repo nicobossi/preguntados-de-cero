@@ -1,6 +1,6 @@
 package com.guitarradecero.preguntados_de_cero.service.impl;
 
-import com.guitarradecero.preguntados_de_cero.model.nivel.Difficulty;
+import com.guitarradecero.preguntados_de_cero.model.difficulty.Difficulty;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

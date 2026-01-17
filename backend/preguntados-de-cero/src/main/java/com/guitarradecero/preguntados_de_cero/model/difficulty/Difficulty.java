@@ -1,4 +1,4 @@
-package com.guitarradecero.preguntados_de_cero.model.nivel;
+package com.guitarradecero.preguntados_de_cero.model.difficulty;
 
 import jakarta.persistence.*;
 import lombok.AccessLevel;

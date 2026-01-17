@@ -1,21 +1,21 @@
-package com.guitarradecero.preguntados_de_cero.model.nivel;
+package com.guitarradecero.preguntados_de_cero.model.difficulty;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class DificultadTest {
+class DifficultyTest {
 
-    private Difficulty dificultad;
+    private Difficulty difficulty;
 
     @BeforeEach
     void setUp() {
-        dificultad = new Difficulty(1);
+        difficulty = new Difficulty(1);
     }
 
     @Test
     void testUnaDificultadTieneUnNivel() {
-        assertEquals(1, dificultad.getLevel());
+        assertEquals(1, difficulty.getLevel());
     }
 }

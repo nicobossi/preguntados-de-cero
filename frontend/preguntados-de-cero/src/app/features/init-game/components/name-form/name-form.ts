@@ -30,11 +30,10 @@ export class NameForm {
   }
 
   protected onSubmit() {
-    if (this.nameform.invalid) {
-      return;
+    if (this.nameform.valid) {
+      this.nameService.setName(this.name.value!);
+      console.log('Nombre guardado: ', this.nameService.getName()); /*debug hasta que se implemente la pagina de review fin de juego*/
+      this.router.navigate(['/level']);
     }
-    this.nameService.setName(this.name.value!);
-    console.log('Nombre guardado: ', this.nameService.getName()); /*debug hasta que se implemente la pagina de review fin de juego*/
-    this.router.navigate(['/level']);
   }
 }
