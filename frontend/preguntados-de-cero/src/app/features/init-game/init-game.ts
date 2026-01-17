@@ -1,12 +1,12 @@
-import {Component, OnInit} from '@angular/core';
-import {AppHeader} from '@/app/shared/components/app-header/header';
+import {Component} from '@angular/core';
 import {FormContainer} from '@/app/features/init-game/components/form-container/form-container';
 import {InitLogo} from '@/app/features/init-game/components/init-logo/init-logo';
+import { HeaderGame } from './components/header-game/header-game';
 
 @Component({
   selector: 'app-init-game',
   imports: [
-    AppHeader,
+    HeaderGame,
     FormContainer,
     InitLogo
   ],
