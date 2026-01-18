@@ -30,11 +30,6 @@ public class DifficultyServiceImpl implements DifficultyService {
     }
 
     @Override
-    public Optional<Difficulty> getByDifficultyLevel(Integer level) {
-        return getDifficultyDAO().findByLevel(level);
-    }
-
-    @Override
     public Difficulty saveDifficulty(Difficulty difficulty) {
         return getDifficultyDAO().save(difficulty);
     }

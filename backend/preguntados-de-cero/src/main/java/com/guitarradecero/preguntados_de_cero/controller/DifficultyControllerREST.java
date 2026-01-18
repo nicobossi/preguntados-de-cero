@@ -18,16 +18,16 @@ import java.util.stream.Collectors;
 @RequestMapping("/api/difficulty")
 public class DifficultyControllerREST {
 
-    private final DifficultyService nivelService;
+    private final DifficultyService difficultyService;
 
     public DifficultyControllerREST(DifficultyService service){
-        nivelService = service;
+        difficultyService = service;
     }
 
     @GetMapping
     public ResponseEntity<List<DifficultyResponseDTO>> getAllNiveles(){
-        List<DifficultyResponseDTO> niveles = getNivelService().getAll().stream()
-                                                           .map(DifficultyResponseDTO::desdeModelo)
+        List<DifficultyResponseDTO> niveles = getDifficultyService().getAll().stream()
+                                                           .map(DifficultyResponseDTO::fromModel)
                                                            .collect(Collectors.toList());
 
         return ResponseEntity.ok(niveles);
@@ -36,8 +36,8 @@ public class DifficultyControllerREST {
     @PostMapping("/add")
     public ResponseEntity<DifficultyResponseDTO> addDifficulty(@RequestBody DifficultyRequestDTO difficultyDto) {
 
-        Difficulty difficulty = getNivelService().saveDifficulty(DifficultyRequestDTO.aModelo(difficultyDto));
+        Difficulty difficulty = getDifficultyService().saveDifficulty(DifficultyRequestDTO.aModelo(difficultyDto));
 
-        return ResponseEntity.ok(DifficultyResponseDTO.desdeModelo(difficulty));
+        return ResponseEntity.ok(DifficultyResponseDTO.fromModel(difficulty));
     }
 }

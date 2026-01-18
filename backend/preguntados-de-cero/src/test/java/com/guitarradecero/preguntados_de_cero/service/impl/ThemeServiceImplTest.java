@@ -15,20 +15,8 @@ class ThemeServiceImplTest {
     @Autowired
     private ThemeService themeService;
 
-    private Difficulty difficulty1;
-    private Difficulty difficulty2;
-    private Difficulty difficulty3;
-
-    private Theme theme1;
-    private Theme theme2;
-    private Theme theme3;
-    private Theme theme4;
-
     @BeforeEach
     void setUp() {
-        difficulty1 = new Difficulty(1);
-        difficulty2 = new Difficulty(2);
-        difficulty3 = new Difficulty(3);
 
     }
 }

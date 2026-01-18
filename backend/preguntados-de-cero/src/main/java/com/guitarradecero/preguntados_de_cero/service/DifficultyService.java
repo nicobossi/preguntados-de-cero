@@ -7,6 +7,5 @@ import java.util.Optional;
 
 public interface DifficultyService {
     List<Difficulty> getAll();
-    Optional<Difficulty> getByDifficultyLevel(Integer level);
     Difficulty saveDifficulty(Difficulty difficulty);
 }

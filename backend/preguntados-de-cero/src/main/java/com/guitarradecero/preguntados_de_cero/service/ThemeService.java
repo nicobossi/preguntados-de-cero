@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface ThemeService {
     List<Theme> getAllByDifficultyLevel(Integer level);
-    Theme saveTheme(Theme theme, Integer difficultyLevel);
+    Theme saveTheme(Theme theme, Long difficultyId);
 }

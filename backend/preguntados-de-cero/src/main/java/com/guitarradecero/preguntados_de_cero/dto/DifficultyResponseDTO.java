@@ -6,11 +6,11 @@ public record DifficultyResponseDTO(
     Long id,
     Integer level
 ) {
-    public static DifficultyResponseDTO desdeModelo(Difficulty dificultad) {
-        return new DifficultyResponseDTO(dificultad.getId(), dificultad.getLevel());
+    public static DifficultyResponseDTO fromModel(Difficulty difficulty) {
+        return new DifficultyResponseDTO(difficulty.getId(), difficulty.getLevel());
     }
 
-    public static Difficulty aModelo(DifficultyResponseDTO difficultyDto) {
+    public static Difficulty toModel(DifficultyResponseDTO difficultyDto) {
         return new Difficulty(difficultyDto.level());
     }
 }

@@ -9,5 +9,4 @@ import java.util.Optional;
 @Repository
 public interface DifficultyDAO extends JpaRepository<Difficulty, Long> {
 
-    Optional<Difficulty> findByLevel(Integer level);
 }
