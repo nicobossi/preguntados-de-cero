@@ -9,4 +9,6 @@ import java.util.List;
 @Repository
 public interface ThemeDAO extends JpaRepository<Theme,Long> {
     List<Theme> findAllByDifficulty_Level(Integer difficultyLevel);
+
+    List<Theme> findAllByDifficulty_Id(Long difficultyId);
 }

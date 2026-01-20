@@ -31,14 +31,13 @@ public class ThemeControllerREST {
         return ResponseEntity.ok(ThemeResponseDTO.fromModel(theme));
     }
 
-    @GetMapping("/{level}")
-    public ResponseEntity<List<ThemeResponseDTO>> getAllThemesByDifficultyLevel(@PathVariable Integer level){
+    @GetMapping("/{difficultyId}")
+    public ResponseEntity<List<ThemeResponseDTO>> getAllThemesByDifficulty(@PathVariable Long difficultyId){
 
-        List<ThemeResponseDTO> themes = getThemeService().getAllByDifficultyLevel(level).stream()
+        List<ThemeResponseDTO> themes = getThemeService().getAllByDifficulty(difficultyId).stream()
                 .map(ThemeResponseDTO::fromModel)
                 .toList();
 
         return ResponseEntity.ok(themes);
     }
-
 }

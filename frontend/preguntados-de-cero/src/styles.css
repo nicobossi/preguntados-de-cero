@@ -9,6 +9,8 @@
   --fail-gradient: radial-gradient(#DE6075, #FFD3D3);
   --oro-gradient: radial-gradient(#EBC554, #FFE2A5);
   --clear-background: #F1F1F1;
+
+  --app-font: Inter;
 }
 
 * {

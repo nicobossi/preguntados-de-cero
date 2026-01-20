@@ -5,6 +5,6 @@ import com.guitarradecero.preguntados_de_cero.model.theme.Theme;
 import java.util.List;
 
 public interface ThemeService {
-    List<Theme> getAllByDifficultyLevel(Integer level);
+    List<Theme> getAllByDifficulty(Long difficultyId);
     Theme saveTheme(Theme theme, Long difficultyId);
 }

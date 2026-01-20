@@ -29,8 +29,8 @@ public class ThemeServiceImpl implements ThemeService {
     }
 
     @Override
-    public List<Theme> getAllByDifficultyLevel(Integer level) {
-        return getThemeDAO().findAllByDifficulty_Level(level);
+    public List<Theme> getAllByDifficulty(Long difficultyId) {
+        return getThemeDAO().findAllByDifficulty_Id(difficultyId);
     }
 
     @Override
