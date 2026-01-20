@@ -4,7 +4,7 @@ import Difficulty from "../../../../shared/types/difficulty";
 import { Observable } from "rxjs";
 
 
-@Injectable()
+@Injectable({providedIn: 'root'})
 export class LevelService {
 
   private url : string = "http://localhost:8080/api/difficulty";
