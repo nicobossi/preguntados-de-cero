@@ -10,12 +10,11 @@ import Theme from '@/app/shared/types/theme';
 export class ThemeService {
 
   private httpClient = inject(HttpClient);
-  private difficultyService : DifficultyService = inject(DifficultyService);
+  private difficultyService: DifficultyService = inject(DifficultyService);
+  private baseUrl: string = 'http://localhost:8080/api/theme'; // ← URL base
 
-  private url : string = `http://localhost:8080/api/theme/${this.difficultyService.getDifficultyId()}`;
-
-  getAll() : Observable<Theme[]> {
-    return this.httpClient.get<Theme[]>(this.url);
+  getAll(): Observable<Theme[]> {
+    return this.httpClient.get<Theme[]>(`${this.baseUrl}/${this.difficultyService.getDifficultyId()}`);
   }
 
 }
