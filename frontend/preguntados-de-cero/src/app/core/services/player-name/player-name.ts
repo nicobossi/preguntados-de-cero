@@ -1,16 +1,17 @@
-import { Injectable } from '@angular/core';
+import {Injectable, signal} from '@angular/core';
 
 @Injectable({
   providedIn: 'root',
 })
 export class PlayerName {
-  private name: string = "";
+  private nameSignal = signal<string>('');
+  readonly name = this.nameSignal.asReadonly();
 
-  setName(name: string): void{
-    this.name = name;
+  setName(name: string): void {
+    this.nameSignal.set(name);
   }
 
-  getName(): string{
-    return this.name;
+  getName(): string {
+    return this.nameSignal();
   }
 }
