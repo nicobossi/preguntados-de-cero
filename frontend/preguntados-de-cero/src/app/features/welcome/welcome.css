@@ -3,13 +3,22 @@ section {
   height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   background-color: var(--clear-background);
 }
 
 .divider{
   height: 75px;
-  background-color: #DE6075;
+  background-color: var(--clear-background);
+  flex-shrink: 0;
+
+  display: none;
+}
+
+/*para evitar overlap cuando se achica la altura*/
+@media (max-height: 450px) { /* if alto-pantalla <= 450 then... */
+  .divider{
+    display: block;
+  }
 }
 
 /*tablet*/

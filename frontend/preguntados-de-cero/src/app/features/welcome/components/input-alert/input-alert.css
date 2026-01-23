@@ -5,7 +5,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: white;
 }
 
 p {
@@ -13,7 +12,6 @@ p {
   min-height: 24px;
   max-width: 450px;
   color: #DE6075;
-  background-color: #4DAAD7;
   font-family: Inter, sans-serif;
   font-size: 20px;
   text-align: center;

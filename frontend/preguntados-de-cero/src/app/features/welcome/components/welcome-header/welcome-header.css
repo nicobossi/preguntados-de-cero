@@ -1,21 +1,22 @@
 header{
-  height: 134px;
+  min-height: 134px;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: var(--primary-color);
+  flex-shrink: 0;
 }
 
 /*tablet*/
 @media (min-width: 768px) { /* if ancho-pantalla >= 768 then... */
   header {
-    height: 154px;
+    min-height: 154px;
   }
 }
 
 /*desktop*/
 @media (min-width: 1024px) {
   header {
-    height: 173px;
+    min-height: 173px;
   }
 }

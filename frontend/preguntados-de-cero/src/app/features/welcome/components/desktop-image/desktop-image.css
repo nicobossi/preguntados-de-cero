@@ -5,9 +5,16 @@
 /*desktop*/
 @media (min-width: 1024px) {
   :host{
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 100%;
     width: 100%;
-    background-color: aqua;
   }
+}
+
+img {
+  display: block;
+  height: 580px;
+  width: 580px;
 }
