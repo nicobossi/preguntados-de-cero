@@ -1,0 +1,27 @@
+section {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: var(--clear-background);
+}
+
+.divider{
+  height: 75px;
+  background-color: #DE6075;
+}
+
+/*tablet*/
+@media (min-width: 768px) { /* if ancho-pantalla >= 768 then... */
+  .divider{
+    height: 85px;
+  }
+}
+
+/*desktop*/
+@media (min-width: 1024px) {
+  .divider{
+    height: 95px;
+  }
+}

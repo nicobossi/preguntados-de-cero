@@ -1,0 +1,11 @@
+@if (control.invalid && (control.dirty || control.touched)) {
+  @if (control.hasError('required')) {
+    <p>Por favor ingresa un nombre.</p>
+  }
+  @if (control.hasError('minlength')) {
+    <p>Longitud miníma 3 caracteres.</p>
+  }
+  @if (control.hasError('maxlength')) {
+    <p>Longitud máxima 20 caracteres.</p>
+  }
+}

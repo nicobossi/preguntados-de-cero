@@ -1,0 +1,13 @@
+:host{
+  display: none;
+}
+
+/*desktop*/
+@media (min-width: 1024px) {
+  :host{
+    display: block;
+    height: 100%;
+    width: 100%;
+    background-color: aqua;
+  }
+}

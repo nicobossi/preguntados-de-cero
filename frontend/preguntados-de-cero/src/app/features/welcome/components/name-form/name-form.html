@@ -1,0 +1,14 @@
+<form [formGroup]="nameform" (ngSubmit)="onSubmit()">
+
+  <input
+    type="text"
+    placeholder="Ingresa tu nombre"
+    formControlName="name"
+    required
+  />
+
+  <app-input-alert [control]="name"></app-input-alert>
+
+  <app-play-button></app-play-button>
+
+</form>

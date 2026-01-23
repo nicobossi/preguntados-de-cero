@@ -1,0 +1,43 @@
+:host{
+  transform: translateY(50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 134px;
+  width: 134px;
+  border-radius: 50%;
+  background-color: var(--clear-background);
+  box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+img {
+  display: block;
+  height: 124px;
+  width: 124px;
+  border-radius: 50%;
+  background-color: var(--clear-background);
+}
+
+/*tablet*/
+@media (min-width: 768px) { /* if ancho-pantalla >= 768 then... */
+  :host{
+    height: 154px;
+    width: 154px;
+  }
+  img {
+    height: 144px;
+    width: 144px;
+  }
+}
+
+/*desktop*/
+@media (min-width: 1024px) {
+  :host{
+    height: 173px;
+    width: 173px;
+  }
+  img {
+    height: 163px;
+    width: 163px;
+  }
+}
