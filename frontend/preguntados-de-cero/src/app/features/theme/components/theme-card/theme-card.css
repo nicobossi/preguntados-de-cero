@@ -1,6 +1,22 @@
+/*:host{*/
+/*  background-color: #FFFFFF;*/
+/*  width: 100%;*/
+/*  max-width: 350px;*/
+/*  height: 80px;*/
+/*}*/
+
+
 :host{
-  background-color: #FFFFFF;
   width: 100%;
   max-width: 350px;
-  height: 80px;
+  min-height: 80px; /* ← min-height en vez de height */
+}
+
+.theme-card-wrapper{
+  display: flex; /* ← Cambiar de block a flex */
+  flex-direction: column; /* ← ESTO apila verticalmente */
+  background-color: #EBC554;
+  width: 100%;
+  max-width: 350px;
+  min-height: 80px; /* ← min-height en vez de height */
 }

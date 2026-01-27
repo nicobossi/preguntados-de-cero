@@ -1,2 +1,4 @@
 <app-theme-button [theme]="theme" />
-<app-info-button [theme]="theme" />
+<app-info-button
+  [theme]="theme"
+  (click)="toggleDescription.emit()" />

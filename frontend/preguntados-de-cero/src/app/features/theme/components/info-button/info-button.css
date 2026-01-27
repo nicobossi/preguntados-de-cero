@@ -1,0 +1,10 @@
+:host{
+  width: 25%;
+  height: 100%;
+  background-color: #6640B7;
+}
+
+button{
+  width: 100%;
+  height: 80px;
+}

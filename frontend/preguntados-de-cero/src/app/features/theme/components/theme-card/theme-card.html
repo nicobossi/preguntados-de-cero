@@ -1,2 +1,9 @@
-<app-themes-buttons-container [theme]="theme" />
-<app-theme-description [theme]="theme" />
+<div class="theme-card-wrapper">
+  <app-themes-buttons-container
+    [theme]="theme"
+    (toggleDescription)="toggleDescription()" />
+
+  @if (isDescriptionVisible()) {
+    <app-theme-description [theme]="theme" />
+  }
+</div>

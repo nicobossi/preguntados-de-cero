@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, signal} from '@angular/core';
 import GameTheme from '@/app/shared/types/gameTheme';
 import {
   ThemesButtonsContainer
@@ -15,5 +15,12 @@ import {ThemeDescription} from '@/app/features/theme/components/theme-descriptio
   styleUrl: './theme-card.css',
 })
 export class ThemeCard {
-  @Input() theme! : GameTheme;
+  @Input() theme!: GameTheme;
+  // ← Estado de visibilidad
+  protected isDescriptionVisible = signal(false);
+
+  // ← Método para toggle
+  toggleDescription() {
+    this.isDescriptionVisible.update(v => !v);
+  }
 }
