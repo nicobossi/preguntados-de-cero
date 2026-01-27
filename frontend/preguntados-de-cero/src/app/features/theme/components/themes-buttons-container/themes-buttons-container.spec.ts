@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ThemeInfo } from './theme-info';
+import { ThemesButtonsContainer } from './themes-buttons-container';
 
-describe('ThemeInfo', () => {
-  let component: ThemeInfo;
-  let fixture: ComponentFixture<ThemeInfo>;
+describe('ThemesButtonsContainer', () => {
+  let component: ThemesButtonsContainer;
+  let fixture: ComponentFixture<ThemesButtonsContainer>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ThemeInfo]
+      imports: [ThemesButtonsContainer]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ThemeInfo);
+    fixture = TestBed.createComponent(ThemesButtonsContainer);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });

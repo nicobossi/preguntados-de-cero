@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
 import { Level } from './features/level/level';
 import { InitGame } from './features/init-game/init-game';
-import {ThemeComponent} from '@/app/features/theme/theme.component';
+import {Theme} from '@/app/features/theme/theme';
 
 export const routes: Routes = [
   {
@@ -13,7 +13,7 @@ export const routes: Routes = [
     component: Level
   },
   {
-    path: 'theme',
-    component: ThemeComponent
-  }
+    path: 'theme/:difficultyId',
+    component: Theme
+  },
 ];

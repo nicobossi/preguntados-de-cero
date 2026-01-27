@@ -1,20 +1,18 @@
 import {inject, Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {DifficultyService} from '@/app/core/services/difficulty/difficulty.service';
 import {Observable} from 'rxjs';
-import Theme from '@/app/shared/types/theme';
+import GameTheme from '@/app/shared/types/gameTheme';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ThemeService {
-
   private httpClient = inject(HttpClient);
-  private difficultyService: DifficultyService = inject(DifficultyService);
-  private baseUrl: string = 'http://localhost:8080/api/theme'; // ← URL base
+  private baseUrl: string = 'http://localhost:8080/api/theme';
 
-  getAll(): Observable<Theme[]> {
-    return this.httpClient.get<Theme[]>(`${this.baseUrl}/${this.difficultyService.getDifficultyId()}`);
+  getAllByDifficultyId(difficultyId: string): Observable<GameTheme[]> {
+    const url = `${this.baseUrl}/${difficultyId}`;
+    console.log('path actual:', url); // debug borrar desp
+    return this.httpClient.get<GameTheme[]>(url);
   }
-
 }

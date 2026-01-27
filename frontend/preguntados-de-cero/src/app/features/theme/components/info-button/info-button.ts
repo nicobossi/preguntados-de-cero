@@ -2,11 +2,11 @@ import {Component, Input} from '@angular/core';
 import GameTheme from '@/app/shared/types/gameTheme';
 
 @Component({
-  selector: 'app-theme-description',
+  selector: 'app-info-button',
   imports: [],
-  templateUrl: './theme-description.html',
-  styleUrl: './theme-description.css',
+  templateUrl: './info-button.html',
+  styleUrl: './info-button.css',
 })
-export class ThemeDescription {
+export class InfoButton {
   @Input() theme! : GameTheme;
 }
