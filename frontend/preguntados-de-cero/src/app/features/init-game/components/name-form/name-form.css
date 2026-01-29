@@ -1,10 +1,12 @@
-:host{
-  width: 75%;
-  height: 75%;
+:host {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
 }
 
-form{
-  width: 100%;
+form {
+  width: 80%;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -18,7 +20,7 @@ form{
   height: 28px;
 }
 
-p{
+p {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -27,7 +29,7 @@ p{
   color: #DE6075;
 }
 
-input{
+input {
   width: 100%;
   max-width: 450px;
   height: 58px;
@@ -40,16 +42,16 @@ input{
   background-color: #FFFFFF;
 }
 
-input::placeholder{
+input::placeholder {
   font-size: 20px;
   text-align: center;
 }
 
-input:focus{
+input:focus {
   outline: none;
 }
 
-div{
+div {
   display: grid;
   place-items: center;
   width: 100%;
