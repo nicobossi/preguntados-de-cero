@@ -21,6 +21,7 @@ public class Theme {
 
     private String name;
 
+    @Column(columnDefinition = "TEXT")
     private String description;
 
     @ManyToOne

@@ -15,7 +15,7 @@ import {InfoButton} from '@/app/features/theme/components/info-button/info-butto
 export class ThemesButtonsContainer {
   @Input() theme! : GameTheme;
 
-  // ← Output para notificar al padre
+  // Output para notificar al padre
   @Output() toggleDescription = new EventEmitter<void>();
 
 }

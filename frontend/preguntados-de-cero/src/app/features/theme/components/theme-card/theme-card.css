@@ -1,22 +1,24 @@
-/*:host{*/
-/*  background-color: #FFFFFF;*/
-/*  width: 100%;*/
-/*  max-width: 350px;*/
-/*  height: 80px;*/
-/*}*/
-
-
 :host{
   width: 100%;
   max-width: 350px;
-  min-height: 80px; /* ← min-height en vez de height */
+  min-height: 80px;
+
+  display: block;
+  position: relative;
+
+  background-color: #E7FFE2
 }
 
 .theme-card-wrapper{
-  display: flex; /* ← Cambiar de block a flex */
-  flex-direction: column; /* ← ESTO apila verticalmente */
-  background-color: #EBC554;
+  display: flex;
+  flex-direction: column;
+
+
+
   width: 100%;
   max-width: 350px;
-  min-height: 80px; /* ← min-height en vez de height */
+  min-height: 80px;
+
+  background-color: #EBC554; /* falta poner el flexstart para que se vaya arriba*/
 }
+
