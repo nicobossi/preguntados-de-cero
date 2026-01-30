@@ -3,7 +3,6 @@ import Difficulty from '../../../../shared/types/difficulty';
 
 @Component({
   selector: 'app-level-button',
-  imports: [],
   templateUrl: './level-button.html',
   styleUrl: './level-button.css',
 })
