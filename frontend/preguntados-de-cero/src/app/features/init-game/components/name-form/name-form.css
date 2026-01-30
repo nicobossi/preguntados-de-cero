@@ -51,6 +51,10 @@ input:focus {
   outline: none;
 }
 
+input:focus::placeholder { /*para sacar el texto del input cuando se clickea*/
+  color: transparent;
+}
+
 div {
   display: grid;
   place-items: center;
