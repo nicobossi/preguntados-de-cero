@@ -1,4 +1,9 @@
 <section>
-  <app-header [title]="'Nivel'" [color]="'var(--level-color)'"/>
-  <app-buttons-container [difficulties] = difficulties() />
+  @if(this.services.getIsLoading) {
+    <p>cargando...</p>
+  }
+  @else {
+    <app-header [title]="'Nivel'" [color]="'var(--level-color)'" />
+    <app-buttons-container />
+  }
 </section>

@@ -1,6 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { LevelButton } from '../level-button/level-button';
-import Difficulty from '@/app/shared/types/difficulty';
+import { LevelService } from '../../services/level/level.service';
 
 @Component({
   selector: 'app-buttons-container',
@@ -10,5 +10,9 @@ import Difficulty from '@/app/shared/types/difficulty';
 })
 export class ButtonsContainer {
 
-  @Input() difficulties! : Difficulty[]
+  private service = inject(LevelService);
+
+  protected get getDifficulties() {
+    return this.service.getDifficulties;
+  }
 }

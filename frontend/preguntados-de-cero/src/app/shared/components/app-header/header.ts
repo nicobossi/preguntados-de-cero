@@ -10,5 +10,5 @@ import { NgStyle } from '@angular/common';
 export class AppHeader {
 
   color = input.required<string>();
-  title = input<string | null>(null);
+  title = input<string>();
 }
