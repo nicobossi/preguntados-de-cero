@@ -1,5 +1,5 @@
 <section>
-  @for(theme of themes; track theme.id) {
+  @for(theme of getThemes; track theme.id) {
     <app-theme-card [theme]="theme" />
   }
 </section>

@@ -1,4 +1,8 @@
 <section>
-  <app-header [title]="'Tematica'" [color]="'var(--tematic-color)'" />
-  <app-cards-container [themes]= themes() />
+  @if(this.themeService.getIsLoading) {
+    <p>cargando...</p>
+  } @else {
+    <app-header [title]="'Tematica'" [color]="'var(--tematic-color)'" />
+    <app-cards-container />
+  }
 </section>
