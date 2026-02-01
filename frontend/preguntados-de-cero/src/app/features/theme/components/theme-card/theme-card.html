@@ -1,7 +1,7 @@
 <div class="theme-card-wrapper">
   <app-themes-buttons-container
     [theme]="theme"
-    (toggleDescription)="toggleDescription()" />
+    [isDescriptionVisible]="isDescriptionVisible" />
 
   @if (isDescriptionVisible()) {
     <app-theme-description [theme]="theme" />
