@@ -20,23 +20,25 @@ public class DifficultyControllerREST {
 
     private final DifficultyService difficultyService;
 
-    public DifficultyControllerREST(DifficultyService service){
+    public DifficultyControllerREST(DifficultyService service) {
         difficultyService = service;
     }
 
     @GetMapping
-    public ResponseEntity<List<DifficultyResponseDTO>> getAllNiveles(){
-        List<DifficultyResponseDTO> niveles = getDifficultyService().getAll().stream()
+    public ResponseEntity<List<DifficultyResponseDTO>> getAllNiveles() {
+
+        List<Difficulty> niveles = getDifficultyService().getAll();
+        List<DifficultyResponseDTO> nivelesDto = niveles.stream()
                                                            .map(DifficultyResponseDTO::fromModel)
                                                            .collect(Collectors.toList());
 
-        return ResponseEntity.ok(niveles);
+        return ResponseEntity.ok(nivelesDto);
     }
 
     @PostMapping("/add")
     public ResponseEntity<DifficultyResponseDTO> addDifficulty(@RequestBody DifficultyRequestDTO difficultyDto) {
 
-        Difficulty difficulty = getDifficultyService().saveDifficulty(DifficultyRequestDTO.aModelo(difficultyDto));
+        Difficulty difficulty = getDifficultyService().save(DifficultyRequestDTO.aModelo(difficultyDto));
 
         return ResponseEntity.ok(DifficultyResponseDTO.fromModel(difficulty));
     }

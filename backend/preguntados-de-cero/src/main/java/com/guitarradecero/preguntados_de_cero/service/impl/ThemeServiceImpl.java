@@ -23,21 +23,21 @@ public class ThemeServiceImpl implements ThemeService {
     private ThemeDAO themeDAO;
     private DifficultyDAO difficultyDAO;
 
-    public ThemeServiceImpl(ThemeDAO themeDAO, DifficultyDAO difficultyDAO){
+    public ThemeServiceImpl(ThemeDAO themeDAO, DifficultyDAO difficultyDAO) {
         setThemeDAO(themeDAO);
         setDifficultyDAO(difficultyDAO);
     }
 
     @Override
     public List<Theme> getAllByDifficulty(Long difficultyId) {
-        return getThemeDAO().findAllByDifficulty_Id(difficultyId);
+        return getThemeDAO().findAllByDifficultyId(difficultyId);
     }
 
     @Override
     public Theme saveTheme(Theme theme, Long difficultyId) {
         Difficulty difficulty = difficultyDAO.findById(difficultyId)
                 .orElseThrow(() -> new DifficultyNotFoundException(
-                        "Difficulty not found with id: " + difficultyId)); // los mensajes deberian ir en esp?
+                        "Difficulty not found with id: " + difficultyId));
 
         theme.asociateDifficulty(difficulty);
 
