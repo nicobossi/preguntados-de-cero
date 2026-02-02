@@ -1,11 +1,11 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { AppHeader } from '@/app/shared/components/app-header/header';
-import { ButtonsContainer } from './components/buttons-container/buttons-container';
+import { LevelCardContainer } from './components/level-card-container/level-card-container';
 import { LevelService } from './services/level/level.service';
 
 @Component({
   selector: 'app-level',
-  imports: [AppHeader, ButtonsContainer],
+  imports: [AppHeader, LevelCardContainer],
   templateUrl: './level.html',
   styleUrl: './level.css'
 })

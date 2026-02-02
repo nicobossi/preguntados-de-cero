@@ -1,5 +1,4 @@
 import {Component, inject, Input} from '@angular/core';
-import Difficulty from '../../../../shared/types/difficulty';
 import {Router} from '@angular/router';
 
 @Component({
@@ -9,12 +8,12 @@ import {Router} from '@angular/router';
 })
 export class LevelButton {
 
-  @Input() difficulty! : Difficulty;
+  @Input() id! : number;
 
   private router = inject(Router);
 
   onClick() {
-    console.log('Dificultad elegida: ', this.difficulty.id); // borrar desp, solo debug
-    this.router.navigate(['/theme', this.difficulty.id]);
+    console.log('Dificultad elegida: ', this.id);
+    this.router.navigate(['/theme', this.id]);
   }
 }
