@@ -33,11 +33,11 @@ public class Theme {
         setDescription(description);
     }
 
-    public void asociateDifficulty(Difficulty difficulty){ // tiene sentido usar tanta abstraccion?
+    public void asociateDifficulty(Difficulty difficulty){
         setDifficulty(difficulty);
     }
 
-    public Integer getDifficultyLevel(){
+    public Integer getDifficultyLevel() {
         return getDifficulty().getLevel();
     }
 }
