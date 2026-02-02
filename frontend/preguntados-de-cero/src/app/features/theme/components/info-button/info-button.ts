@@ -1,9 +1,10 @@
 import {Component, Input, WritableSignal} from '@angular/core';
 import GameTheme from '@/app/shared/types/gameTheme';
+import {NgClass} from '@angular/common';
 
 @Component({
   selector: 'app-info-button',
-  imports: [],
+  imports: [NgClass],
   templateUrl: './info-button.html',
   styleUrl: './info-button.css',
 })

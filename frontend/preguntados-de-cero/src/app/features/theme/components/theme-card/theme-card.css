@@ -6,19 +6,15 @@
   display: block;
   position: relative;
 
-  background-color: #E7FFE2
+  /*box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);*/
+  border-radius: 20px;
 }
 
 .theme-card-wrapper{
   display: flex;
   flex-direction: column;
-
-
-
   width: 100%;
   max-width: 350px;
   min-height: 80px;
-
-  background-color: #EBC554; /* falta poner el flexstart para que se vaya arriba*/
 }
 

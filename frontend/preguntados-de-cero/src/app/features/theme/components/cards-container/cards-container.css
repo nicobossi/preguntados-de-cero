@@ -5,29 +5,22 @@ section{
   justify-content: center;
   width: 100%;
   min-height: 80%;
-
-  background-color: #DE6075;
-
+  background-color: var(--clear-background);
   gap:40px;
-
   padding-block: 25px;
-
-  overflow-y: auto; /* no esta funcionando!*/
-
 }
 
 @media screen and (min-width: 768px) {
   section{
     display: grid;
     width: 100%;
-    height: 80%;
+    min-height: 80%;
     grid-template-columns: repeat(auto-fit, minmax(350px, 350px));
-    max-inline-size: 1750px;
     gap: 50px;
-    background-color: #DE6075;
+    padding-block: 50px;
     margin-inline: auto;
-    overflow-y: auto; /* no esta funcionando!*/
     justify-content: center;
-    align-content: start;
+    align-content: center;
+    align-items: stretch; /* con esto muevo la fila entera para arriba porque se estira todo*/
   }
 }
