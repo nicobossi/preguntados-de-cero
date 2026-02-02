@@ -1,4 +1,4 @@
-import {Component, inject, Input, signal} from '@angular/core';
+import {Component, Input, signal} from '@angular/core';
 import GameTheme from '@/app/shared/types/gameTheme';
 import {
   ThemesButtonsContainer

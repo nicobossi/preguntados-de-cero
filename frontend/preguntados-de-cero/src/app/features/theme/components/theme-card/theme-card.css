@@ -2,11 +2,8 @@
   width: 100%;
   max-width: 350px;
   min-height: 80px;
-
   display: block;
   position: relative;
-
-  /*box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);*/
   border-radius: 20px;
 }
 

@@ -21,6 +21,6 @@ section{
     margin-inline: auto;
     justify-content: center;
     align-content: center;
-    align-items: stretch; /* con esto muevo la fila entera para arriba porque se estira todo*/
+    align-items: stretch;
   }
 }
