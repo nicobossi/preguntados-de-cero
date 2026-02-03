@@ -2,6 +2,9 @@
   @if(this.services.getIsLoading) {
     <p>cargando...</p>
   }
+  @if(this.services.getIsError) {
+    <p>error</p>
+  }
   @else {
     <app-header [title]="'Nivel'" [color]="'var(--level-color)'" />
     <app-buttons-container />

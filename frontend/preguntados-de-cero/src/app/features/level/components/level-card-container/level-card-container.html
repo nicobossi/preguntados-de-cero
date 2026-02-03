@@ -1,5 +1,5 @@
 <section>
   @for(difficulty of getDifficulties; track difficulty) {
-    <app-level-button [difficulty] = difficulty />
-  }
+  <app-level-card [difficulty]="difficulty"/>
+}
 </section>
