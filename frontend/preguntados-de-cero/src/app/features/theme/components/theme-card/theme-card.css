@@ -2,23 +2,16 @@
   width: 100%;
   max-width: 350px;
   min-height: 80px;
-
   display: block;
   position: relative;
-
-  background-color: #E7FFE2
+  border-radius: 20px;
 }
 
 .theme-card-wrapper{
   display: flex;
   flex-direction: column;
-
-
-
   width: 100%;
   max-width: 350px;
   min-height: 80px;
-
-  background-color: #EBC554; /* falta poner el flexstart para que se vaya arriba*/
 }
 

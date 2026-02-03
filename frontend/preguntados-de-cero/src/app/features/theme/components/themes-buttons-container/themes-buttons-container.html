@@ -1,4 +1,9 @@
-<app-theme-button [theme]="theme" />
-<app-info-button
-  [theme]="theme"
-  (click)="toggleDescription.emit()" />
+<div class="theme-buttons-container-wrapper"
+     [ngClass]="{'description-on': isDescriptionVisible()}" >
+  <app-theme-button
+    [theme]="theme"
+    [isDescriptionVisible]="isDescriptionVisible"/>
+  <app-info-button
+    [theme]="theme"
+    [isDescriptionVisible]="isDescriptionVisible"/>
+</div>

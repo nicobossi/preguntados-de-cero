@@ -16,11 +16,6 @@ import {ThemeDescription} from '@/app/features/theme/components/theme-descriptio
 })
 export class ThemeCard {
   @Input() theme!: GameTheme;
-  // Estado de visibilidad
   protected isDescriptionVisible = signal(false);
 
-  // Método para toggle
-  toggleDescription() {
-    this.isDescriptionVisible.update(v => !v);
-  }
 }

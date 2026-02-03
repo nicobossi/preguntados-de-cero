@@ -1,6 +1,7 @@
-import {Component, Input} from '@angular/core';
+import {Component, inject, Input} from '@angular/core';
 import GameTheme from '@/app/shared/types/gameTheme';
 import {ThemeCard} from '@/app/features/theme/components/theme-card/theme-card';
+import {ThemeService} from '@/app/features/theme/services/theme/theme.service';
 
 @Component({
   selector: 'app-cards-container',
@@ -11,5 +12,9 @@ import {ThemeCard} from '@/app/features/theme/components/theme-card/theme-card';
   styleUrl: './cards-container.css',
 })
 export class CardsContainer {
-  @Input() themes! : GameTheme[];
+  private service = inject(ThemeService);
+
+  protected get getThemes(): GameTheme[]{
+    return this.service.getThemes;
+  }
 }
