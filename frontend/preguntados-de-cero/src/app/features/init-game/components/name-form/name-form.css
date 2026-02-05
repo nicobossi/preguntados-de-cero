@@ -24,6 +24,7 @@ form {
     width: 74%;
     max-width: 460px;
     height: 60%;
+    max-height: 320px;
     display: grid;
     place-items: center;
     border-radius: 30px;
