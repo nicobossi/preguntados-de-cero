@@ -1,0 +1,32 @@
+
+:host {
+  display: grid;
+  place-items: center;
+  width: 100%;
+}
+
+input {
+  width: 100%;
+  max-width: 450px;
+  height: 58px;
+  font-size: 20px;
+  text-align: center;
+  border: 1px;
+  border-color: var(--primary-color);
+  border-style: solid;
+  border-radius: 20px;
+  background-color: #FFFFFF;
+}
+
+input::placeholder {
+  font-size: 20px;
+  text-align: center;
+}
+
+input:focus {
+  outline: none;
+}
+
+input:focus::placeholder { /*para sacar el texto del input cuando se clickea*/
+  color: transparent;
+}
