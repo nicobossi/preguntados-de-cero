@@ -3,7 +3,9 @@ import { LevelHeader } from '../level-header/level-header';
 import { ThemeNamesContainer } from '../theme-names-container/theme-names-container';
 import { LevelButton } from '../level-button/level-button';
 import Difficulty from '@/app/shared/types/difficulty';
-import { NavegateService } from '@/app/shared/services/navegate.services';
+import { NavegateService } from '@/app/core/services/navegate/navegate.services';
+
+
 @Component({
   selector: 'app-level-card',
   imports: [LevelHeader, ThemeNamesContainer, LevelButton],

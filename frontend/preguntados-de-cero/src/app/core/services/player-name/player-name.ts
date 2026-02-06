@@ -1,6 +1,5 @@
-import { NavegateService } from '@/app/shared/services/navegate.services';
+import { NavegateService } from '@/app/core/services/navegate/navegate.services';
 import { inject, Injectable } from '@angular/core';
-import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
