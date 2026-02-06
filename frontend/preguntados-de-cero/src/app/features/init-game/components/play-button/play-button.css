@@ -15,7 +15,7 @@ button{
   color: var(--clear-background);
   background: var(--primary-color);
   background: var(--play-gradient);
-  box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: 2px 4px 4px #CCC;
   cursor: pointer;
   transition: background-image 0.2s;
 }

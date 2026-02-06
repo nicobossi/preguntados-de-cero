@@ -1,15 +1,13 @@
 import {Component} from '@angular/core';
-import {FormContainer} from '@/app/features/init-game/components/form-container/form-container';
-import {InitLogo} from '@/app/features/init-game/components/init-logo/init-logo';
-import { HeaderGame } from './components/header-game/header-game';
+import { InitDesktopImage } from "./components/init-desktop-image/init-desktop-image";
+import { NameForm } from "./components/name-form/name-form";
 
 @Component({
   selector: 'app-init-game',
   imports: [
-    HeaderGame,
-    FormContainer,
-    InitLogo
-  ],
+    InitDesktopImage,
+    NameForm
+],
   templateUrl: './init-game.html',
   styleUrl: './init-game.css',
 })
