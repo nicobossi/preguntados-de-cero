@@ -1,5 +1,5 @@
 <div>
-  <form [formGroup]="initFormService.getForm" (ngSubmit)="onSubmit()">
+  <form [formGroup]="initFormService.getForm" (ngSubmit)="onSubmitName()">
     <app-input-name [inputName]="initFormService.getControl" />
     <app-form-errors-container />
     <app-play-button></app-play-button>

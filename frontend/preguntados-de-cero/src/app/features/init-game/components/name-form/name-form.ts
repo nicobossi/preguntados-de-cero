@@ -1,7 +1,6 @@
-import {Component, inject} from '@angular/core';
+import {Component, inject, output} from '@angular/core';
 import {ReactiveFormsModule} from '@angular/forms';
 import {PlayButton} from '@/app/features/init-game/components/play-button/play-button';
-import {PlayerName} from '@/app/core/services/player-name/player-name';
 import { FormErrorsContainer } from "../form-errors-container/form-errors-container";
 import { InitForm } from '../../services/init-form.service';
 import { InputName } from "../input-name/input-name";
@@ -19,10 +18,10 @@ import { InputName } from "../input-name/input-name";
 })
 export class NameForm {
 
-  private nameService = inject(PlayerName);
   protected initFormService = inject(InitForm);
+  submitName = output<void>();
 
-  protected onSubmit() {
-    if (this.initFormService.isValidForm()) this.nameService.saveName(this.initFormService.getValue);
+  protected onSubmitName() {
+    this.submitName.emit();
   }
 }
