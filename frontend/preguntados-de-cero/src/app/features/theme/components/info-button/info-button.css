@@ -13,6 +13,8 @@ button{
   border: none;
   background: var(--tematic-color);
   font-family: Inter, sans-serif;
+  cursor: pointer;
+  transition: color 0.2s;
 }
 
 button:hover{
