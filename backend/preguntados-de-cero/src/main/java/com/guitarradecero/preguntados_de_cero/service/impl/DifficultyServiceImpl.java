@@ -1,7 +1,7 @@
 package com.guitarradecero.preguntados_de_cero.service.impl;
 
 import com.guitarradecero.preguntados_de_cero.model.difficulty.Difficulty;
-import com.guitarradecero.preguntados_de_cero.persistence.DifficultyDAO;
+import com.guitarradecero.preguntados_de_cero.persistence.sql.difficulty.DifficultyDAO;
 import com.guitarradecero.preguntados_de_cero.persistence.LevelRepeatException;
 import com.guitarradecero.preguntados_de_cero.service.DifficultyService;
 import jakarta.transaction.Transactional;

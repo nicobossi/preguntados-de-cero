@@ -2,8 +2,8 @@ package com.guitarradecero.preguntados_de_cero.service.impl;
 
 import com.guitarradecero.preguntados_de_cero.model.difficulty.Difficulty;
 import com.guitarradecero.preguntados_de_cero.model.theme.Theme;
-import com.guitarradecero.preguntados_de_cero.persistence.DifficultyDAO;
-import com.guitarradecero.preguntados_de_cero.persistence.ThemeDAO;
+import com.guitarradecero.preguntados_de_cero.persistence.sql.difficulty.DifficultyDAO;
+import com.guitarradecero.preguntados_de_cero.persistence.sql.theme.ThemeDAO;
 import com.guitarradecero.preguntados_de_cero.service.ThemeService;
 import com.guitarradecero.preguntados_de_cero.service.exception.DifficultyNotFoundException;
 import jakarta.transaction.Transactional;

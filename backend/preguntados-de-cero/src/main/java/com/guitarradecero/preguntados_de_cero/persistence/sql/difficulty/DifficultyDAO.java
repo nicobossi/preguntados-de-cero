@@ -1,4 +1,4 @@
-package com.guitarradecero.preguntados_de_cero.persistence;
+package com.guitarradecero.preguntados_de_cero.persistence.sql.difficulty;
 
 import com.guitarradecero.preguntados_de_cero.model.difficulty.Difficulty;
 import org.springframework.data.jpa.repository.JpaRepository;
