@@ -4,7 +4,7 @@ import { LevelService } from '../../services/level/level.service';
 import Difficulty from '@/app/shared/types/difficulty';
 
 @Component({
-  selector: 'app-buttons-container',
+  selector: 'app-cards-container',
   imports: [LevelCard],
   templateUrl: './level-card-container.html',
   styleUrl: './level-card-container.css',

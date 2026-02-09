@@ -1,5 +1,7 @@
 <section>
-  @for(difficulty of getDifficulties; track difficulty) {
-  <app-level-card [difficulty]="difficulty"/>
-}
+  <div>
+    @for(difficulty of getDifficulties; track difficulty) {
+      <app-level-card [difficulty]="difficulty"/>
+    }
+  </div>
 </section>

@@ -1,12 +1,9 @@
-:host {
-  display: none;
-}
 
 .image-container{
   display: none;
 }
 
-@media (min-width: 1024px) {
+@media screen and (min-width: 768px) {
   :host {
     display: flex;
     align-items: center;
@@ -14,10 +11,17 @@
     width: 100%;
   }
 
-  .image-container {
-    display: block;
+  .image-container{
+    display: grid;
+    place-items: center;
     width: 100%;
-    min-width: 500px;
+    height: 100%;
+    background-color: var(--primary-color);
+  }
+
+  .image-container figure {
+    display: grid;
+    place-items: center;
   }
 
   img {
@@ -25,6 +29,5 @@
     max-width: 800px;
     height: auto;
     display: block;
-
   }
 }
