@@ -3,11 +3,13 @@ package com.guitarradecero.preguntados_de_cero.model.option;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Getter(AccessLevel.PRIVATE)
+@Getter
 @Setter(AccessLevel.PRIVATE)
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Option {
 
     @Id
@@ -15,4 +17,11 @@ public class Option {
     private Long id;
 
     private String text;
+
+    private Boolean isCorrect;
+
+    public Option(String text, Boolean isCorrect) {
+        setText(text);
+        setIsCorrect(isCorrect);
+    }
 }

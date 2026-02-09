@@ -1,9 +1,11 @@
 package com.guitarradecero.preguntados_de_cero.service;
 
-import com.guitarradecero.preguntados_de_cero.persistence.sql.question.QuestionEntity;
+import com.guitarradecero.preguntados_de_cero.model.question.Question;
 
 import java.util.List;
 
 public interface QuestionService {
-    List<QuestionEntity> findQuestionsBy(Long themeId);
+    List<Question> findQuestionsByTheme(Long themeId);
+
+    Question add(Question question, Long themeId);
 }

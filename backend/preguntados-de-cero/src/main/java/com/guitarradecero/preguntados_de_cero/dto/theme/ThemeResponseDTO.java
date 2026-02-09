@@ -1,4 +1,4 @@
-package com.guitarradecero.preguntados_de_cero.dto;
+package com.guitarradecero.preguntados_de_cero.dto.theme;
 
 import com.guitarradecero.preguntados_de_cero.model.theme.Theme;
 

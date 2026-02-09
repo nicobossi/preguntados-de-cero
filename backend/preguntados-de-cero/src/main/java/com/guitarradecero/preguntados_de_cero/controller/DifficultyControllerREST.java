@@ -1,7 +1,7 @@
 package com.guitarradecero.preguntados_de_cero.controller;
 
-import com.guitarradecero.preguntados_de_cero.dto.DifficultyRequestDTO;
-import com.guitarradecero.preguntados_de_cero.dto.DifficultyResponseDTO;
+import com.guitarradecero.preguntados_de_cero.dto.difficulty.DifficultyRequestDTO;
+import com.guitarradecero.preguntados_de_cero.dto.difficulty.DifficultyResponseDTO;
 import com.guitarradecero.preguntados_de_cero.model.difficulty.Difficulty;
 import com.guitarradecero.preguntados_de_cero.service.DifficultyService;
 import lombok.Getter;

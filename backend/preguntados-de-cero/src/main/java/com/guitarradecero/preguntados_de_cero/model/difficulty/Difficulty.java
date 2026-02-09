@@ -15,7 +15,6 @@ import static jakarta.persistence.GenerationType.AUTO;
 @Getter
 @Setter(AccessLevel.PRIVATE)
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-
 @Entity
 public class Difficulty {
 

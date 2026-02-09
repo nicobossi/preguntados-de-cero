@@ -5,8 +5,8 @@ import com.guitarradecero.preguntados_de_cero.model.theme.Theme;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.data.repository.cdi.Eager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,8 +14,9 @@ import java.util.List;
 import static jakarta.persistence.GenerationType.AUTO;
 
 @Entity
-@Getter(AccessLevel.PRIVATE)
+@Getter
 @Setter(AccessLevel.PRIVATE)
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Question {
 
     @Id
@@ -28,6 +29,16 @@ public class Question {
     @JoinColumn(name = "theme_id")
     private Theme theme;
 
-    @OneToMany(fetch = FetchType.EAGER)
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_question")
     private List<Option> options = new ArrayList<>();
+
+    public Question(String text, List<Option> options) {
+        setText(text);
+        setOptions(options);
+    }
+
+    public void addTheme(Theme theme) {
+        setTheme(theme);
+    }
 }

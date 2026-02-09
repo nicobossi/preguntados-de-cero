@@ -5,7 +5,7 @@ import com.guitarradecero.preguntados_de_cero.model.theme.Theme;
 import com.guitarradecero.preguntados_de_cero.persistence.sql.difficulty.DifficultyDAO;
 import com.guitarradecero.preguntados_de_cero.persistence.sql.theme.ThemeDAO;
 import com.guitarradecero.preguntados_de_cero.service.ThemeService;
-import com.guitarradecero.preguntados_de_cero.service.exception.DifficultyNotFoundException;
+import com.guitarradecero.preguntados_de_cero.service.exception.NotFoundException;
 import jakarta.transaction.Transactional;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -36,7 +36,7 @@ public class ThemeServiceImpl implements ThemeService {
     @Override
     public Theme saveTheme(Theme theme, Long difficultyId) {
         Difficulty difficulty = difficultyDAO.findById(difficultyId)
-                .orElseThrow(() -> new DifficultyNotFoundException(
+                .orElseThrow(() -> new NotFoundException(
                         "Difficulty not found with id: " + difficultyId));
 
         theme.asociateDifficulty(difficulty);

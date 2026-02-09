@@ -1,7 +1,7 @@
 package com.guitarradecero.preguntados_de_cero.controller;
 
-import com.guitarradecero.preguntados_de_cero.dto.ThemeRequestDTO;
-import com.guitarradecero.preguntados_de_cero.dto.ThemeResponseDTO;
+import com.guitarradecero.preguntados_de_cero.dto.theme.ThemeRequestDTO;
+import com.guitarradecero.preguntados_de_cero.dto.theme.ThemeResponseDTO;
 import com.guitarradecero.preguntados_de_cero.model.theme.Theme;
 import com.guitarradecero.preguntados_de_cero.service.ThemeService;
 import lombok.Getter;

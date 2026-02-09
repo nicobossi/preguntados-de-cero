@@ -9,6 +9,5 @@ import java.util.List;
 @Repository
 public interface QuestionDAO extends JpaRepository<Question, Long> {
 
-    List<QuestionEntity> findAllByTheme_Id(Long themeId);
-
+    List<Question> findAllByThemeId(Long themeId);
 }
