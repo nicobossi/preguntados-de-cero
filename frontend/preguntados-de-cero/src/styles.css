@@ -21,6 +21,10 @@
   box-sizing: border-box;
 }
 
+body {
+  overflow-x: hidden;
+}
+
 /*EBC554*/
 /*4662DE*/
 

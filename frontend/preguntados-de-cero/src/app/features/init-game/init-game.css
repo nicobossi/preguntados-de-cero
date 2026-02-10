@@ -1,8 +1,14 @@
+
+
 section {
   width: 100vw;
   height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  background-color: var(--clear-background);
+}
+
+@media screen and (min-width: 768px) {
+  section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: var(--clear-background);
+  }
 }

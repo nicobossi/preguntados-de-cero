@@ -1,5 +1,4 @@
-import {Component, inject, Input} from '@angular/core';
-import {Router} from '@angular/router';
+import {Component, output} from '@angular/core';
 
 @Component({
   selector: 'app-level-button',
@@ -8,12 +7,9 @@ import {Router} from '@angular/router';
 })
 export class LevelButton {
 
-  @Input() id! : number;
-
-  private router = inject(Router);
+  navegate = output<void>();
 
   onClick() {
-    console.log('Dificultad elegida: ', this.id);
-    this.router.navigate(['/theme', this.id]);
+    this.navegate.emit();
   }
 }
