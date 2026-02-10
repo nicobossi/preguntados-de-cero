@@ -1,7 +1,7 @@
 .logo-container {
   position: relative;
   height: 20%;
-  background-color: var(--clear-background);
+  background-color: var(--primary-color);
 }
 
 .logo {

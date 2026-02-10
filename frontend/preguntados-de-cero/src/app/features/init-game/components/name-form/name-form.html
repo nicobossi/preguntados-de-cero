@@ -1,26 +1,7 @@
-<form [formGroup]="nameform" (ngSubmit)="onSubmit()">
-
-  <input
-    type="text"
-    placeholder="Ingresa tu nombre"
-    formControlName="name"
-    required
-  />
-
-  <div class="validator-container">
-    @if (name.invalid && (name.dirty || name.touched)) {
-      @if (name.hasError('required')) {
-        <p>Por favor ingresa un nombre.</p>
-      }
-      @if (name.hasError('minlength')) {
-        <p>Longitud miníma 3 caracteres.</p>
-      }
-      @if (name.hasError('maxlength')) {
-        <p>Longitud máxima 20 caracteres.</p>
-      }
-    }
-  </div>
-
-  <app-play-button></app-play-button>
-
-</form>
+<div>
+  <form [formGroup]="initFormService.getForm" (ngSubmit)="onSubmitName()">
+    <app-input-name [inputName]="initFormService.getControl" />
+    <app-form-errors-container />
+    <app-play-button></app-play-button>
+  </form>
+</div>

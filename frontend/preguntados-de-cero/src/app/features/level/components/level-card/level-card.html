@@ -1,7 +1,7 @@
 <div class = "card-container">
     <div class = "card">
-      <app-level-header [level] = "getDifficulty.level" />
-      <app-theme-names-container [themeNames] = "getDifficulty.themeNames" />
-      <app-level-button [id] = getDifficulty.id/>
+      <app-level-header [level]="difficulty().level" />
+      <app-theme-names-container [themeNames]="difficulty().themeNames" />
+      <app-level-button (navegate)="navegate()"/>
     </div>
   </div>

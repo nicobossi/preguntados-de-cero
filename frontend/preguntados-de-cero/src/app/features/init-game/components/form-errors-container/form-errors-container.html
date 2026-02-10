@@ -1,0 +1,15 @@
+
+
+<div class="validator-container">
+    @if (service.isInvalidInput()) {
+      @if (service.haveRequiredError()) {
+        <p>Por favor ingresa un nombre.</p>
+      }
+      @if (service.haveMinLengthError()) {
+        <p>Longitud miníma 3 caracteres.</p>
+      }
+      @if (service.haveMaxLengthError()) {
+        <p>Longitud máxima 20 caracteres.</p>
+      }
+    }
+  </div>

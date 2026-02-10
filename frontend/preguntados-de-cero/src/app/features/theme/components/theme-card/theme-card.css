@@ -1,17 +1,15 @@
 :host{
   width: 100%;
   max-width: 350px;
-  min-height: 80px;
-  display: block;
-  position: relative;
   border-radius: 20px;
 }
 
 .theme-card-wrapper{
-  display: flex;
-  flex-direction: column;
   width: 100%;
   max-width: 350px;
-  min-height: 80px;
+  transition: transform 0.2s;
 }
 
+.theme-card-wrapper:hover {
+  transform: scale(1.05, 1.05)
+}
