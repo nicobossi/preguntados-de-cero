@@ -1,0 +1,9 @@
+section{
+  width: 100dvw;
+  height: 100dvh;
+  background-color: var(--clear-background);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

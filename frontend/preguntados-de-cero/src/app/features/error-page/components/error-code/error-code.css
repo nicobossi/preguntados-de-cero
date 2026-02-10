@@ -1,0 +1,44 @@
+:host{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.error-code-elements-container{
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #FFFFFF;
+  font-family: Inter, sans-serif;
+  color: var(--primary-color)
+}
+
+.error-code-kicker{
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.error-code-title{
+  font-size: 96px;
+}
+
+.error-code-subtitle{
+  font-size: 22px;
+  font-weight: 600;
+}
+
+@media screen and (min-width: 768px) {
+  .error-code-kicker{
+    font-size: 27px;
+  }
+  .error-code-title{
+    font-size: 101px;
+  }
+  .error-code-subtitle{
+    font-size: 27px;
+  }
+}
