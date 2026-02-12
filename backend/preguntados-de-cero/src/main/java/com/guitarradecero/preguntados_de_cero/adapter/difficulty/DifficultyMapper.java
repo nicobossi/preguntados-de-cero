@@ -16,7 +16,6 @@ public interface DifficultyMapper {
     @Mapping(target = "themes", ignore = true)
     Difficulty dtoToModel(DifficultyRequestDTO difficultyDto);
 
-    @Mapping(target = "themeNames", expression = "java(difficulty.themeNames())")
     DifficultyResponseDTO modelToDto(Difficulty difficulty);
 
 }

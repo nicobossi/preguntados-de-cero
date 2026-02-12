@@ -7,8 +7,7 @@ import java.util.List;
 
 public record DifficultyResponseDTO(
     Long id,
-    Integer level,
-    List<String> themeNames
+    Integer level
 ) {
 
 }

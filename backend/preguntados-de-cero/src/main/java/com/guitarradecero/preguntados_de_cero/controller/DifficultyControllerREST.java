@@ -1,6 +1,7 @@
 package com.guitarradecero.preguntados_de_cero.controller;
 
 import com.guitarradecero.preguntados_de_cero.adapter.difficulty.DifficultyMapper;
+import com.guitarradecero.preguntados_de_cero.dto.difficulty.DifficultyDescription;
 import com.guitarradecero.preguntados_de_cero.dto.difficulty.DifficultyRequestDTO;
 import com.guitarradecero.preguntados_de_cero.dto.difficulty.DifficultyResponseDTO;
 import com.guitarradecero.preguntados_de_cero.model.difficulty.Difficulty;
@@ -11,7 +12,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Getter
 @Setter
@@ -26,14 +26,11 @@ public class DifficultyControllerREST {
     }
 
     @GetMapping
-    public ResponseEntity<List<DifficultyResponseDTO>> getAllNiveles() {
+    public ResponseEntity<List<DifficultyDescription>> getAllNiveles() {
 
-        List<Difficulty> niveles = getDifficultyService().getAll();
-        List<DifficultyResponseDTO> nivelesDto = niveles.stream()
-                                                           .map(DifficultyMapper.INSTANCE::modelToDto)
-                                                           .collect(Collectors.toList());
+        List<DifficultyDescription> niveles = getDifficultyService().allLevelsWithDescription();
 
-        return ResponseEntity.ok(nivelesDto);
+        return ResponseEntity.ok(niveles);
     }
 
     @PostMapping("/add")

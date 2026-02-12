@@ -33,7 +33,8 @@ public class Difficulty {
         setLevel(level);
     }
 
-    public List<String> themeNames() {
-        return getThemes().stream().map(Theme::getName).toList();
+    public void addTheme(Theme theme) {
+        getThemes().add(theme);
+        theme.asociateDifficulty(this);
     }
 }

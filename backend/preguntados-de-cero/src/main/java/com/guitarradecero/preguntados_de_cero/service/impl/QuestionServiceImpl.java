@@ -16,17 +16,17 @@ import java.util.List;
 @Service
 public class QuestionServiceImpl implements QuestionService {
 
-    private QuestionDAO dao;
+    private QuestionDAO questionDao;
     private ThemeDAO themeDao;
 
     QuestionServiceImpl(QuestionDAO dao, ThemeDAO themeDao) {
-        this.dao = dao;
+        this.questionDao = dao;
         this.themeDao = themeDao;
     }
 
     @Override
     public List<Question> findQuestionsByTheme(Long themeId) {
-        return getDao().findAllByThemeId(themeId);
+        return getQuestionDao().findAllByThemeId(themeId);
     }
 
     @Override
@@ -37,11 +37,11 @@ public class QuestionServiceImpl implements QuestionService {
 
         question.addTheme(theme);
 
-        return getDao().save(question);
+        return getQuestionDao().save(question);
     }
 
     void crearAll() {
-        getDao().deleteAll();
+        getQuestionDao().deleteAll();
         getThemeDao().deleteAll();
     }
 }

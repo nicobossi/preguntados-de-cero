@@ -1,5 +1,6 @@
 package com.guitarradecero.preguntados_de_cero.service.impl;
 
+import com.guitarradecero.preguntados_de_cero.dto.difficulty.DifficultyDescription;
 import com.guitarradecero.preguntados_de_cero.model.difficulty.Difficulty;
 import com.guitarradecero.preguntados_de_cero.persistence.sql.difficulty.DifficultyDAO;
 import com.guitarradecero.preguntados_de_cero.persistence.LevelRepeatException;
@@ -19,21 +20,21 @@ import java.util.List;
 @Transactional
 public class DifficultyServiceImpl implements DifficultyService {
 
-    private DifficultyDAO difficultyDAO;
+    private DifficultyDAO difficultyDao;
 
     public DifficultyServiceImpl(DifficultyDAO dao){
-        setDifficultyDAO(dao);
+        setDifficultyDao(dao);
     }
 
     @Override
-    public List<Difficulty> getAll() {
-        return getDifficultyDAO().findAll();
+    public List<DifficultyDescription> allLevelsWithDescription() {
+        return getDifficultyDao().findWithDescription();
     }
 
     @Override
     public Difficulty save(Difficulty difficulty) {
         try {
-            return getDifficultyDAO().saveAndFlush(difficulty);
+            return getDifficultyDao().saveAndFlush(difficulty);
         }
         catch(DataIntegrityViolationException e){
             throw new LevelRepeatException("El nivel " + difficulty.getLevel() + " ya se encuentra registrado");
@@ -41,6 +42,6 @@ public class DifficultyServiceImpl implements DifficultyService {
     }
 
     void clearAll() {
-        getDifficultyDAO().deleteAll();
+        getDifficultyDao().deleteAll();
     }
 }

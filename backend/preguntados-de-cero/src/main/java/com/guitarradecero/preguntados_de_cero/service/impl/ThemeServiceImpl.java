@@ -20,27 +20,27 @@ import java.util.List;
 @Transactional
 public class ThemeServiceImpl implements ThemeService {
 
-    private ThemeDAO themeDAO;
-    private DifficultyDAO difficultyDAO;
+    private ThemeDAO themeDao;
+    private DifficultyDAO difficultyDao;
 
     public ThemeServiceImpl(ThemeDAO themeDAO, DifficultyDAO difficultyDAO) {
-        setThemeDAO(themeDAO);
-        setDifficultyDAO(difficultyDAO);
+        setThemeDao(themeDAO);
+        setDifficultyDao(difficultyDAO);
     }
 
     @Override
     public List<Theme> getAllByDifficulty(Long difficultyId) {
-        return getThemeDAO().findAllByDifficultyId(difficultyId);
+        return getThemeDao().findAllByDifficultyId(difficultyId);
     }
 
     @Override
     public Theme saveTheme(Theme theme, Long difficultyId) {
-        Difficulty difficulty = difficultyDAO.findById(difficultyId)
+        Difficulty difficulty = difficultyDao.findById(difficultyId)
                 .orElseThrow(() -> new NotFoundException(
                         "Difficulty not found with id: " + difficultyId));
 
-        theme.asociateDifficulty(difficulty);
+        difficulty.addTheme(theme);
 
-        return themeDAO.save(theme);
+        return getThemeDao().save(theme);
     }
 }
