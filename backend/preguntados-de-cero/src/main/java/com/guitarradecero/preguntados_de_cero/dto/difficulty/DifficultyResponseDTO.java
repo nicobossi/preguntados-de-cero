@@ -10,12 +10,5 @@ public record DifficultyResponseDTO(
     Integer level,
     List<String> themeNames
 ) {
-    public static DifficultyResponseDTO fromModel(Difficulty difficulty) {
-        List<String> themeNames = difficulty.getThemes().stream().map(Theme::getName).toList();
-        return new DifficultyResponseDTO(difficulty.getId(), difficulty.getLevel(), themeNames);
-    }
 
-    public static Difficulty toModel(DifficultyResponseDTO difficultyDto) {
-        return new Difficulty(difficultyDto.level());
-    }
 }

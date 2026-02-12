@@ -1,5 +1,6 @@
 package com.guitarradecero.preguntados_de_cero.controller;
 
+import com.guitarradecero.preguntados_de_cero.adapter.difficulty.DifficultyMapper;
 import com.guitarradecero.preguntados_de_cero.dto.difficulty.DifficultyRequestDTO;
 import com.guitarradecero.preguntados_de_cero.dto.difficulty.DifficultyResponseDTO;
 import com.guitarradecero.preguntados_de_cero.model.difficulty.Difficulty;
@@ -29,7 +30,7 @@ public class DifficultyControllerREST {
 
         List<Difficulty> niveles = getDifficultyService().getAll();
         List<DifficultyResponseDTO> nivelesDto = niveles.stream()
-                                                           .map(DifficultyResponseDTO::fromModel)
+                                                           .map(DifficultyMapper.INSTANCE::modelToDto)
                                                            .collect(Collectors.toList());
 
         return ResponseEntity.ok(nivelesDto);
@@ -38,8 +39,8 @@ public class DifficultyControllerREST {
     @PostMapping("/add")
     public ResponseEntity<DifficultyResponseDTO> addDifficulty(@RequestBody DifficultyRequestDTO difficultyDto) {
 
-        Difficulty difficulty = getDifficultyService().save(DifficultyRequestDTO.aModelo(difficultyDto));
+        Difficulty difficulty = getDifficultyService().save(DifficultyMapper.INSTANCE.dtoToModel(difficultyDto));
 
-        return ResponseEntity.ok(DifficultyResponseDTO.fromModel(difficulty));
+        return ResponseEntity.ok(DifficultyMapper.INSTANCE.modelToDto(difficulty));
     }
 }
