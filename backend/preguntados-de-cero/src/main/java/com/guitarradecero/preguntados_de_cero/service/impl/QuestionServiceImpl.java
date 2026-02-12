@@ -9,11 +9,13 @@ import com.guitarradecero.preguntados_de_cero.service.exception.NotFoundExceptio
 import lombok.AccessLevel;
 import lombok.Getter;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Getter(AccessLevel.PRIVATE)
 @Service
+@Transactional
 public class QuestionServiceImpl implements QuestionService {
 
     private QuestionDAO questionDao;

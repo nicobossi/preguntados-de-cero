@@ -5,12 +5,12 @@ import com.guitarradecero.preguntados_de_cero.model.difficulty.Difficulty;
 import com.guitarradecero.preguntados_de_cero.persistence.sql.difficulty.DifficultyDAO;
 import com.guitarradecero.preguntados_de_cero.persistence.LevelRepeatException;
 import com.guitarradecero.preguntados_de_cero.service.DifficultyService;
-import jakarta.transaction.Transactional;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 

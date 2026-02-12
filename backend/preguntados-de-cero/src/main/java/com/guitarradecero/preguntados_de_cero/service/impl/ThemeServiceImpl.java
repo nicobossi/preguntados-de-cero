@@ -6,11 +6,11 @@ import com.guitarradecero.preguntados_de_cero.persistence.sql.difficulty.Difficu
 import com.guitarradecero.preguntados_de_cero.persistence.sql.theme.ThemeDAO;
 import com.guitarradecero.preguntados_de_cero.service.ThemeService;
 import com.guitarradecero.preguntados_de_cero.service.exception.NotFoundException;
-import jakarta.transaction.Transactional;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -35,7 +35,7 @@ public class ThemeServiceImpl implements ThemeService {
 
     @Override
     public Theme saveTheme(Theme theme, Long difficultyId) {
-        Difficulty difficulty = difficultyDao.findById(difficultyId)
+        Difficulty difficulty = getDifficultyDao().findById(difficultyId)
                 .orElseThrow(() -> new NotFoundException(
                         "Difficulty not found with id: " + difficultyId));
 

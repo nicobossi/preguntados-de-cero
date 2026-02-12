@@ -81,8 +81,8 @@ class DifficultyServiceImplTest {
         DifficultyDescription description1 = difficulties.getFirst();
         DifficultyDescription description2 = difficulties.getLast();
 
-        assertFalse(Arrays.stream(description1.getThemeNames()).toList().isEmpty());
-        assertFalse(Arrays.stream(description2.getThemeNames()).toList().isEmpty());
+        assertFalse(description1.getThemeNames().stream().toList().isEmpty());
+        assertFalse(description2.getThemeNames().stream().toList().isEmpty());
     }
 
 
