@@ -10,9 +10,4 @@ public record QuestionResponseDTO(
         String text,
         List<OptionResponseDTO> options
 ) {
-
-    public static QuestionResponseDTO fromModel(Question question) {
-        List<OptionResponseDTO> optionsDto = question.getOptions().stream().map(OptionResponseDTO::fromModel).toList();
-        return new QuestionResponseDTO(question.getId(), question.getText(), optionsDto);
-    }
 }

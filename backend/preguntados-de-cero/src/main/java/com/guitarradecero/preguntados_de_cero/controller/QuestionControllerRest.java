@@ -1,6 +1,7 @@
 package com.guitarradecero.preguntados_de_cero.controller;
 
 
+import com.guitarradecero.preguntados_de_cero.adapter.question.QuestionMapper;
 import com.guitarradecero.preguntados_de_cero.dto.question.QuestionRequestDTO;
 import com.guitarradecero.preguntados_de_cero.dto.question.QuestionResponseDTO;
 import com.guitarradecero.preguntados_de_cero.dto.question.QuestionWithOptions;
@@ -34,9 +35,9 @@ public class QuestionControllerRest {
 
     @PostMapping("/add/{themeId}")
     public ResponseEntity<QuestionResponseDTO> postQuestion(@RequestBody QuestionRequestDTO questionDto, @PathVariable Long themeId) {
-        Question question = QuestionRequestDTO.toModel(questionDto);
+        Question question = QuestionMapper.INSTANCE.dtoToModel(questionDto);
         Question persistQuestion = getService().add(question, themeId);
-        return ResponseEntity.ok(QuestionResponseDTO.fromModel(persistQuestion));
+        return ResponseEntity.ok(QuestionMapper.INSTANCE.modelToDto(persistQuestion));
     }
 }
 

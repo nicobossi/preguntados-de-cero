@@ -10,9 +10,4 @@ public record QuestionRequestDTO(
         String text,
         List<OptionRequestDTO> options
 ) {
-
-    public static Question toModel(QuestionRequestDTO dto ) {
-        List<Option> options = dto.options.stream().map(OptionRequestDTO::toModel).toList();
-        return new Question(dto.text, options);
-    }
 }
