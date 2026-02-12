@@ -1,4 +1,4 @@
-package com.guitarradecero.preguntados_de_cero.controller;
+package com.guitarradecero.preguntados_de_cero.controller.difficulty;
 
 import com.guitarradecero.preguntados_de_cero.adapter.difficulty.DifficultyMapper;
 import com.guitarradecero.preguntados_de_cero.dto.difficulty.DifficultyDescription;

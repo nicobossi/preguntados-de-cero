@@ -1,4 +1,4 @@
-package com.guitarradecero.preguntados_de_cero.controller;
+package com.guitarradecero.preguntados_de_cero.controller.theme;
 
 import com.guitarradecero.preguntados_de_cero.adapter.theme.ThemeMapper;
 import com.guitarradecero.preguntados_de_cero.dto.theme.ThemeRequestDTO;

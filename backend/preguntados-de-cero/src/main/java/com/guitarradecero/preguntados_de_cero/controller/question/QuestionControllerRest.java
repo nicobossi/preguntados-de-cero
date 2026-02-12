@@ -1,4 +1,4 @@
-package com.guitarradecero.preguntados_de_cero.controller;
+package com.guitarradecero.preguntados_de_cero.controller.question;
 
 
 import com.guitarradecero.preguntados_de_cero.adapter.question.QuestionMapper;

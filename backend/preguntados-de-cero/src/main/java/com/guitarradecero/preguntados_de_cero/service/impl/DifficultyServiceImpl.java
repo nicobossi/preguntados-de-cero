@@ -37,7 +37,7 @@ public class DifficultyServiceImpl implements DifficultyService {
             return getDifficultyDao().saveAndFlush(difficulty);
         }
         catch(DataIntegrityViolationException e){
-            throw new LevelRepeatException("El nivel " + difficulty.getLevel() + " ya se encuentra registrado");
+            throw new LevelRepeatException("Level " + difficulty.getLevel() + " is already registered");
         }
     }
 

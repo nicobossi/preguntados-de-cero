@@ -36,7 +36,7 @@ public class QuestionServiceImpl implements QuestionService {
     public Question add(Question question, Long themeId) {
         Theme theme = getThemeDao().
                 findById(themeId).
-                    orElseThrow(() -> new NotFoundException("Theme not found with id:" + themeId));
+                    orElseThrow(() -> new NotFoundException("Theme not found with id: " + themeId));
 
         question.addTheme(theme);
 
