@@ -26,7 +26,7 @@ public class Question {
     private String text;
 
     @ManyToOne
-    @JoinColumn(name = "theme_id")
+    @JoinColumn(name = "id_theme")
     private Theme theme;
 
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)

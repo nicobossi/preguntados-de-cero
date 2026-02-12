@@ -1,5 +1,6 @@
 package com.guitarradecero.preguntados_de_cero.service.impl;
 
+import com.guitarradecero.preguntados_de_cero.dto.question.QuestionWithOptions;
 import com.guitarradecero.preguntados_de_cero.model.question.Question;
 import com.guitarradecero.preguntados_de_cero.model.theme.Theme;
 import com.guitarradecero.preguntados_de_cero.persistence.sql.question.QuestionDAO;
@@ -27,8 +28,8 @@ public class QuestionServiceImpl implements QuestionService {
     }
 
     @Override
-    public List<Question> findQuestionsByTheme(Long themeId) {
-        return getQuestionDao().findAllByThemeId(themeId);
+    public List<QuestionWithOptions> findQuestionsByTheme(Long themeId) {
+        return getQuestionDao().findByThemeId(themeId);
     }
 
     @Override

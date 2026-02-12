@@ -1,5 +1,6 @@
 package com.guitarradecero.preguntados_de_cero.service.impl;
 
+import com.guitarradecero.preguntados_de_cero.dto.question.QuestionWithOptions;
 import com.guitarradecero.preguntados_de_cero.model.difficulty.Difficulty;
 import com.guitarradecero.preguntados_de_cero.model.question.Question;
 import com.guitarradecero.preguntados_de_cero.model.theme.Theme;
@@ -76,7 +77,7 @@ class QuestionServiceImplTest {
 
         service.add(question, persistTheme.getId());
 
-        List<Question> questions = service.findQuestionsByTheme(persistTheme.getId());
+        List<QuestionWithOptions> questions = service.findQuestionsByTheme(persistTheme.getId());
 
         assertFalse(questions.isEmpty());
     }

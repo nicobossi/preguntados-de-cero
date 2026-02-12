@@ -3,6 +3,7 @@ package com.guitarradecero.preguntados_de_cero.controller;
 
 import com.guitarradecero.preguntados_de_cero.dto.question.QuestionRequestDTO;
 import com.guitarradecero.preguntados_de_cero.dto.question.QuestionResponseDTO;
+import com.guitarradecero.preguntados_de_cero.dto.question.QuestionWithOptions;
 import com.guitarradecero.preguntados_de_cero.model.question.Question;
 import com.guitarradecero.preguntados_de_cero.service.QuestionService;
 import lombok.AccessLevel;
@@ -26,10 +27,9 @@ public class QuestionControllerRest {
     }
 
     @GetMapping("/{themeId}")
-    public ResponseEntity<List<QuestionResponseDTO>> getAllQuestionByTheme(@PathVariable Long themeId) {
-        List<Question> question = getService().findQuestionsByTheme(themeId);
-        List<QuestionResponseDTO> dtos = question.stream().map(QuestionResponseDTO::fromModel).toList();
-        return ResponseEntity.ok(dtos);
+    public ResponseEntity<List<QuestionWithOptions>> getAllQuestionByTheme(@PathVariable Long themeId) {
+        List<QuestionWithOptions> questions = getService().findQuestionsByTheme(themeId);
+        return ResponseEntity.ok(questions);
     }
 
     @PostMapping("/add/{themeId}")
