@@ -7,6 +7,7 @@ import com.guitarradecero.preguntados_de_cero.dto.question.QuestionResponseDTO;
 import com.guitarradecero.preguntados_de_cero.dto.question.QuestionWithOptions;
 import com.guitarradecero.preguntados_de_cero.model.question.Question;
 import com.guitarradecero.preguntados_de_cero.service.QuestionService;
+import jakarta.validation.Valid;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
@@ -34,7 +35,7 @@ public class QuestionControllerRest {
     }
 
     @PostMapping("/add/{themeId}")
-    public ResponseEntity<QuestionResponseDTO> postQuestion(@RequestBody QuestionRequestDTO questionDto, @PathVariable Long themeId) {
+    public ResponseEntity<QuestionResponseDTO> postQuestion(@Valid @RequestBody QuestionRequestDTO questionDto, @PathVariable Long themeId) {
         Question question = QuestionMapper.INSTANCE.dtoToModel(questionDto);
         Question persistQuestion = getService().add(question, themeId);
         return ResponseEntity.ok(QuestionMapper.INSTANCE.modelToDto(persistQuestion));

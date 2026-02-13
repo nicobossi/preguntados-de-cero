@@ -1,13 +1,11 @@
 package com.guitarradecero.preguntados_de_cero.dto.option;
 
-import com.guitarradecero.preguntados_de_cero.model.option.Option;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 
 public record OptionRequestDTO(
-        String text,
-        Boolean isCorrect
+        @NotNull @NotBlank @NotEmpty String text,
+        @NotNull Boolean isCorrect
 ) {
-
-    public static Option toModel(OptionRequestDTO optionDto) {
-        return new Option(optionDto.text, optionDto.isCorrect);
-    }
 }
