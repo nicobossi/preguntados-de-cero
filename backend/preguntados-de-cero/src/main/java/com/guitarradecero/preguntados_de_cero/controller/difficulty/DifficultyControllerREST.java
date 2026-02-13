@@ -6,6 +6,7 @@ import com.guitarradecero.preguntados_de_cero.dto.difficulty.DifficultyRequestDT
 import com.guitarradecero.preguntados_de_cero.dto.difficulty.DifficultyResponseDTO;
 import com.guitarradecero.preguntados_de_cero.model.difficulty.Difficulty;
 import com.guitarradecero.preguntados_de_cero.service.DifficultyService;
+import jakarta.validation.Valid;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.http.ResponseEntity;
@@ -34,7 +35,7 @@ public class DifficultyControllerREST {
     }
 
     @PostMapping("/add")
-    public ResponseEntity<DifficultyResponseDTO> addDifficulty(@RequestBody DifficultyRequestDTO difficultyDto) {
+    public ResponseEntity<DifficultyResponseDTO> addDifficulty(@Valid @RequestBody DifficultyRequestDTO difficultyDto) {
 
         Difficulty difficulty = getDifficultyService().save(DifficultyMapper.INSTANCE.dtoToModel(difficultyDto));
 
