@@ -5,6 +5,7 @@ import com.guitarradecero.preguntados_de_cero.dto.theme.ThemeRequestDTO;
 import com.guitarradecero.preguntados_de_cero.dto.theme.ThemeResponseDTO;
 import com.guitarradecero.preguntados_de_cero.model.theme.Theme;
 import com.guitarradecero.preguntados_de_cero.service.ThemeService;
+import jakarta.validation.Valid;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.http.ResponseEntity;
@@ -25,7 +26,7 @@ public class ThemeControllerREST {
     }
 
     @PostMapping("/add/{difficultyId}")
-    public ResponseEntity<ThemeResponseDTO> addTheme(@RequestBody ThemeRequestDTO themeDTO, @PathVariable Long difficultyId) {
+    public ResponseEntity<ThemeResponseDTO> addTheme(@Valid @RequestBody ThemeRequestDTO themeDTO, @PathVariable Long difficultyId) {
 
         Theme theme = getThemeService().saveTheme(ThemeMapper.INSTANCE.dtoToModel(themeDTO), difficultyId);
 
