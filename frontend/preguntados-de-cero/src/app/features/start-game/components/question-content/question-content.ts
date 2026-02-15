@@ -1,4 +1,5 @@
-import { Component, input } from '@angular/core';
+import { Component, inject, input } from '@angular/core';
+import { CounterService } from '../../services/counter.service';
 
 @Component({
   selector: 'app-question-content',
@@ -8,5 +9,5 @@ import { Component, input } from '@angular/core';
 })
 export class QuestionContent {
 
-  statment = input.required<string>()
+  statment = input.required<string>();
 }

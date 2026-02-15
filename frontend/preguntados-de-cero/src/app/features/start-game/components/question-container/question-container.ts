@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { ResponseCount as AnswersCount } from "../response-count/response-count";
 import { QuestionContent } from "../question-content/question-content";
-import { QuestionService } from '../../services/question.service';
+import { ResultService } from '../../services/result.service';
 
 @Component({
   selector: 'app-question-container',
@@ -11,7 +11,7 @@ import { QuestionService } from '../../services/question.service';
 })
 export class QuestionContainer {
 
-  protected service = inject(QuestionService);
+  protected service = inject(ResultService);
 
   protected statement() : string {
     return this.service.currentStatement();
