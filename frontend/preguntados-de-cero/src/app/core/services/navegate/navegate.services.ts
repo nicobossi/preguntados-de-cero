@@ -1,4 +1,4 @@
-import { LEVEL_URL, THEME_URL } from "@/app/shared/routes/routes";
+import { LEVEL_URL, QUESTION_URL, THEME_URL } from "@/app/shared/routes/routes";
 import { inject, Injectable } from "@angular/core";
 import { Router } from "@angular/router";
 
@@ -17,5 +17,9 @@ export class NavegateService {
   goTheme(id : number) : void {
     console.log('Dificultad elegida: ', id);
     this.router.navigate([THEME_URL, id]);
+  }
+
+  goQuestion(id : number) : void {
+    this.router.navigate([QUESTION_URL, id]);
   }
 }

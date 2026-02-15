@@ -7,7 +7,7 @@ import GameTheme from '@/app/shared/types/gameTheme';
   providedIn: 'root',
 })
 export class ThemeService {
-  private httpClient = inject(HttpClient);
+  private http = inject(HttpClient);
   private baseUrl: string = 'http://localhost:8080/api/theme';
   private themes = signal<GameTheme[]>([]);
   private isLoading = signal<boolean>(false);
@@ -16,7 +16,7 @@ export class ThemeService {
   getAllByDifficultyId(difficultyId: string) : void {
 
     this.isLoading.set(true);
-    const response : Observable<GameTheme[]> = this.httpClient.get<GameTheme[]>(`${this.baseUrl}/${difficultyId}`);
+    const response : Observable<GameTheme[]> = this.http.get<GameTheme[]>(`${this.baseUrl}/${difficultyId}`);
 
     response.subscribe({
       next: (themes : GameTheme[]) => this.themes.set(themes),

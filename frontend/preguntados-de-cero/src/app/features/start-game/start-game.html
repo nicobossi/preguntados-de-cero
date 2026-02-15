@@ -1,0 +1,9 @@
+@if(this.questionsService.getIsLoading) {
+  <p>...cargando</p>
+}
+@else {
+  <section>
+    <app-question-container />
+    <app-option-list-container />
+  </section>
+}
