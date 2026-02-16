@@ -1,5 +1,4 @@
-import { Component, inject, input } from '@angular/core';
-import { CounterService } from '../../services/counter.service';
+import { Component, input } from '@angular/core';
 
 @Component({
   selector: 'app-question-content',

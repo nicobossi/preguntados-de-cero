@@ -1,8 +1,11 @@
 <section>
-  <div>
-    @for(option of options(); track option) {
-      <app-option-button [option]="option" />
-  }
-  <app-next-button />
+  <div class="option-list_buttons">
+    <div class="option-list_buttons--text">
+      @for(option of options(); track option.text) {
+        <app-option-button
+          [option]="option"/>
+    }
+    </div>
+    <app-next-button />
   </div>
 </section>

@@ -17,4 +17,8 @@ export class ResponseCount {
   protected totalQuestions() : number {
     return this.service.getCountQuestions;
   }
+
+  protected totalCorrectAnswers() : number {
+    return this.service.getCorrectAnswers;
+  }
 }

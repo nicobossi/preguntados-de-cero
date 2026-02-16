@@ -43,6 +43,10 @@ export class ResultService {
     return this.questionsCounter.getTotal;
   }
 
+  get getCorrectAnswers() : number {
+    return this.questionsCounter.getTotalCorrectAnswers;
+  }
+
   get getCountQuestions() : number {
     return this.questions().length;
   }

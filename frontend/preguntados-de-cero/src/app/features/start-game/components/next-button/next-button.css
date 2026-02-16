@@ -1,19 +1,34 @@
 
 
 :host {
+  display: grid;
+  place-items: center;
   width: 100%;
 }
 
 button {
+  max-width: 320px;
   width: 100%;
   height: 40px;
   border-radius: 40px;
   border-style: none;
   box-shadow: 2px 2px 2px #DDD;
+  cursor: pointer;
   color: #FFF;
   background-color: #202438;
 }
 
 .disable {
   background-color: #687096;
+  cursor: initial;
+}
+
+@media screen and (min-width: 565px) {
+  :host {
+    position: relative;
+  }
+
+  button {
+    position: absolute;
+  }
 }

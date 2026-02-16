@@ -1,5 +1,5 @@
 import { Option } from '@/app/shared/types/option';
-import { Component, inject, input, signal } from '@angular/core';
+import { Component, inject, input, output, signal } from '@angular/core';
 import { ResultService } from '../../services/result.service';
 
 @Component({
@@ -20,9 +20,5 @@ export class OptionButton {
 
   protected haveAnsware() : boolean {
     return this.service.getHaveAnsware
-  }
-
-  protected answerResultClass() : string {
-    return this.option().isCorrect ? "correct_button" : "fail_button";
   }
 }

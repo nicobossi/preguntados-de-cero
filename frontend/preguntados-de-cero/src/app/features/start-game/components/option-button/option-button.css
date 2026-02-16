@@ -1,11 +1,14 @@
 
 
 :host {
+  display: grid;
+  place-items: center;
   width: 100%;
 }
 
 button {
   width: 100%;
+  max-width: 320px;
   height: 40px;
   font-weight: bold;
   border-radius: 40px;
@@ -21,4 +24,11 @@ button {
 
 .correct_button {
   background: var(--assert-gradient);
+}
+
+@media screen and (min-width: 566px) {
+  button {
+    height: 80px;
+    border-radius: 20px;
+  }
 }
