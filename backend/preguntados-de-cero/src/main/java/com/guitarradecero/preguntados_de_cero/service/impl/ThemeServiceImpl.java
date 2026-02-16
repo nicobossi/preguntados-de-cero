@@ -43,4 +43,8 @@ public class ThemeServiceImpl implements ThemeService {
 
         return getThemeDao().save(theme);
     }
+
+    void clearAll(){
+        getThemeDAO().deleteAll();
+    }
 }
