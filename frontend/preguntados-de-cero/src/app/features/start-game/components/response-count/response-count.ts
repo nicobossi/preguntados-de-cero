@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { ResultService } from '../../services/result.service';
+import { GameService } from '../../services/game.service';
 
 @Component({
   selector: 'app-response-count',
@@ -8,7 +8,7 @@ import { ResultService } from '../../services/result.service';
 })
 export class ResponseCount {
 
-  service = inject(ResultService);
+  service = inject(GameService);
 
   protected totalAnswers() : number {
     return this.service.getTotalAnswers;

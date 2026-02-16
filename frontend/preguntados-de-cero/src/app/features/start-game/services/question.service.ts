@@ -1,7 +1,7 @@
 import { Question } from "@/app/shared/types/question";
 import { HttpClient } from "@angular/common/http";
 import { inject, Injectable, signal } from "@angular/core";
-import { ResultService } from "./result.service";
+import { GameService } from "./game.service";
 
 
 @Injectable({
@@ -9,7 +9,7 @@ import { ResultService } from "./result.service";
 })
 export class QuestionService {
 
-  private resultService = inject(ResultService);
+  private resultService = inject(GameService);
   private http = inject(HttpClient)
   private path = "http://localhost:8080/api/question"
   private isLoading = signal<boolean>(false);

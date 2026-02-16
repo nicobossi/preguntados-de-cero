@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { ResponseCount as AnswersCount } from "../response-count/response-count";
 import { QuestionContent } from "../question-content/question-content";
-import { ResultService } from '../../services/result.service';
+import { GameService } from '../../services/game.service';
 
 @Component({
   selector: 'app-question-container',
@@ -11,9 +11,17 @@ import { ResultService } from '../../services/result.service';
 })
 export class QuestionContainer {
 
-  protected service = inject(ResultService);
+  protected service = inject(GameService);
 
   protected statement() : string {
     return this.service.currentStatement();
+  }
+
+  protected haveResult() : boolean | null {
+    return this.service.getHaveAnsware;
+  }
+
+  protected resultClass() : string {
+    return this.service.isCorrectResult ? "correct" : "fail";
   }
 }

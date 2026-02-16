@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { ResultService } from '../../services/result.service';
+import { GameService } from '../../services/game.service';
 
 @Component({
   selector: 'app-next-button',
@@ -9,7 +9,7 @@ import { ResultService } from '../../services/result.service';
 })
 export class NextButton {
 
-  private service = inject(ResultService);
+  private service = inject(GameService);
 
   protected haveAnswer() : boolean {
     return this.service.getHaveAnsware;

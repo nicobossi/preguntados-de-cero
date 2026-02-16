@@ -1,4 +1,4 @@
-<section P>
+<section [class]="haveResult() ? resultClass() : 'container-without-result'">
   <app-response-count />
   <app-question-content [statment]=statement()/>
 </section>

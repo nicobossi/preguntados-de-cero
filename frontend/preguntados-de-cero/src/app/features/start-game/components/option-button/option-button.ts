@@ -1,6 +1,5 @@
 import { Option } from '@/app/shared/types/option';
-import { Component, inject, input, output, signal } from '@angular/core';
-import { ResultService } from '../../services/result.service';
+import { Component, input, output, signal } from '@angular/core';
 
 @Component({
   selector: 'app-option-button',
@@ -10,15 +9,12 @@ import { ResultService } from '../../services/result.service';
 export class OptionButton {
 
   option = input.required<Option>();
-  service = inject(ResultService);
+  haveResult = input.required<boolean>();
+  onSubmitAnswer = output<Option>();
   protected isFail = signal<boolean>(false);
 
   protected onAnswer() : void {
     if(!this.option().isCorrect) this.isFail.set(true);
-    this.service.registerAnswer(this.option());
-  }
-
-  protected haveAnsware() : boolean {
-    return this.service.getHaveAnsware
+    this.onSubmitAnswer.emit(this.option());
   }
 }
