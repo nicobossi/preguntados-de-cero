@@ -4,18 +4,18 @@ import { Injectable, signal } from "@angular/core";
 
 
 @Injectable()
-export class ResultService {
+export class OptionService {
 
   private haveAnswer = signal<boolean>(false);
-  private isCorrectAnswer = signal<boolean | null>(null);
+  private correctOption = signal<boolean | null>(null);
 
-  registerTo(option : Option) : void {
+  validateTo(option : Option) : void {
     this.haveAnswer.set(true);
-    this.isCorrectAnswer.set(option.isCorrect);
+    this.correctOption.set(option.isCorrect);
   }
 
-  isCorrectResult(): boolean | null {
-    return this.haveAnswer() && this.isCorrectAnswer()
+  isCorrectOption(): boolean | null {
+    return this.haveAnswer() && this.correctOption()
   }
 
   get getHaveAnswer() : boolean {
@@ -24,6 +24,6 @@ export class ResultService {
 
   refresh() {
     this.haveAnswer.set(false);
-    this.isCorrectAnswer.set(null);
+    this.correctOption.set(null);
   }
 }

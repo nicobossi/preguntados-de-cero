@@ -2,7 +2,9 @@ import { Option } from "@/app/shared/types/option";
 import { Injectable, signal } from "@angular/core";
 
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class CounterService {
   private totalAnswers = signal<number>(0);
   private totalCorrectAnswers = signal<number>(0);

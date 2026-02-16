@@ -1,23 +1,27 @@
 import { Option } from "@/app/shared/types/option";
 import { Question } from "@/app/shared/types/question";
 import { inject, Injectable, signal } from "@angular/core";
-import { CounterService } from "./counter.service";
-import { ResultService } from "./result.service";
+import { CounterService } from "../../../core/services/counter-game/counter.service";
+import { OptionService } from "./option.service";
+import { ResultService } from "@/app/core/services/result-game/result.service";
 
 
 @Injectable()
 export class GameService {
   private questions = signal<Question[]>([]);
-  private resultService = inject(ResultService);
+  private optionService = inject(OptionService);
   private counterService = inject(CounterService);
+  private resultService = inject(ResultService);
   private index = 0;
 
   setQuestions(questions : Question[]) {
     this.questions.set(questions);
+    this.resultService.refresh();
   }
 
   registerAnswer(option : Option) {
-    this.resultService.registerTo(option);
+    this.optionService.validateTo(option);
+    this.resultService.registerTo(this.currentQuestion(), option, this.currentWinningOption());
     this.counterService.countTo(option);
   }
 
@@ -30,16 +34,16 @@ export class GameService {
   }
 
   goNextQuestion() : void {
-    this.resultService.refresh();
+    this.optionService.refresh();
     this.index++;
   }
 
   get isCorrectResult() : boolean | null {
-    return this.resultService.isCorrectResult();
+    return this.optionService.isCorrectOption();
   }
 
   get getHaveAnsware() : boolean {
-    return this.resultService.getHaveAnswer;
+    return this.optionService.getHaveAnswer;
   }
 
   get getTotalAnswers() : number {
@@ -55,7 +59,11 @@ export class GameService {
   }
 
   private currentQuestion() : Question {
-    if(this.questions().length !== 0) return this.questions()[this.index];
-    else throw new Error("error al cargar la pregunta"); //acá navega a la otra pagina
+    if(this.questions().length > this.index) return this.questions()[this.index];
+    else throw new Error("error al cargar la pregunta");
+  }
+
+  private currentWinningOption() : Option {
+    return this.currentQuestion().options.find(option => option.isCorrect) as Option;
   }
 }
