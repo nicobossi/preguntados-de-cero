@@ -1,11 +1,15 @@
 package com.guitarradecero.preguntados_de_cero.model.theme;
 
 import com.guitarradecero.preguntados_de_cero.model.difficulty.Difficulty;
+import com.guitarradecero.preguntados_de_cero.model.question.Question;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static jakarta.persistence.GenerationType.AUTO;
 

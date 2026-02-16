@@ -1,0 +1,9 @@
+<button
+  (click)="onAnswer()"
+  [disabled]="haveResult()"
+  [class]="{
+    'fail_button': isFail(),
+    'correct_button': haveResult() && option().isCorrect
+  }">
+  {{option().text}}
+</button>

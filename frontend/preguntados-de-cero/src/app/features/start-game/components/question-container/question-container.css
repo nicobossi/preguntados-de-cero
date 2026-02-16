@@ -1,0 +1,23 @@
+
+:host {
+  width: 100%;
+  height: 100%;
+}
+
+.container-without-result, .correct, .fail {
+  display: grid;
+  width: 100%;
+  height: 100%;
+}
+
+.container-without-result {
+  background-color: #C6CAF0;
+}
+
+.correct {
+  background: var(--assert-gradient);
+}
+
+.fail {
+  background: var(--fail-gradient);
+}

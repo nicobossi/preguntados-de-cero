@@ -1,0 +1,13 @@
+<section>
+  <div class="option-list_buttons">
+    <div class="option-list_buttons--text">
+      @for(option of options(); track option.text) {
+        <app-option-button
+          [option]="option"
+          [haveResult]="haveResult()"
+          (onSubmitAnswer)="onAnswer($event)"/>
+    }
+    </div>
+    <app-next-button />
+  </div>
+</section>

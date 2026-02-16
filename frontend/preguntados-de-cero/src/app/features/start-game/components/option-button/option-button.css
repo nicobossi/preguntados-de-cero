@@ -1,0 +1,39 @@
+
+
+:host {
+  display: grid;
+  place-items: center;
+  width: 100%;
+}
+
+button {
+  width: 100%;
+  max-width: 320px;
+  height: 40px;
+  font-weight: bold;
+  border-radius: 40px;
+  border-style: none;
+  box-shadow: 2px 2px 2px #DDD;
+  cursor: pointer;
+  background-color: #FFF;
+  transition: box-shadow 0.2s;
+}
+
+button:hover {
+  box-shadow: 2px 2px 6px #AAA;
+}
+
+.fail_button {
+  background: var(--fail-gradient);
+}
+
+.correct_button {
+  background: var(--assert-gradient);
+}
+
+@media screen and (min-width: 566px) {
+  button {
+    height: 80px;
+    border-radius: 20px;
+  }
+}

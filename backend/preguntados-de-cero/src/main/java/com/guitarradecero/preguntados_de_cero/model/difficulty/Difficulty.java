@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import static jakarta.persistence.GenerationType.AUTO;
@@ -15,7 +16,6 @@ import static jakarta.persistence.GenerationType.AUTO;
 @Getter
 @Setter(AccessLevel.PRIVATE)
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-
 @Entity
 public class Difficulty {
 
@@ -31,5 +31,10 @@ public class Difficulty {
 
     public Difficulty(Integer level) {
         setLevel(level);
+    }
+
+    public void addTheme(Theme theme) {
+        getThemes().add(theme);
+        theme.asociateDifficulty(this);
     }
 }

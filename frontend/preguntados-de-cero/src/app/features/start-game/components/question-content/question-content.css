@@ -1,0 +1,24 @@
+
+
+:host {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+div {
+  display: grid;
+  place-items: center;
+  align-self: self-start;
+  width: 80%;
+  max-width: 740px;
+  height: 90%;
+  border-radius: 10px;
+  background-color: #FFF;
+}
+
+p {
+  padding: 5px;
+  text-align: center;
+}
