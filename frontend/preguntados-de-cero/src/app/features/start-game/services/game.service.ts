@@ -4,11 +4,6 @@ import { inject, Injectable, signal } from "@angular/core";
 import { CounterService } from "./counter.service";
 
 
-/*
-  - Contador de preguntas y de respuestas correctas.
-  - sabe si se respondió la pregunta o no.
-  - navega entre las opciones.
-*/
 @Injectable({
   providedIn: 'root'
 })
@@ -20,7 +15,11 @@ export class GameService {
   private index = 0;
 
   setQuestions(questions : Question[]) {
+    this.haveAnswer.set(false);
+    this.isCorrectAnswer.set(null);
+    this.questionsCounter.init();
     this.questions.set(questions);
+    this.index = 0;
   }
 
   registerAnswer(option : Option) {
