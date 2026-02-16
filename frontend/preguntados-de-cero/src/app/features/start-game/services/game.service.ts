@@ -2,30 +2,23 @@ import { Option } from "@/app/shared/types/option";
 import { Question } from "@/app/shared/types/question";
 import { inject, Injectable, signal } from "@angular/core";
 import { CounterService } from "./counter.service";
+import { ResultService } from "./result.service";
 
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class GameService {
   private questions = signal<Question[]>([]);
-  private haveAnswer = signal<boolean>(false);
-  private isCorrectAnswer = signal<boolean | null>(null);
-  private questionsCounter = inject(CounterService);
+  private resultService = inject(ResultService);
+  private counterService = inject(CounterService);
   private index = 0;
 
   setQuestions(questions : Question[]) {
-    this.haveAnswer.set(false);
-    this.isCorrectAnswer.set(null);
-    this.questionsCounter.init();
     this.questions.set(questions);
-    this.index = 0;
   }
 
   registerAnswer(option : Option) {
-    this.haveAnswer.set(true);
-    this.isCorrectAnswer.set(option.isCorrect);
-    this.questionsCounter.countTo(option);
+    this.resultService.registerTo(option);
+    this.counterService.countTo(option);
   }
 
   currentStatement() : string {
@@ -37,25 +30,24 @@ export class GameService {
   }
 
   goNextQuestion() : void {
-    this.haveAnswer.set(false);
-    this.isCorrectAnswer.set(null);
+    this.resultService.refresh();
     this.index++;
   }
 
   get isCorrectResult() : boolean | null {
-    return this.haveAnswer() && this.isCorrectAnswer();
+    return this.resultService.isCorrectResult();
   }
 
   get getHaveAnsware() : boolean {
-    return this.haveAnswer();
+    return this.resultService.getHaveAnswer;
   }
 
   get getTotalAnswers() : number {
-    return this.questionsCounter.getTotal;
+    return this.counterService.getTotal;
   }
 
   get getCorrectAnswers() : number {
-    return this.questionsCounter.getTotalCorrectAnswers;
+    return this.counterService.getTotalCorrectAnswers;
   }
 
   get getCountQuestions() : number {
