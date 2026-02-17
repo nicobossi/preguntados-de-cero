@@ -7,23 +7,27 @@ import { NavegateService } from "../navegate/navegate.services";
   providedIn: 'root'
 })
 export class LoadStateService<T> {
+
   private isLoading = signal<boolean>(false);
   private data = signal<T | null>(null);
   private navegate = inject(NavegateService);
 
-  handleResponse(observable : Observable<T>) {
-    observable.subscribe({
-      next: data => this.data.set(data),
+  handleResponse(execute : () => Observable<T>, save? : (data : T) => void) {
+
+    this.isLoading.set(true);
+
+    execute().subscribe({
+      next: data => save ? save(data) : this.data.set(data),
       error: error => this.navegate.goErrorLoad(error),
       complete: () => this.isLoading.set(false)
     });
   }
 
-  initLoad() : void {
-    this.isLoading.set(true);
-  }
-
   get getData() : T | null {
     return this.data();
+  }
+
+  get getIsLoading() : boolean {
+    return this.isLoading();
   }
 }

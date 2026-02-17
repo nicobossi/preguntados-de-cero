@@ -25,6 +25,6 @@ export class StartGame {
   private router = inject(ActivatedRoute);
 
   ngOnInit() {
-    this.router.params.subscribe(params => this.questionsService.execute(params["themeId"]));
+    this.router.params.subscribe(params => this.questionsService.getAll(params["themeId"]));
   }
 }

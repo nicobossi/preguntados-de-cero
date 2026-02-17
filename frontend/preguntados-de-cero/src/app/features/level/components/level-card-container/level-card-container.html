@@ -1,6 +1,6 @@
 <section>
   <div>
-    @for(difficulty of getDifficulties; track difficulty) {
+    @for(difficulty of getDifficulties; track difficulty.id) {
       <app-level-card [difficulty]="difficulty"/>
     }
   </div>

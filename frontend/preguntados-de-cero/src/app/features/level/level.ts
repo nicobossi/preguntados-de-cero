@@ -6,6 +6,7 @@ import { LevelService } from './services/level/level.service';
 @Component({
   selector: 'app-level',
   imports: [AppHeader, LevelCardContainer],
+  providers: [LevelService],
   templateUrl: './level.html',
   styleUrl: './level.css'
 })

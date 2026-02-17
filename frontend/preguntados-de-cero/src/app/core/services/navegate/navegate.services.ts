@@ -15,7 +15,6 @@ export class NavegateService {
   }
 
   goTheme(id : number) : void {
-    console.log('Dificultad elegida: ', id);
     this.router.navigate([THEME_URL, id]);
   }
 
