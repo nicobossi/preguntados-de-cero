@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {Card} from '@/app/features/error-page/components/card/card';
+import {Card} from '@/app/core/pages/error-page/components/card/card';
 
 @Component({
   selector: 'app-error-page',
