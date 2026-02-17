@@ -22,4 +22,8 @@ export class NavegateService {
   goQuestion(id : number) : void {
     this.router.navigate([QUESTION_URL, id]);
   }
+
+  goErrorLoad(error : unknown) : void {
+
+  }
 }
