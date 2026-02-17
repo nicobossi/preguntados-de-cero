@@ -9,14 +9,13 @@ section {
   place-items: center;
   width: 100%;
   height: 100%;
-  background-color: #F1F1F1;
 }
 
 .option-list_buttons {
   display: grid;
   place-items: center;
   width: 80%;
-  height: 80%;
+  height: 90%;
 }
 
 .option-list_buttons--text {
@@ -29,10 +28,9 @@ section {
 }
 
 @media screen and (min-width: 565px) {
+
   .option-list_buttons--text {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    max-width: 740px;
   }
 }
