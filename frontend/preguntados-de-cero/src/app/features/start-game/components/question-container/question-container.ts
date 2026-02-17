@@ -16,12 +16,4 @@ export class QuestionContainer {
   protected statement() : string {
     return this.service.currentStatement();
   }
-
-  protected haveResult() : boolean | null {
-    return this.service.getHaveAnsware;
-  }
-
-  protected resultClass() : string {
-    return this.service.isCorrectResult ? "correct" : "fail";
-  }
 }

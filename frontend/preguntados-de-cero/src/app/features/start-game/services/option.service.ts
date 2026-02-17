@@ -1,5 +1,5 @@
 import { Option } from "@/app/shared/types/option";
-import { Injectable, signal } from "@angular/core";
+import { Injectable, Signal, signal } from "@angular/core";
 
 
 
@@ -20,6 +20,10 @@ export class OptionService {
 
   get getHaveAnswer() : boolean {
     return this.haveAnswer()
+  }
+
+  isCorrectResultSignal(): Signal<boolean> {
+    return this.haveAnswer.asReadonly();
   }
 
   refresh() {
