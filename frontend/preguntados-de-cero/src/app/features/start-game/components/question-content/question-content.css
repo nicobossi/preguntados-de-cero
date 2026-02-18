@@ -12,13 +12,41 @@ div {
   place-items: center;
   align-self: self-start;
   width: 80%;
-  max-width: 740px;
   height: 90%;
-  border-radius: 10px;
+  border-radius: 16px;
+  box-shadow: 2px 2px 4px #CCC;
   background-color: #FFF;
+  transition:
+    box-shadow 0.2s,
+    font-weight 0.4s,
+    transform 0.4s ease
+}
+
+div:hover {
+  font-weight: 500;
+  box-shadow: none;
+  transform: scale(1.02, 1.02);
 }
 
 p {
   padding: 5px;
   text-align: center;
 }
+
+@media screen and (min-width: 564px) {
+
+  div {
+    width: 92%;
+  }
+}
+
+
+@media screen and (min-width: 1200px) {
+
+  :host {
+    height: 80%;
+    align-self: end;
+  }
+}
+
+

@@ -1,0 +1,53 @@
+
+
+:host {
+  height: 100%;
+}
+
+.correct_answer-container {
+  display: none;
+  color: #111;
+  background: var(--oro-gradient);
+  transition:
+    box-shadow 0.2s,
+    font-weight 0.4s,
+    transform 0.4s ease
+}
+
+.correct_answer-container:hover {
+  font-weight: 500;
+  box-shadow: none;
+  transform: scale(1.02, 1.02);
+}
+
+@media screen and (min-width: 564px) {
+
+  .correct_answer-container {
+    height: 100%;
+    display: grid;
+    place-items: center;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 4px #CCC;
+  }
+
+  .correct_answer-container div {
+    width: 100%;
+    max-width: 260px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .correct_answer-container {
+    min-width: 46%;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+
+  .correct_answer-container {
+    min-width: 20vw;
+  }
+}

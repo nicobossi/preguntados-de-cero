@@ -8,23 +8,7 @@
 
 section {
   width: 80%;
-  max-width: 300px;
   height: 50%;
-}
-
-.total_answer-container {
-  height: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-left: 10px;
-  padding-right: 10px;
-  border-radius: 10px;
-  background-color: #FFF;
-}
-
-.correct_answer-container {
-  display: none;
 }
 
 @media screen and (min-width: 564px) {
@@ -32,22 +16,20 @@ section {
     display: flex;
     justify-content: space-evenly;
     width: 100%;
-    max-width: 1000px;
+    max-width: none;
   }
+}
 
-  .correct_answer-container {
-    height: 100%;
-    display: flex;
+@media screen and (min-width: 1200px) {
+  :host {
+    position: absolute;
+    left: 0;
+    top: 10%;
+    width: 100vw;
+    height: 30%;
+  }
+  section {
+    width: 95%;
     justify-content: space-between;
-    align-items: center;
-    padding-left: 10px;
-    padding-right: 10px;
-    border-radius: 10px;
-    background-color: #FFF;
-  }
-
-  .total_answer-container, .correct_answer-container {
-    width: 30%;
-    min-width: 240px;
   }
 }
