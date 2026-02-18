@@ -1,12 +1,14 @@
 import { Component, inject } from '@angular/core';
 import { GameService } from '../../services/game.service';
 import { GradientResultDirective } from "../../directives/gradient-result";
+import { TotalCounter } from "../total-counter/total-counter";
+import { AssertsCounter } from "../asserts-counter/asserts-counter";
 
 @Component({
   selector: 'app-response-count',
   templateUrl: './response-count.html',
   styleUrl: './response-count.css',
-  imports: [GradientResultDirective],
+  imports: [TotalCounter, AssertsCounter],
 })
 export class ResponseCount {
 

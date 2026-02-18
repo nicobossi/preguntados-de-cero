@@ -1,9 +1,11 @@
 
 
 :host {
-  display: block;
+  display: grid;
+  place-items: center;
   width: 100vw;
   height: 100vh;
+  background-color: #F1F1F1;
 }
 
 section {
@@ -11,20 +13,26 @@ section {
   height: 100%;
   display: grid;
   grid-template-rows: 40% 60%;
-  background-color: #F1F1F1;
 }
 
+@media screen and (min-width: 564px) {
+  section {
+    max-width: 80%;
+  }
+}
 
 @media screen and (min-width: 768px) {
   :host {
     display: grid;
     place-items: center;
+    background-color: #FFF;
   }
 
   section {
     grid-template-rows: 45% 55%;
     max-width: 70%;
     box-shadow: 2px 2px 12px #CCC;
+    background-color: #F1F1F1;
   }
 }
 
