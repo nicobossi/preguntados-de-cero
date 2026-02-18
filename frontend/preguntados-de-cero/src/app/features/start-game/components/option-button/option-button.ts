@@ -1,10 +1,11 @@
 import { Option } from '@/app/shared/types/option';
 import { Component, input, output, signal } from '@angular/core';
 
+
 @Component({
   selector: 'app-option-button',
   templateUrl: './option-button.html',
-  styleUrl: './option-button.css',
+  styleUrl: './option-button.css'
 })
 export class OptionButton {
 

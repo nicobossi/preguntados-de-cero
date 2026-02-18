@@ -1,6 +1,6 @@
 import { Option } from "@/app/shared/types/option";
 import { Question } from "@/app/shared/types/question";
-import { inject, Injectable, signal } from "@angular/core";
+import { inject, Injectable, Signal, signal } from "@angular/core";
 import { CounterService } from "../../../core/services/counter-game/counter.service";
 import { OptionService } from "./option.service";
 import { ResultService } from "@/app/core/services/result-game/result.service";
@@ -43,6 +43,10 @@ export class GameService {
 
   get isCorrectResult() : boolean | null {
     return this.optionService.isCorrectOption();
+  }
+
+  get isCorrectResultSignal() : Signal<boolean> {
+    return this.optionService.isCorrectResultSignal();
   }
 
   get getHaveAnsware() : boolean {

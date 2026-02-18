@@ -1,10 +1,4 @@
 <section>
-  <div class="total_answer-container">
-    <p>Preguntas respondidas:</p>
-    <p>{{totalAnswers()}} / {{totalQuestions()}}</p>
-  </div>
-  <div class="correct_answer-container">
-    <p>Preguntas correctas:</p>
-    <p>{{totalCorrectAnswers()}} / {{totalQuestions()}}</p>
-  </div>
+  <app-total-counter [totalAnswers]="totalAnswers()" [totalQuestions]="totalQuestions()" />
+  <app-asserts-counter [totalCorrectAnswers]="totalCorrectAnswers()" [totalQuestions]="totalQuestions()" />
 </section>

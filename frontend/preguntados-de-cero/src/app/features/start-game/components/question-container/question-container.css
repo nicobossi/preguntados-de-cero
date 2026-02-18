@@ -1,23 +1,26 @@
 
 :host {
+  display: grid;
+  place-items: center;
   width: 100%;
   height: 100%;
 }
 
-.container-without-result, .correct, .fail {
+section {
   display: grid;
   width: 100%;
+  max-width: 400px;
   height: 100%;
 }
 
-.container-without-result {
-  background-color: #C6CAF0;
+@media screen and (min-width: 564px) {
+  section {
+    max-width: 500px;
+  }
 }
 
-.correct {
-  background: var(--assert-gradient);
-}
-
-.fail {
-  background: var(--fail-gradient);
+@media screen and (min-width: 1200px) {
+  section {
+    max-width: 80%;
+  }
 }
