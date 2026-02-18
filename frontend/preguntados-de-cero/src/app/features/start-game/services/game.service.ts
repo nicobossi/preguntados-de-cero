@@ -4,6 +4,7 @@ import { inject, Injectable, signal } from "@angular/core";
 import { CounterService } from "../../../core/services/counter-game/counter.service";
 import { OptionService } from "./option.service";
 import { ResultService } from "@/app/core/services/result-game/result.service";
+import {NavegateService} from '@/app/core/services/navegate/navegate.services';
 
 
 @Injectable()
@@ -13,10 +14,12 @@ export class GameService {
   private counterService = inject(CounterService);
   private resultService = inject(ResultService);
   private index = 0;
+  private navegateService = inject(NavegateService)
 
   setQuestions(questions : Question[]) {
     this.questions.set(questions);
     this.resultService.refresh();
+    this.counterService.refresh();
   }
 
   registerAnswer(option : Option) {
@@ -35,7 +38,7 @@ export class GameService {
 
   goNextQuestion() : void {
     this.optionService.refresh();
-    this.index++;
+    this.navegateIfLastquestion();
   }
 
   get isCorrectResult() : boolean | null {
@@ -65,5 +68,13 @@ export class GameService {
 
   private currentWinningOption() : Option {
     return this.currentQuestion().options.find(option => option.isCorrect) as Option;
+  }
+
+  private navegateIfLastquestion() {
+    if(this.index + 1 == this.questions().length){
+      this.navegateService.goRecap();
+    } else {
+      this.index++;
+    }
   }
 }

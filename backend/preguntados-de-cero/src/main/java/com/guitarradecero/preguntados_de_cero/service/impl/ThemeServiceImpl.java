@@ -45,6 +45,6 @@ public class ThemeServiceImpl implements ThemeService {
     }
 
     void clearAll(){
-        getThemeDAO().deleteAll();
+        getThemeDao().deleteAll();
     }
 }

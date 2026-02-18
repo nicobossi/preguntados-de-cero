@@ -13,7 +13,6 @@ import { OptionService } from './services/option.service';
   providers: [
     QuestionService,
     GameService,
-    CounterService,
     OptionService
   ],
   templateUrl: './start-game.html',
@@ -23,6 +22,7 @@ export class StartGame {
 
   questionsService = inject(QuestionService);
   private router = inject(ActivatedRoute);
+
 
   ngOnInit() {
     this.router.params.subscribe(params => this.questionsService.getAll(params["themeId"]));

@@ -21,4 +21,9 @@ export class CounterService {
   get getTotalCorrectAnswers() : number {
     return this.totalCorrectAnswers();
   }
+
+  refresh() {
+    this.totalAnswers.set(0);
+    this.totalCorrectAnswers.set(0);
+  }
 }

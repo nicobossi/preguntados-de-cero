@@ -1,4 +1,4 @@
-import { LEVEL_URL, QUESTION_URL, THEME_URL } from "@/app/shared/routes/routes";
+import {LEVEL_URL, QUESTION_URL, RECAP_URL, THEME_URL} from "@/app/shared/routes/routes";
 import { inject, Injectable } from "@angular/core";
 import { Router } from "@angular/router";
 
@@ -24,5 +24,9 @@ export class NavegateService {
 
   goErrorLoad(error : unknown) : void {
 
+  }
+
+  goRecap(){
+    this.router.navigate([RECAP_URL]);
   }
 }
