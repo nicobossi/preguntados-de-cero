@@ -7,12 +7,9 @@
 
 @keyframes move-container {
   0% {
-    height: 100%;
+    transform: translateY(-200%);
   }
-  2% {
-    height: 0%;
-  }
-  4% {
-    height: 50%;
+  8% {
+    transform: translateY(-0%);
   }
 }
