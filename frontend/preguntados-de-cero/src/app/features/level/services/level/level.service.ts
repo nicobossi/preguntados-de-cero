@@ -1,40 +1,26 @@
 import { HttpClient } from "@angular/common/http";
-import { inject, Injectable, signal } from "@angular/core";
+import { inject, Injectable } from "@angular/core";
 import Difficulty from "../../../../shared/types/difficulty";
-import { Observable } from "rxjs";
+import { LoadStateService } from "@/app/core/services/load-state/load-state.service";
 
 
-@Injectable({providedIn: 'root'})
+@Injectable()
 export class LevelService {
 
   private url : string = "http://localhost:8080/api/difficulty";
   private httpClient = inject(HttpClient);
-  private difficulties = signal<Difficulty[]>([]);
-  private isLoading = signal<boolean>(false);
-  private isError = signal<boolean>(false);
+  private loadService = inject(LoadStateService<Difficulty>);
 
   getAll() : void {
-
-    this.isLoading.set(true);
-    const response : Observable<Difficulty[]> = this.httpClient.get<Difficulty[]>(this.url);
-
-    response.subscribe({
-      next: (difficulties : Difficulty[]) => this.difficulties.set(difficulties),
-      error: (error : unknown) => this.isError.set(true),
-      complete: () => this.isLoading.set(false)
-    })
+    this.loadService.handleResponse(() => this.httpClient.get<Difficulty[]>(this.url));
   }
 
   get getDifficulties() : Difficulty[] {
-    return this.difficulties();
-  }
-
-  get getIsError() : boolean {
-    return this.isError();
+    return this.loadService.getData;
   }
 
   get getIsLoading() : boolean {
-    return this.isLoading();
+    return this.loadService.getIsLoading;
   }
 }
 

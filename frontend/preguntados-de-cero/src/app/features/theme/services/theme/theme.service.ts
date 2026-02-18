@@ -1,39 +1,27 @@
-import {inject, Injectable, signal} from '@angular/core';
+import {inject, Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Observable} from 'rxjs';
 import GameTheme from '@/app/shared/types/gameTheme';
+import { LoadStateService } from '@/app/core/services/load-state/load-state.service';
+
 
 @Injectable({
   providedIn: 'root',
 })
 export class ThemeService {
+
   private http = inject(HttpClient);
   private baseUrl: string = 'http://localhost:8080/api/theme';
-  private themes = signal<GameTheme[]>([]);
-  private isLoading = signal<boolean>(false);
-  private isError = signal<boolean>(false);
+  private loadService = inject(LoadStateService);
 
   getAllByDifficultyId(difficultyId: string) : void {
-
-    this.isLoading.set(true);
-    const response : Observable<GameTheme[]> = this.http.get<GameTheme[]>(`${this.baseUrl}/${difficultyId}`);
-
-    response.subscribe({
-      next: (themes : GameTheme[]) => this.themes.set(themes),
-      error: (error : unknown) => this.isError.set(true),
-      complete: () => this.isLoading.set(false)
-    })
+    this.loadService.handleResponse(() => this.http.get<GameTheme[]>(`${this.baseUrl}/${difficultyId}`));
   }
 
   get getThemes() : GameTheme[] {
-    return this.themes();
-  }
-
-  get getIsError() : boolean {
-    return this.isError();
+    return this.loadService.getData;
   }
 
   get getIsLoading() : boolean {
-    return this.isLoading();
+    return this.loadService.getIsLoading;
   }
 }

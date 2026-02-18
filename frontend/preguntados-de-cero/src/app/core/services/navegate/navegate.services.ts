@@ -15,11 +15,14 @@ export class NavegateService {
   }
 
   goTheme(id : number) : void {
-    console.log('Dificultad elegida: ', id);
     this.router.navigate([THEME_URL, id]);
   }
 
   goQuestion(id : number) : void {
     this.router.navigate([QUESTION_URL, id]);
+  }
+
+  goErrorLoad(error : unknown) : void {
+
   }
 }

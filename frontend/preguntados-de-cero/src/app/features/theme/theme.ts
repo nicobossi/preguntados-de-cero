@@ -19,10 +19,8 @@ export class Theme {
 
   constructor() {
     this.route.params.subscribe(params => {
-      const difficultyId = params['difficultyId']; // saco el parametro del path
-      console.log('id de dificultad recibido: ', difficultyId); // debug borrar desp
+      const difficultyId = params['difficultyId'];
       this.themeService.getAllByDifficultyId(difficultyId);
     });
   }
-
 }

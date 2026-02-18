@@ -1,31 +1,26 @@
 import { Question } from "@/app/shared/types/question";
 import { HttpClient } from "@angular/common/http";
-import { inject, Injectable, signal } from "@angular/core";
+import { inject, Injectable } from "@angular/core";
 import { GameService } from "./game.service";
+import { LoadStateService } from "@/app/core/services/load-state/load-state.service";
 
 
 @Injectable()
 export class QuestionService {
 
-  private resultService = inject(GameService);
-  private http = inject(HttpClient)
-  private path = "http://localhost:8080/api/question"
-  private isLoading = signal<boolean>(false);
-  private isError = signal<boolean>(false);
+  private gameService = inject(GameService);
+  private http = inject(HttpClient);
+  private loadService = inject(LoadStateService<GameService>);
+  private path = "http://localhost:8080/api/question";
 
-  execute(themeId : number) : void {
+  getAll(themeId : number) : void {
 
-    this.isLoading.set(true);
-    const response = this.http.get<Question[]>(`${this.path}/${themeId}`);
-
-    response.subscribe({
-      next: (questions : Question[]) => this.resultService.setQuestions(questions),
-      error: (_ : unknown) => this.isError.set(true),
-      complete: () => this.isLoading.set(false)
-    })
+    this.loadService.handleResponse(
+      () => this.http.get<Question[]>(`${this.path}/${themeId}`),
+      (data) => this.gameService.setQuestions(data));
   }
 
   get getIsLoading() : boolean {
-    return this.isLoading()
+    return this.loadService.getIsLoading;
   }
 }
