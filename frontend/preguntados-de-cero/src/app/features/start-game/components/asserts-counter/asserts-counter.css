@@ -6,8 +6,8 @@
 
 .correct_answer-container {
   display: none;
-  color: #FFF;
-  background: var(--play-gradient);
+  color: #111;
+  background: var(--oro-gradient);
   transition:
     box-shadow 0.2s,
     font-weight 0.4s,
