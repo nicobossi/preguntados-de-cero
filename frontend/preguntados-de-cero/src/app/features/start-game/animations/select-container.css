@@ -1,0 +1,36 @@
+
+
+.select-container:hover {
+  animation: stop-card 0.5s forwards;
+}
+
+@keyframes move-card{
+  0% {
+    box-shadow: 0 5px 15px 0px #666;
+    transform: translateY(0px);
+  }
+  50% {
+    box-shadow: 2px 8px 8px #AAA;
+    transform: translateY(-5px);
+  }
+  100% {
+    box-shadow: 0 5px 15px 0px #666;
+    transform: translateY(0px);
+  }
+}
+
+@keyframes stop-card {
+  0% {
+    transform: translateY(0px);
+    box-shadow: 2px 2px 4px #CCC;
+  }
+  50% {
+    transform: translateY(5px);
+    box-shadow: 0 5px 15px 0px #AAA;
+  }
+  100% {
+    font-weight: 500;
+    box-shadow: none;
+    transform: translateY(0px) scale(1.02, 1.02);
+  }
+}
