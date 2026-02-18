@@ -1,4 +1,4 @@
-import {LEVEL_URL, QUESTION_URL, RECAP_URL, THEME_URL} from "@/app/shared/routes/routes";
+import {END_GAME_URL, LEVEL_URL, QUESTION_URL, RECAP_URL, THEME_URL} from "@/app/shared/routes/routes";
 import { inject, Injectable } from "@angular/core";
 import { Router } from "@angular/router";
 
@@ -26,7 +26,11 @@ export class NavegateService {
 
   }
 
-  goRecap(){
+  goEndGame(){
+    this.router.navigate([END_GAME_URL]);
+  }
+
+  goRecap() {
     this.router.navigate([RECAP_URL]);
   }
 }

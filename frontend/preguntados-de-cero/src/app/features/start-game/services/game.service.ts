@@ -76,7 +76,7 @@ export class GameService {
 
   private navegateIfLastquestion() {
     if(this.index + 1 == this.questions().length){
-      this.navegateService.goRecap();
+      this.navegateService.goEndGame();
     } else {
       this.index++;
     }
