@@ -1,3 +1,4 @@
+@import '../../animations/move-content.css';
 
 :host {
   display: grid;

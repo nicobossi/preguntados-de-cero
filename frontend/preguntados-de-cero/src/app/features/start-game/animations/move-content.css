@@ -1,0 +1,18 @@
+
+
+.move-container {
+  animation: move-container 8s infinite;
+  animation-delay: 2s;
+}
+
+@keyframes move-container {
+  0% {
+    height: 100%;
+  }
+  2% {
+    height: 0%;
+  }
+  4% {
+    height: 50%;
+  }
+}
