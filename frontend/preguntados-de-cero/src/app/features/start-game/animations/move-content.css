@@ -10,6 +10,9 @@
     transform: translateY(-200%);
   }
   8% {
-    transform: translateY(-0%);
+    transform: translateY(20%);
+  }
+  14% {
+    transform: translateY(0%);
   }
 }
