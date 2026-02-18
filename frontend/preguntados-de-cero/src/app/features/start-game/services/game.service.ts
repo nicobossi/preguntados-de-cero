@@ -1,31 +1,28 @@
 import { Option } from "@/app/shared/types/option";
 import { Question } from "@/app/shared/types/question";
 import { inject, Injectable, signal } from "@angular/core";
-import { CounterService } from "./counter.service";
+import { CounterService } from "../../../core/services/counter-game/counter.service";
+import { OptionService } from "./option.service";
+import { ResultService } from "@/app/core/services/result-game/result.service";
 
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class GameService {
   private questions = signal<Question[]>([]);
-  private haveAnswer = signal<boolean>(false);
-  private isCorrectAnswer = signal<boolean | null>(null);
-  private questionsCounter = inject(CounterService);
+  private optionService = inject(OptionService);
+  private counterService = inject(CounterService);
+  private resultService = inject(ResultService);
   private index = 0;
 
   setQuestions(questions : Question[]) {
-    this.haveAnswer.set(false);
-    this.isCorrectAnswer.set(null);
-    this.questionsCounter.init();
     this.questions.set(questions);
-    this.index = 0;
+    this.resultService.refresh();
   }
 
   registerAnswer(option : Option) {
-    this.haveAnswer.set(true);
-    this.isCorrectAnswer.set(option.isCorrect);
-    this.questionsCounter.countTo(option);
+    this.optionService.validateTo(option);
+    this.resultService.registerTo(this.currentQuestion(), option, this.currentWinningOption());
+    this.counterService.countTo(option);
   }
 
   currentStatement() : string {
@@ -37,25 +34,24 @@ export class GameService {
   }
 
   goNextQuestion() : void {
-    this.haveAnswer.set(false);
-    this.isCorrectAnswer.set(null);
+    this.optionService.refresh();
     this.index++;
   }
 
   get isCorrectResult() : boolean | null {
-    return this.haveAnswer() && this.isCorrectAnswer();
+    return this.optionService.isCorrectOption();
   }
 
   get getHaveAnsware() : boolean {
-    return this.haveAnswer();
+    return this.optionService.getHaveAnswer;
   }
 
   get getTotalAnswers() : number {
-    return this.questionsCounter.getTotal;
+    return this.counterService.getTotal;
   }
 
   get getCorrectAnswers() : number {
-    return this.questionsCounter.getTotalCorrectAnswers;
+    return this.counterService.getTotalCorrectAnswers;
   }
 
   get getCountQuestions() : number {
@@ -63,7 +59,11 @@ export class GameService {
   }
 
   private currentQuestion() : Question {
-    if(this.questions().length !== 0) return this.questions()[this.index];
-    else throw new Error("error al cargar la pregunta"); //acá navega a la otra pagina
+    if(this.questions().length > this.index) return this.questions()[this.index];
+    else throw new Error("error al cargar la pregunta");
+  }
+
+  private currentWinningOption() : Option {
+    return this.currentQuestion().options.find(option => option.isCorrect) as Option;
   }
 }

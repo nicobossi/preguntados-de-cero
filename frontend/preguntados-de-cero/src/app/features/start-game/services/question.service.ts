@@ -4,9 +4,7 @@ import { inject, Injectable, signal } from "@angular/core";
 import { GameService } from "./game.service";
 
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class QuestionService {
 
   private resultService = inject(GameService);
