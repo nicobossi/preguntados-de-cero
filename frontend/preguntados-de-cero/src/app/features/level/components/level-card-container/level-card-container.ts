@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { LevelCard } from '../level-card/level-card';
-import { LevelService } from '../../services/level/level.service';
 import Difficulty from '@/app/shared/types/difficulty';
+import { LevelSelectorService } from '../../services/level-selector/level-selector.service';
 
 @Component({
   selector: 'app-cards-container',
@@ -11,7 +11,7 @@ import Difficulty from '@/app/shared/types/difficulty';
 })
 export class LevelCardContainer {
 
-  protected service = inject(LevelService);
+  protected service = inject(LevelSelectorService);
 
   get getDifficulties() : Difficulty[] {
     return this.service.getDifficulties;
