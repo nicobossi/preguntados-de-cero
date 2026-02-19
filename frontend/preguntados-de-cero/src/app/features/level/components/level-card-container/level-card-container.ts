@@ -13,7 +13,7 @@ export class LevelCardContainer {
 
   protected service = inject(LevelSelectorService);
 
-  get getDifficulties() : Difficulty[] {
-    return this.service.getDifficulties;
+  get getDifficulty() : Difficulty {
+    return this.service.currentLevel();
   }
 }

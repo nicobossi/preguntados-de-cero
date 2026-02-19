@@ -24,8 +24,4 @@ export class LevelSelectorService {
   currentLevel() : Difficulty {
     return this.levels()[this.index];
   }
-
-  get getDifficulties() {
-    return this.levels();
-  }
 }
