@@ -16,7 +16,6 @@ section {
   height: 100%;
   display: grid;
   place-items: center;
-  animation: move-container 6s;
 }
 
 section div {
@@ -32,7 +31,6 @@ section div {
   }
   section div {
     max-width: 80%;
-    box-shadow: 2px 2px 5px #EEE;
     background: linear-gradient(0deg,rgb(235, 237, 240) 0%, rgb(250, 250, 250) 100%);
   }
 }
@@ -41,6 +39,14 @@ section div {
   :host {
     display: grid;
     place-items: center;
+  }
+
+  :host::before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    background: var(--play-hover-border-gradient);
+    opacity: 0.2;
   }
 
   section div {
@@ -52,14 +58,5 @@ section div {
 @media screen and (min-width: 1200px) {
   section div {
     max-width: 50%;
-  }
-}
-
-@keyframes move-container {
-  0% {
-    transform: translateX(-200%);
-  }
-  5% {
-    transform: translateX(0%);
   }
 }
