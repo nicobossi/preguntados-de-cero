@@ -1,6 +1,5 @@
-<button
-  (click)="next()"
-  [disabled]="!haveAnswer()"
-  [class.disable]="!haveAnswer()">
-    siguiente
-</button>
+<app-disable-button
+  [content]="'siguiente'"
+  [isDisable]="!haveAnswer()"
+  (onEmit)="next()"
+/>

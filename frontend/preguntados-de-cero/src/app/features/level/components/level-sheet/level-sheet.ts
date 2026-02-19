@@ -7,12 +7,12 @@ import { NavegateService } from '@/app/core/services/navegate/navegate.services'
 
 
 @Component({
-  selector: 'app-level-card',
+  selector: 'app-level-sheet',
   imports: [LevelHeader, ThemeNamesContainer, LevelButton],
-  templateUrl: './level-card.html',
-  styleUrl: './level-card.css',
+  templateUrl: './level-sheet.html',
+  styleUrl: './level-sheet.css',
 })
-export class LevelCard {
+export class LevelSheet {
 
   difficulty = input.required<Difficulty>();
   navegateService = inject(NavegateService);

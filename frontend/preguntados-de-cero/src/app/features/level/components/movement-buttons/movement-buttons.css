@@ -1,0 +1,17 @@
+
+
+:host {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+section {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  max-width: 70%;
+  height: 100%;
+}
+

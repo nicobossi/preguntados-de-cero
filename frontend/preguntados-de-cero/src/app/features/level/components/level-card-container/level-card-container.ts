@@ -1,11 +1,11 @@
 import { Component, inject } from '@angular/core';
-import { LevelCard } from '../level-card/level-card';
+import { LevelSheet  } from '../level-sheet/level-sheet';
 import Difficulty from '@/app/shared/types/difficulty';
 import { LevelSelectorService } from '../../services/level-selector/level-selector.service';
 
 @Component({
   selector: 'app-cards-container',
-  imports: [LevelCard],
+  imports: [LevelSheet],
   templateUrl: './level-card-container.html',
   styleUrl: './level-card-container.css',
 })

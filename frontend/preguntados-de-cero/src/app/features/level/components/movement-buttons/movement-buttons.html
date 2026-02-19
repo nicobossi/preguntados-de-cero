@@ -1,0 +1,10 @@
+<section>
+  <app-prev-button
+    [isFirstLevel]="getIsFirstLevel"
+    (onPrevLevel)="onChangeToPrevLevel()"
+  />
+  <app-next-button
+    [isLastLevel]="getIsLastLevel"
+    (onNextLevel)="onChangeToNextLevel()"
+  />
+</section>

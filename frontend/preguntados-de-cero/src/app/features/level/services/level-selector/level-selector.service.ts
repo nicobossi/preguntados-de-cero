@@ -13,6 +13,14 @@ export class LevelSelectorService {
     this.levels.set(difficulties);
   }
 
+  changeToPrevLevel() : void {
+    this.index--;
+  }
+
+  changeToNextLevel() : void {
+    this.index++;
+  }
+
   isFirstLevel(): boolean {
     return this.levels().indexOf(this.levels()[this.index]) === 0;
   }

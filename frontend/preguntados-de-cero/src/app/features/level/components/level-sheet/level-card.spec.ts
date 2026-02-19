@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LevelCard } from './level-card';
+import { LevelCard } from './level-sheet';
 
 describe('LevelCard', () => {
   let component: LevelCard;
