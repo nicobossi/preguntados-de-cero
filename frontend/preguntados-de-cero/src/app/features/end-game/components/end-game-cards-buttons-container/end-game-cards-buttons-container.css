@@ -5,7 +5,7 @@ section{
   justify-content: center;
   width: 100%;
   min-height: 80%;
-  background-color: #DE6075;
-  gap:40px;
+  background-color: var(--clear-background);
+  gap:25px;
   padding-block: 25px;
 }

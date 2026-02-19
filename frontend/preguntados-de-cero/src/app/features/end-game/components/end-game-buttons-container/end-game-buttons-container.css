@@ -4,10 +4,10 @@
 }
 
 .egb-container{
-  background-color: #8FDAFF;
+  /*background-color: #8FDAFF;*/
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 25px;
+  gap: 15px;
 }

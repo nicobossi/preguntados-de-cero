@@ -26,11 +26,4 @@ export class EndGame {
     console.log("preguntas mal respondidas: " + this.counterService.getTotalIncorrectAnswers());
   }
 
-  private getPlayerName(): string {
-    return this.nameService.getName;
-  }
-
-  congratulations() : string {
-    return "¡Felicitaciones, " + this.getPlayerName() + "!";
-  }
 }
