@@ -1,4 +1,4 @@
-
+@import '../../animations/flash-gradient.css';
 
 :host {
   display: grid;
@@ -7,11 +7,12 @@
   height: 100%;
 }
 
-div {
+.flash-gradient {
+  position: relative;
   display: grid;
   place-items: center;
   align-self: self-start;
-  width: 80%;
+  width: 90%;
   height: 90%;
   border-radius: 16px;
   box-shadow: 2px 2px 4px #CCC;
@@ -48,5 +49,4 @@ p {
     align-self: end;
   }
 }
-
 
