@@ -1,3 +1,4 @@
+@import './animations/next-container.css';
 
 :host {
   position: relative;

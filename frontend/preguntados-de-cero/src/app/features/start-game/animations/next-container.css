@@ -1,7 +1,16 @@
 
-
+.next-container {
+  animation-name: next-container;
+  animation-duration: 0.2s;
+  animation-fill-mode: forwards;
+}
 
 
 @keyframes next-container {
-
+  from {
+    transform: translateX(-200%);
+  }
+  to {
+    transform: translateX(0%);
+  }
 }
