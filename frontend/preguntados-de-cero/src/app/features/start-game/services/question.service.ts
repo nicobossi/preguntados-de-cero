@@ -17,7 +17,7 @@ export class QuestionService {
 
     this.loadService.handleResponse(
       () => this.http.get<Question[]>(`${this.path}/${themeId}`),
-      (data) => this.gameService.setQuestions(data));
+      (dataResponse : Question[]) => this.gameService.setQuestions(dataResponse));
   }
 
   get getIsLoading() : boolean {
