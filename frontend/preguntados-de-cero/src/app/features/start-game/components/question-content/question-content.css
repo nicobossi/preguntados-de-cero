@@ -12,7 +12,7 @@
   display: grid;
   place-items: center;
   align-self: self-start;
-  width: 90%;
+  width: 80%;
   height: 90%;
   border-radius: 16px;
   box-shadow: 2px 2px 4px #CCC;
@@ -36,7 +36,7 @@ p {
 
 @media screen and (min-width: 564px) {
 
-  div {
+  .flash-gradient {
     width: 92%;
   }
 }
