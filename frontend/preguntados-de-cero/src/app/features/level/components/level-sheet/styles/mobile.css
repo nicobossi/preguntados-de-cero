@@ -27,7 +27,7 @@
   border-radius: 20px;
 }
 
-.card, .float-container {
+.card {
   width: 90%;
   max-width: 304px;
   height: 90%;

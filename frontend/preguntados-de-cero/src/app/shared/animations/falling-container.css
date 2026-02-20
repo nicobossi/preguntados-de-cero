@@ -11,6 +11,7 @@
 @keyframes move-container {
   0% {
     transform: translateY(-200%);
+    filter: blur(1px);
   }
   25% {
     transform: translateY(20%);
@@ -20,5 +21,6 @@
   }
   100% {
     transform: translateY(0%);
+    filter: initial;
   }
 }

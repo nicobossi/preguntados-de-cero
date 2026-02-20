@@ -1,6 +1,9 @@
 <section>
-  <article>
-    <div class="card">
+  <article
+    (animationend)="onOffAnimation()">
+    <div
+      class="card"
+      [class]="cardClass()">
       <header>Tematicas</header>
       <div class="theme-names-container">
         <ul>
