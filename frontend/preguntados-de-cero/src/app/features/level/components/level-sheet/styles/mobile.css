@@ -9,7 +9,7 @@
   height: 100%;
 }
 
-.glass-card-container{
+.open-card, .glass-card-container{
   display: grid;
   place-items: center;
   width: 100%;

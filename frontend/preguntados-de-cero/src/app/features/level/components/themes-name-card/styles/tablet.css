@@ -58,3 +58,7 @@ ul {
   align-items: center;
   height: 90%;
 }
+
+li {
+  list-style-type: none;
+}
