@@ -11,15 +11,15 @@ import { NavegateService } from '@/app/core/services/navegate/navegate.services'
   templateUrl: './level-sheet.html',
   styleUrl: './level-sheet.css',
 })
-export class LevelSheet implements AfterViewChecked {
+export class LevelSheet {
 
   difficulty = input.required<Difficulty>();
   isChange = input.required<boolean>();
   onOffChange = output<void>();
   navegateService = inject(NavegateService);
 
-  ngAfterViewChecked() : void {
-    setTimeout(() => this.onOffChange.emit(), 3000);
+  onFinishAnimation() {
+    this.onOffChange.emit();
   }
 
   navegate() {
