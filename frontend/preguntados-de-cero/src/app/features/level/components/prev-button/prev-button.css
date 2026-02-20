@@ -1,9 +1,2 @@
-
-
-
-:host {
-  display: grid;
-  place-items: center;
-  width: 40%;
-  max-width: 230px;
-}
+@import './styles/mobile.css';
+@import './styles/tablet.css';

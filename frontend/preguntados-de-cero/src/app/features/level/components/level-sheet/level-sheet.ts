@@ -1,4 +1,4 @@
-import { AfterViewChecked, Component, inject, input, output } from '@angular/core';
+import { Component, inject, input, output } from '@angular/core';
 import { LevelHeader } from '../level-header/level-header';
 import { ThemeNamesContainer } from '../theme-names-container/theme-names-container';
 import { LevelButton } from '../level-button/level-button';

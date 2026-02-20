@@ -4,4 +4,9 @@
     [difficulty]="getDifficulty"
     [isChange]="getIsChange"
   />
+  <app-themes-name-card
+    (onOffChange)="onOffChange()"
+    [themeNames]="getDifficulty.themeNames"
+    [isChange]="getIsChange"
+  />
 </section>

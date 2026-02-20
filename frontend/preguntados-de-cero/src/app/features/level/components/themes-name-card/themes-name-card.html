@@ -1,0 +1,14 @@
+<section>
+  <article>
+    <div class="card">
+      <header>Tematicas</header>
+      <div class="theme-names-container">
+        <ul>
+          @for(theme of themeNames(); track theme) {
+            <li>{{theme}}</li>
+          }
+        </ul>
+      </div>
+    </div>
+  </article>
+</section>
