@@ -1,0 +1,8 @@
+
+
+@media screen and (min-width: 768px) {
+
+  .glass-card-container, .open-card {
+    background: linear-gradient(154.84deg, rgba(223, 197, 197, 0.2) 31.18%, rgba(166, 144, 212, 0.2) 54.45%);
+  }
+}

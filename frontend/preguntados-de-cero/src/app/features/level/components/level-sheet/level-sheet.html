@@ -1,6 +1,7 @@
-<article class = "card-container">
-    <div class="glass-card-container">
-      <div class = "card">
+<article
+  [class]="articleClass()">
+    <div class="card-container">
+      <div class="card" [class]="cardClass()">
         <app-level-header [level]="difficulty().level" />
         <app-theme-names-container [themeNames]="difficulty().themeNames" />
         <app-level-button (navegate)="navegate()"/>

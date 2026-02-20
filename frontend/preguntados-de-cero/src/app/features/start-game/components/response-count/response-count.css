@@ -1,4 +1,4 @@
-@import '../../animations/falling-container.css';
+@import '../../../../shared/animations/falling-container.css';
 
 :host {
   display: grid;

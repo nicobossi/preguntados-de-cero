@@ -4,16 +4,24 @@ import Difficulty from '@/app/shared/types/difficulty';
 import { LevelSelectorService } from '../../services/level-selector/level-selector.service';
 
 @Component({
-  selector: 'app-cards-container',
+  selector: 'app-sheet-container',
   imports: [LevelSheet],
-  templateUrl: './level-card-container.html',
-  styleUrl: './level-card-container.css',
+  templateUrl: './level-sheet-container.html',
+  styleUrl: './level-sheet-container.css',
 })
-export class LevelCardContainer {
+export class LevelSheetContainer {
 
   protected service = inject(LevelSelectorService);
 
   get getDifficulty() : Difficulty {
     return this.service.currentLevel();
+  }
+
+  get getIsChange() : boolean {
+    return this.service.isInitChange();
+  }
+
+  onOffChange() : void {
+    this.service.finishChange();
   }
 }

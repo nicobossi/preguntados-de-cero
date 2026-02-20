@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { LevelCardContainer } from './level-card-container';
 
+import { LevelCard } from './level-card';
 
-describe('ButtonsContainer', () => {
-  let component: LevelCardContainer;
-  let fixture: ComponentFixture<LevelCardContainer>;
+describe('LevelCard', () => {
+  let component: LevelCard;
+  let fixture: ComponentFixture<LevelCard>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [LevelCardContainer]
+      imports: [LevelCard]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(LevelCardContainer);
+    fixture = TestBed.createComponent(LevelCard);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });

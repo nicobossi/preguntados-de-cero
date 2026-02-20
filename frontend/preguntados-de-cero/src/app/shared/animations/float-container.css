@@ -1,0 +1,17 @@
+
+
+.float-container {
+  animation-name: float;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
+
+@keyframes float {
+  from {
+    filter: blur(2px);
+  }
+  to {
+    transform: translateY(-200vh);
+  }
+}
