@@ -1,3 +1,4 @@
+@import '../../animations/select-container.css';
 
 :host {
   height: 100%;
@@ -13,16 +14,6 @@
   box-shadow: 2px 2px 4px #CCC;
   color: #FFF;
   background: var(--play-gradient);
-  transition:
-    box-shadow 0.2s,
-    font-weight 0.4s,
-    transform 0.4s ease
-}
-
-.total_answer-container:hover {
-  font-weight: 500;
-  box-shadow: none;
-  transform: scale(1.02, 1.02);
 }
 
 .total_answer-container div {

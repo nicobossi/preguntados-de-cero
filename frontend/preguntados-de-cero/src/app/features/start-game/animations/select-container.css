@@ -1,0 +1,44 @@
+
+.select-container {
+  animation-name: discart-card;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+.select-container:hover {
+  animation-name: select-card;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes select-card {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(5px);
+    box-shadow: 0 5px 10px 0px #999;
+    filter: blur(1px);
+  }
+  100% {
+    font-weight: 500;
+    box-shadow: none;
+    transform: translateY(0px) scale(1.02, 1.02);
+  }
+}
+
+@keyframes discart-card {
+  0% {
+    font-weight: 500;
+    box-shadow: none;
+    transform: translateY(0px) scale(1.02, 1.02);
+  }
+  50% {
+    transform: translateY(5px);
+    box-shadow: 0 5px 15px 0px #999;
+    filter: blur(1px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
