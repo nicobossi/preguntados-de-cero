@@ -4,10 +4,17 @@
 }
 
 .egc-container{
-  /*background-color: #FFD3D3;*/
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 15px;
+}
+
+@media screen and (min-width: 768px) {
+  .egc-container{
+    display: flex;
+    flex-direction: row;
+    gap:3vw;
+  }
 }
