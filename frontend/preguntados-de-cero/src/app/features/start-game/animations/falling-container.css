@@ -1,0 +1,24 @@
+
+
+.falling-container {
+  transform: translateY(-100vh);
+  animation-name: move-container;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+  animation-delay: 0.5s;
+}
+
+@keyframes move-container {
+  0% {
+    transform: translateY(-200%);
+  }
+  25% {
+    transform: translateY(20%);
+  }
+  50% {
+    transform: translateY(-10%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}

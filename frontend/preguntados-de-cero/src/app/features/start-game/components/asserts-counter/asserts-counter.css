@@ -1,4 +1,4 @@
-
+@import '../../animations/select-container.css';
 
 :host {
   height: 100%;
@@ -8,16 +8,6 @@
   display: none;
   color: #111;
   background: var(--oro-gradient);
-  transition:
-    box-shadow 0.2s,
-    font-weight 0.4s,
-    transform 0.4s ease
-}
-
-.correct_answer-container:hover {
-  font-weight: 500;
-  box-shadow: none;
-  transform: scale(1.02, 1.02);
 }
 
 @media screen and (min-width: 564px) {

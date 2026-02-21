@@ -1,3 +1,4 @@
+@import '../../animations/falling-container.css';
 
 :host {
   display: grid;

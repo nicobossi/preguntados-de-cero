@@ -1,0 +1,24 @@
+
+.flash-gradient::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: 0%;
+  height: 100%;
+}
+
+.flash-gradient:hover::before {
+  opacity: 0.5;
+  border-radius: 16px;
+  background: var(--play-hover-border-gradient);
+  color: #FFF;
+  animation: background-in-move 0.2s 0.3s forwards
+}
+
+@keyframes background-in-move {
+  to {
+    width: 100%;
+    opacity: 0.1;
+  }
+}
