@@ -1,3 +1,4 @@
 @import './styles/tablet.css';
+@import './styles/desktop.css';
 @import '../../../../shared/animations/float-container.css';
 @import '../../../../shared/animations/falling-container.css'

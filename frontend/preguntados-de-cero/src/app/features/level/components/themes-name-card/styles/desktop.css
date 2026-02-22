@@ -1,0 +1,10 @@
+
+
+@media screen and (min-width: 1200px) {
+
+  article {
+    max-height: none;
+    min-width: 30vw;
+    max-width: none;
+  }
+}

@@ -19,10 +19,11 @@ section {
 article {
   display: grid;
   place-items: center;
-  width: 46%;
-  min-width: 340px;
+  width: 40%;
+  min-width: 300px;
   height: 74%;
-  min-height: 450px;
+  min-height: 400px;
+  max-height: 500px;
   border-radius: 10px;
   background: linear-gradient(154.84deg, rgba(238, 230, 255, 0.9) 31.18%, rgba(162, 121, 249, 0.9) 54.45%);
   opacity: 0.9;

@@ -1,19 +1,77 @@
 
-
 @media screen and (min-width: 768px) {
 
-  .glass-card-container, .open-card  {
+  .open-card, .glass-card-container {
     width: 70%;
     height: 60%;
+    max-height: 320px;
+  }
+
+  .glass-card-container {
+    position: relative;
+    transition: transform 0.3s;
+    background: linear-gradient(154.84deg, rgba(166, 144, 212, 0.3) 16.86%, rgba(255, 255, 255, 0.3) 37.44%);
+  }
+
+  .glass-card-container:hover {
+    transform: translateY(10%);
+  }
+
+  .glass-card-container::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 65%;
+    border-radius: 0 0 3vw 3vw;
+    backdrop-filter: blur(1px);
+    background-color: rgba(212, 211, 215, 0.1);
+  }
+
+  .glass-card-container:hover::after {
+    z-index: -1;
+    content: none;
+  }
+
+  .card-container {
+    transition: transform 0.3s;
+  }
+
+  .card-container:hover {
+    transform: translateY(-20%);
   }
 
   .card {
     position: relative;
-    max-width: none;
+    width: 90%;
+    height: 90%;
+    transition: transform 0.3s;
   }
 
-  .glass-card-container, .open-card {
-    background: linear-gradient(154.84deg, rgba(223, 197, 197, 0.2) 31.18%, rgba(166, 144, 212, 0.2) 54.45%);
+  .card::before {
+    opacity: 0;
+    content: '';
+    position: absolute;
+    z-index: -1;
+    inset: -5px;
+    border-radius: 3vw;
+    background: conic-gradient(
+    from var(--degree),
+    #00f5ff,
+    #ff00c8,
+    #7b00ff,
+    #00f5ff
+  );
+    transition: box-shadow 0.5s 0.2s, filter 0.5s 0.2s;
+  }
+
+  .card:hover::before {
+    opacity: 1;
+    box-shadow:
+      inset 8px 0 10px 6px var(--level-color),
+      8px 0 20px 10px #f1f1f1;
+    filter: blur(10px);
+    animation: border-color 0.5s;
   }
 
   app-level-button {
@@ -23,5 +81,20 @@
     width: 100%;
     height: 100%;
     opacity: 0;
+  }
+}
+
+@property --degree {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes border-color {
+  from {
+    --degree: 0deg;
+  }
+  to {
+    --degree: 360deg;
   }
 }

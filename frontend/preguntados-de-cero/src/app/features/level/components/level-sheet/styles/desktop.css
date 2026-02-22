@@ -2,7 +2,7 @@
 
 @media screen and (min-width: 1200px) {
 
-  .card-container, .glass-card-container, .open-card {
+  .glass-card-container, .open-card {
     min-width: 30vw;
     height: 50vh;
     border-radius: 3vw;
