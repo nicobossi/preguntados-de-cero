@@ -8,4 +8,5 @@
 
 section {
   width: 70%;
+  min-width: 80px;
 }

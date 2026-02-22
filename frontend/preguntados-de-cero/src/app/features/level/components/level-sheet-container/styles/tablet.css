@@ -3,10 +3,17 @@
 @media screen and (min-width: 768px) {
 
   section {
+    display: grid;
     grid-template-columns: 50% 50%;
+    place-items: center;
   }
 
   app-themes-name-card {
     display: block;
+  }
+
+  .level-sheet-container {
+    height: 70%;
+    place-items: center;
   }
 }

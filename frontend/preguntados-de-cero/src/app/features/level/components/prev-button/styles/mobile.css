@@ -8,6 +8,5 @@
 
 section {
   width: 70%;
-  display: flex;
-  justify-content: flex-start;
+  min-width: 80px;
 }
