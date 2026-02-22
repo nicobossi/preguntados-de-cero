@@ -20,11 +20,11 @@ button {
   width: 80%;
   height: 60%;
   font-size: 18px;
-  border-radius: 10px;
+  border-radius: 30px;
   border-style: none;
   color: #FFFFFF;
-  background: linear-gradient(70deg, var(--level-color), #A980FF);
-  transition: color 0.2s, border 0.1s, transform 0.2s ease;
+  background-color: var(--level-color);
+  transition: color 0.3s, border 0.1s, transform 0.3s ease;
 }
 
 button:hover {
@@ -32,9 +32,5 @@ button:hover {
   border: 2px solid var(--level-color);
   background: #FFFF;
   color: var(--level-color);
-  transform: scale(1.06, 1.06)
-}
-
-button:active {
-  transform: scale(1.06, 1.06) translateY(-6px)
+  transform: scale(1.02, 1.02)
 }

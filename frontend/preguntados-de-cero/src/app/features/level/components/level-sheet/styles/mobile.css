@@ -32,6 +32,7 @@
   max-width: 304px;
   height: 90%;
   border-radius: 30px;
+  box-shadow: 2px 2px 4px #8a8a8a;
 }
 
 .glass-card-container {
