@@ -2,7 +2,7 @@
 
 .float-container {
   animation-name: float;
-  animation-duration: 1s;
+  animation-duration: 0.7s;
   animation-fill-mode: forwards;
 }
 

@@ -9,7 +9,7 @@
   height: 100%;
 }
 
-.open-card, .glass-card-container{
+.glass-card-container{
   display: grid;
   place-items: center;
   width: 100%;
@@ -19,49 +19,30 @@
   border-radius: 3vw;
 }
 
-.card-container {
+.card-container, .disable-ligth {
   display: grid;
   place-items: center;
-  width: 100%;
-  height: 100%;
-  border-radius: 20px;
+  width: 90%;
+  height: 90%;
+  border-radius: 30px;
+}
+
+.card-container {
+  box-shadow:
+    0 0 80px #f7effe,
+    inset 0 0 80px #f4f4f4;
+  backdrop-filter: blur(200px);
+  transition: backdrop-filter 0.8s, box-shadow 1s;
+}
+
+.disable-ligth {
+  box-shadow: none;
+  backdrop-filter: blur(1px);
 }
 
 .card {
-  width: 90%;
-  max-width: 304px;
-  height: 90%;
+  width: 100%;
+  height: 100%;
   border-radius: 30px;
   box-shadow: 2px 2px 4px #8a8a8a;
 }
-
-.glass-card-container {
-  animation-name: close-fill;
-  animation-duration: 2s;
-  animation-fill-mode: forwards;
-}
-
-.open-card {
-  animation-name: open-fill;
-  animation-duration: 0.5s;
-  animation-fill-mode: forwards;
-}
-
-@keyframes open-fill {
-  from {
-    border-radius: 3vw;
-  }
-  to {
-    border-radius: 0px;
-  }
-}
-
-@keyframes close-fill {
-  from {
-    border-radius: 0px;
-  }
-  to {
-    border-radius: 3vw;
-  }
-}
-

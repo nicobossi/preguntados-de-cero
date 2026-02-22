@@ -16,26 +16,9 @@
     border-radius: 3vw;
   }
 
-  .glass-card-container::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 65%;
-    border-radius: 0 0 3vw 3vw;
-    backdrop-filter: blur(1px);
-    border-top: 1px solid rgba(255, 255, 255, 0.4);
-    box-shadow: 0 2px 2px rgba(31, 38, 135, 0.37);
-    background-color: rgba(142, 122, 201, 0.1);
-    transition: content 0.3s;
-  }
-
-  .glass-card-container:hover::after {
-    z-index: -1;
-    content: none;
-  }
-
   .card-container {
+    box-shadow: none;
+    backdrop-filter: none;
     transition: transform 0.4s;
    }
 

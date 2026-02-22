@@ -35,8 +35,8 @@ export class LevelSheet {
     this.isHover.update(v => !v);
   }
 
-  articleClass() : string {
-    return this.isChange() ? 'open-card' : 'glass-card-container';
+  cardContainerClass() : string {
+    return this.isChange() ? 'disable-ligth' : 'card-container';
   }
 
   cardClass() : string {

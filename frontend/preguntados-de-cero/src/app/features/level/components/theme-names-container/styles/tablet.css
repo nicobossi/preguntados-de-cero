@@ -1,15 +1,17 @@
 
 
 @media screen and (min-width: 768px) {
+
   div {
     border-radius: 0 0 30px 30px;
   }
+
   ul {
     display: none;
   }
+
   p {
     display: block;
-    opacity: 0;
     font-size: 24px;
     font-weight: bold;
     background: radial-gradient(88.02% 88.02% at 2.07% 65.97%, rgba(102, 64, 183, 0.95) 49.04%, #A980FF 100%) ;
@@ -19,9 +21,5 @@
     color: transparent;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.067);
     transition: transform 0.2s, opacity 0.2s;
-  }
-  .select {
-    display: block;
-    opacity: 1;
   }
 }
