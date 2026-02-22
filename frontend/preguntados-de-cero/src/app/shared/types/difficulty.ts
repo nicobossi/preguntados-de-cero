@@ -1,4 +1,3 @@
-
 interface Difficulty {
   id: number,
   level: number

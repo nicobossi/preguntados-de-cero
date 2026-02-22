@@ -30,4 +30,8 @@ export class ResultService {
       winningAnswer: winningOption.text
     }
   }
+
+  get getResultGame() : QuestionResult[] {
+    return this.resultGame();
+  }
 }
