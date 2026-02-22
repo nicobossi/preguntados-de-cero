@@ -11,5 +11,5 @@
   "include": [
     "src/**/*.d.ts",
     "src/**/*.spec.ts"
-, "src/app/features/level/components/level-card-container/level-card-container.ts"  ]
+, "src/app/features/level/components/level-sheet-container/level-sheet-container.ts"  ]
 }

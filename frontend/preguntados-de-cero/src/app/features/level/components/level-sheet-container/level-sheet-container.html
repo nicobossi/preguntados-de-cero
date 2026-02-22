@@ -1,0 +1,15 @@
+<section>
+  <div class="level-sheet-container">
+    <app-level-sheet
+      (onOffChange)="onOffChange()"
+      [difficulty]="getDifficulty"
+      [isChange]="getIsChange"
+    />
+    <app-movement-buttons />
+  </div>
+  <app-themes-name-card
+      (onOffChange)="onOffChange()"
+      [themeNames]="getDifficulty.themeNames"
+      [isChange]="getIsChange"
+    />
+</section>

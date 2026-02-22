@@ -3,14 +3,14 @@
 .falling-container {
   transform: translateY(-100vh);
   animation-name: move-container;
-  animation-duration: 2s;
+  animation-duration: 1.2s;
   animation-fill-mode: forwards;
-  animation-delay: 0.5s;
 }
 
 @keyframes move-container {
   0% {
     transform: translateY(-200%);
+    filter: blur(1px);
   }
   25% {
     transform: translateY(20%);
@@ -20,5 +20,6 @@
   }
   100% {
     transform: translateY(0%);
+    filter: initial;
   }
 }

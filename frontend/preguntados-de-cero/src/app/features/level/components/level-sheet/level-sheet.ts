@@ -1,0 +1,45 @@
+import { Component, inject, input, output, signal } from '@angular/core';
+import { LevelHeader } from '../level-header/level-header';
+import { ThemeNamesContainer } from '../theme-names-container/theme-names-container';
+import { LevelButton } from '../level-button/level-button';
+import Difficulty from '@/app/shared/types/difficulty';
+import { NavegateService } from '@/app/core/services/navegate/navegate.services';
+
+@Component({
+  selector: 'app-level-sheet',
+  imports: [LevelHeader, ThemeNamesContainer, LevelButton],
+  templateUrl: './level-sheet.html',
+  styleUrl: './level-sheet.css',
+})
+export class LevelSheet {
+
+  difficulty = input.required<Difficulty>();
+  isChange = input.required<boolean>();
+  onOffChange = output<void>();
+  protected isHover = signal<boolean>(false);
+  navegateService = inject(NavegateService);
+
+  onFinishAnimation() {
+    this.onOffChange.emit();
+  }
+
+  navegate() {
+    this.navegateService.goTheme(this.difficulty().id);
+  }
+
+  onOffGlass() {
+    this.onOffChange.emit();
+  }
+
+  onHover() : void {
+    this.isHover.update(v => !v);
+  }
+
+  cardContainerClass() : string {
+    return this.isChange() ? 'disable-ligth' : 'card-container';
+  }
+
+  cardClass() : string {
+    return this.isChange() ? 'float-container' : 'falling-container';
+  }
+}

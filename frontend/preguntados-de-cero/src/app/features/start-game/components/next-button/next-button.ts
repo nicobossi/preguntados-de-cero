@@ -1,9 +1,10 @@
 import { Component, inject } from '@angular/core';
 import { GameService } from '../../services/game.service';
+import { DisableButton } from "@/app/shared/components/disable-button/disable-button";
 
 @Component({
   selector: 'app-next-button',
-  imports: [],
+  imports: [DisableButton],
   templateUrl: './next-button.html',
   styleUrl: './next-button.css',
 })

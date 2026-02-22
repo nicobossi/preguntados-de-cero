@@ -1,0 +1,36 @@
+
+
+:host {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 20%;
+}
+
+div {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 0 0 30px 30px;
+  background-color: #FFF;
+}
+
+button {
+  width: 80%;
+  height: 60%;
+  font-size: 18px;
+  border-radius: 30px;
+  border-style: none;
+  color: #FFFFFF;
+  background-color: var(--level-color);
+  transition: color 0.3s, border 0.1s, transform 0.3s ease;
+}
+
+button:hover {
+  cursor: pointer;
+  border: 2px solid var(--level-color);
+  background: #FFFF;
+  color: var(--level-color);
+  transform: scale(1.02, 1.02)
+}
