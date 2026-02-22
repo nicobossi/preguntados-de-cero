@@ -1,0 +1,8 @@
+<section>
+  @for(answer of getGameResults(); track answer){
+    <app-answer-card
+      [answer]="answer"
+      [order]="$index + 1"
+    />
+  }
+</section>

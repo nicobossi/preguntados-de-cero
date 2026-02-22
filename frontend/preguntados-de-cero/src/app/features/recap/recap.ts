@@ -1,21 +1,16 @@
-import {Component, inject} from '@angular/core';
-import {CounterService} from '@/app/core/services/counter-game/counter.service';
-import {PlayerName} from '@/app/core/services/player-name/player-name';
+import {Component} from '@angular/core';
+import {
+  AnswersButtonsContainer
+} from '@/app/features/recap/components/answers-buttons-container/answers-buttons-container';
 
 @Component({
   selector: 'app-recap',
-  imports: [],
+  imports: [
+    AnswersButtonsContainer
+  ],
   templateUrl: './recap.html',
   styleUrl: './recap.css',
 })
-export class Recap { // revisar esto una vez que se termine con endgame!
-  private counterService = inject(CounterService);
-  private nameService = inject(PlayerName)
+export class Recap {
 
-  ngOnInit(){
-    console.log("Jugador: " + this.nameService.getName);
-    console.log("preguntas totales: " + this.counterService.getTotal);
-    console.log("preguntas bien respondidas: " + this.counterService.getTotalCorrectAnswers);
-    console.log("preguntas mal respondidas: " + this.counterService.getTotalIncorrectAnswers());
-  }
 }
