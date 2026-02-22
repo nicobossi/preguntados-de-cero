@@ -21,4 +21,13 @@ export class CounterService {
   get getTotalCorrectAnswers() : number {
     return this.totalCorrectAnswers();
   }
+
+  getTotalIncorrectAnswers() : number {
+    return this.getTotal - this.getTotalCorrectAnswers;
+  }
+
+  refresh() {
+    this.totalAnswers.set(0);
+    this.totalCorrectAnswers.set(0);
+  }
 }

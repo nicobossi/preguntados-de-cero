@@ -27,10 +27,10 @@ class QuestionServiceImplTest {
     private QuestionServiceImpl service;
 
     @Autowired
-    private ThemeService themeService;
+    private ThemeServiceImpl themeService;
 
     @Autowired
-    private DifficultyService difficultyService;
+    private DifficultyServiceImpl difficultyService;
 
     private Difficulty difficulty;
 
@@ -85,5 +85,7 @@ class QuestionServiceImplTest {
     @AfterEach
     void tearDown() {
         service.crearAll();
+        themeService.clearAll();
+        difficultyService.clearAll();
     }
 }
