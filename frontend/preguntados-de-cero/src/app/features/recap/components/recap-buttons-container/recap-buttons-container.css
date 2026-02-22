@@ -3,12 +3,10 @@
   height: 100%;
 }
 
-section{
+.recap-b-c{
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  min-height: 80%;
-  gap:5vh;
+  gap: 15px;
 }

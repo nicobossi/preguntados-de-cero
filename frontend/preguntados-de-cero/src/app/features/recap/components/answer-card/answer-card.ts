@@ -1,9 +1,12 @@
 import {Component, input} from '@angular/core';
 import {QuestionResult} from '@/app/shared/types/question-result';
+import {NgClass} from '@angular/common';
 
 @Component({
   selector: 'app-answer-card',
-  imports: [],
+  imports: [
+    NgClass
+  ],
   templateUrl: './answer-card.html',
   styleUrl: './answer-card.css',
 })

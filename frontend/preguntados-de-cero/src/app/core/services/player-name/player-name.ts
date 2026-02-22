@@ -18,7 +18,6 @@ export class PlayerName {
 
   saveName(name: string): void {
     this.setName(name);
-    console.log("Name " + this.getName)
     this.navegate.goLevel();
   }
 }
