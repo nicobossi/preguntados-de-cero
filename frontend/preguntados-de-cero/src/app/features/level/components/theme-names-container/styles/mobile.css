@@ -18,5 +18,8 @@ ul {
   border-radius: 10px;
   overflow-y: auto;
   list-style-type: none;
-  background-color: #f2edff;
+}
+
+p {
+  display: none;
 }

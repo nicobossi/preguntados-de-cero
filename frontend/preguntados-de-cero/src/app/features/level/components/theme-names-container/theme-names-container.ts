@@ -8,6 +8,7 @@ import { Component, input } from '@angular/core';
 export class ThemeNamesContainer {
 
   themeNames = input<string[]>();
+  isHover = input.required<boolean>();
 
   protected get getNames() {
     return this.themeNames()
