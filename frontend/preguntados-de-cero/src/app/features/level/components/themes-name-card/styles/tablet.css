@@ -1,4 +1,4 @@
-
+@import '../../../../../shared/styles/theme-name-item.css';
 
 
 :host {
@@ -61,5 +61,6 @@ ul {
 }
 
 li {
+  font-size: 22px;
   list-style-type: none;
 }
