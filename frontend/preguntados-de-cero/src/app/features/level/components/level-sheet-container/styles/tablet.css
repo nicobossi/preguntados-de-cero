@@ -13,7 +13,9 @@
   }
 
   .level-sheet-container {
-    height: 70%;
+    display: grid;
+    grid-template-rows: 50% 50%;
+    height: 50%;
     max-height: 500px;
     place-items: center;
   }

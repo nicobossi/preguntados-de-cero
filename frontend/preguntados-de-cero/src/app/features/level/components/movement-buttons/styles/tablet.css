@@ -2,6 +2,8 @@
 
 @media screen and (min-width: 768px) {
   :host {
-    width: 60%;
+    align-self: self-start;
+    width: 50%;
+    height: 60%;
   }
 }

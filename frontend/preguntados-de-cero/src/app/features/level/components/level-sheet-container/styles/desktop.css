@@ -4,7 +4,17 @@
 @media screen and (min-width: 1200px) {
 
   .level-sheet-container {
+    position: relative;
     min-width: 30vw;
-    min-height: 70vh;
+    min-height: 66vh;
+  }
+
+  .level-sheet-container::before {
+    position: absolute;
+    content: "";
+    display: grid;
+    place-items: center;
+    width: 60%;
+    height: 75%;
   }
 }
