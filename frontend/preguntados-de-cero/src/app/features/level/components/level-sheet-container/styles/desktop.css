@@ -6,15 +6,6 @@
   .level-sheet-container {
     position: relative;
     min-width: 30vw;
-    min-height: 66vh;
-  }
-
-  .level-sheet-container::before {
-    position: absolute;
-    content: "";
-    display: grid;
-    place-items: center;
-    width: 60%;
-    height: 75%;
+    min-height: 40vh;
   }
 }

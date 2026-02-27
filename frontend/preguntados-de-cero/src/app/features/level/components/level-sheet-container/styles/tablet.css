@@ -15,7 +15,7 @@
   .level-sheet-container {
     display: grid;
     grid-template-rows: 50% 50%;
-    height: 50%;
+    height: 40%;
     max-height: 500px;
     place-items: center;
   }
