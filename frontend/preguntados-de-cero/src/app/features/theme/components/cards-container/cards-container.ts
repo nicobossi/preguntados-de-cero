@@ -1,7 +1,7 @@
-import {Component, inject, Input} from '@angular/core';
+import {Component, inject} from '@angular/core';
 import GameTheme from '@/app/shared/types/gameTheme';
 import {ThemeCard} from '@/app/features/theme/components/theme-card/theme-card';
-import {ThemeService} from '@/app/features/theme/services/theme/theme.service';
+import { ThemeService } from '../../services/theme.service';
 
 @Component({
   selector: 'app-cards-container',
