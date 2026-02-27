@@ -13,7 +13,7 @@
     filter: blur(1px);
   }
   25% {
-    transform: translateY(20%);
+    transform: translateY(10%);
   }
   50% {
     transform: translateY(-10%);

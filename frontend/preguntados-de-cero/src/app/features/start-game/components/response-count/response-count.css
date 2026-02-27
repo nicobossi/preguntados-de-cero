@@ -12,6 +12,10 @@ section {
   height: 50%;
 }
 
+.falling-container {
+  animation-delay: 0.4s;
+}
+
 @media screen and (min-width: 564px) {
   section {
     display: flex;
