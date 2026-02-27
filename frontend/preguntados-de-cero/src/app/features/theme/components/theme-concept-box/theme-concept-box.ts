@@ -1,5 +1,4 @@
-import { Component, inject } from '@angular/core';
-import { ConceptService } from '../../services/concept.service';
+import { Component, input } from '@angular/core';
 
 @Component({
   selector: 'app-theme-concept-box',
@@ -7,9 +6,6 @@ import { ConceptService } from '../../services/concept.service';
   styleUrl: './theme-concept-box.css',
 })
 export class ThemeConceptBox {
-  private conceptService = inject(ConceptService);
 
-  get getConcept() : string | null {
-    return this.conceptService.getConcept;
-  }
+  concept = input.required<string | null>();
 }

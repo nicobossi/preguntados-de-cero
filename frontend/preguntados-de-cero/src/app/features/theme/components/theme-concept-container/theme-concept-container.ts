@@ -1,5 +1,4 @@
-import { Component, inject } from '@angular/core';
-import { ConceptService } from '../../services/concept.service';
+import { Component, input } from '@angular/core';
 import { ThemeConceptBox } from '../theme-concept-box/theme-concept-box';
 
 @Component({
@@ -10,4 +9,5 @@ import { ThemeConceptBox } from '../theme-concept-box/theme-concept-box';
 })
 export class ThemeConceptContainer {
 
+  concept = input.required<string | null>();
 }

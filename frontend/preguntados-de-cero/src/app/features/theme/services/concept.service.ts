@@ -2,9 +2,7 @@ import { Injectable, signal } from "@angular/core";
 
 
 
-@Injectable({
-  providedIn: "root"
-})
+@Injectable()
 export class ConceptService {
 
   private concept = signal<string | null>(null);
