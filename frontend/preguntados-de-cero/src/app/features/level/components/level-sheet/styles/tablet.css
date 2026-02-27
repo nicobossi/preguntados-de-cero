@@ -16,35 +16,12 @@
    }
 
   .card-container:hover {
-    transform: translateY(-5px) scale(1.02);
+    transform: scale(1.05);
   }
 
   .card {
     transition: transform 0.3s;
-  }
-
-  .card::before {
-    opacity: 0;
-    content: '';
-    position: absolute;
-    z-index: -1;
-    inset: -5px;
-    background: conic-gradient(
-    from var(--degree),
-    #00f5ff,
-    #b167ff,
-    #ff81e4,
-    #b167ff,
-    #00f5ff
-  );
-    transition: box-shadow 0.5s 0.2s;
-  }
-
-  .card:hover::before {
-    opacity: 1;
-    box-shadow:
-      0 0 10px 10px #f1f1f1;
-    animation: border-color 0.5s;
+    background: var(--level-gradient);
   }
 
   app-level-button {
