@@ -6,8 +6,6 @@
 }
 
 .theme-card-wrapper{
-  width: 100%;
-  max-width: 350px;
   overflow: hidden;
   transition: transform 0.2s;
 }
