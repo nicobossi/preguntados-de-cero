@@ -1,2 +1,7 @@
 
 
+@media screen and (min-width: 1200px) {
+  :host {
+    width: 54%;
+  }
+}

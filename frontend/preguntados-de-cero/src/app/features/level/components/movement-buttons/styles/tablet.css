@@ -3,7 +3,12 @@
 @media screen and (min-width: 768px) {
   :host {
     align-self: self-start;
-    width: 50%;
+    width: 60%;
     height: 60%;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 6vw;
+    box-shadow: 0 2px 20px rgba(203, 151, 255, 0.37);
   }
 }
