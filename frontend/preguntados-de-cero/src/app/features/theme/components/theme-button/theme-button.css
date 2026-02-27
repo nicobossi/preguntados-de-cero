@@ -1,22 +1,29 @@
+
+
 :host{
   width: 100%;
   height: 100%;
 }
 
-button{
+button, .description-on {
   width: 100%;
   max-width: 300px;
   height: 80px;
-
-  font-size: 20px;
-  color: #FFFFFF;
-  border-radius: 20px 0 0 20px ;
-  border: none;
-  background: var(--tematic-color);
-  background: var(--theme-gradient);
   font-family: Inter, sans-serif;
+  font-size: 20px;
   cursor: pointer;
+  border: none;
+  color: #FFFFFF;
+  background: var(--theme-gradient);
+}
+
+button{
+  border-radius: 20px 0 0 20px ;
   transition: color 0.2s, border-color 0.2s
+}
+
+.description-on{
+  border-radius: 20px 0 0 0;
 }
 
 button:hover{
@@ -27,18 +34,4 @@ button:hover{
   background-image: linear-gradient(white, white), var(--theme-hover-gradient);
   background-origin: border-box;
   background-clip: content-box, border-box;
-}
-
-.description-on{
-  width: 100%;
-  max-width: 300px;
-  height: 80px;
-
-  font-size: 20px;
-  color: #FFFFFF;
-  border-radius: 20px 0 0 0;
-  border: none;
-  background: var(--tematic-color);
-  background: var(--theme-gradient);
-  font-family: Inter, sans-serif;
 }
