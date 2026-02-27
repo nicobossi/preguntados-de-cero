@@ -1,15 +1,11 @@
 import {Component, inject} from '@angular/core';
 import {ThemeService} from '@/app/features/theme/services/theme/theme.service';
 import {ActivatedRoute} from '@angular/router';
-import {AppHeader} from '@/app/shared/components/app-header/header';
 import {CardsContainer} from '@/app/features/theme/components/cards-container/cards-container';
 
 @Component({
   selector: 'app-theme',
-  imports: [
-    AppHeader,
-    CardsContainer
-  ],
+  imports: [CardsContainer],
   templateUrl: './theme.html',
   styleUrl: './theme.css',
 })

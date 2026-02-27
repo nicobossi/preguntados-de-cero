@@ -4,9 +4,8 @@ section{
   align-items: center;
   justify-content: center;
   width: 100%;
-  min-height: 80%;
-  background-color: var(--clear-background);
-  gap:40px;
+  height: 100%;
+  gap: 40px;
   padding-block: 25px;
 }
 
