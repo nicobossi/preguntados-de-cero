@@ -2,8 +2,6 @@
   (animationend)="onFinishAnimation()"
   class="glass-card-container glass-container">
     <div
-      (mouseenter)="onHover()"
-      (mouseleave)="onHover()"
       [class]="cardContainerClass()">
       <div class="card" [class]="cardClass()">
         <app-level-header [level]="difficulty().level" />
