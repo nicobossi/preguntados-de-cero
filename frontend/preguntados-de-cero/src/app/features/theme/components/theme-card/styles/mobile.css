@@ -1,0 +1,17 @@
+
+
+:host{
+  width: 100%;
+  max-width: 350px;
+  border-radius: 20px;
+}
+
+.theme-card-wrapper{
+  width: 100%;
+  max-width: 350px;
+  transition: transform 0.2s;
+}
+
+.theme-card-wrapper:hover {
+  transform: scale(1.05, 1.05)
+}
