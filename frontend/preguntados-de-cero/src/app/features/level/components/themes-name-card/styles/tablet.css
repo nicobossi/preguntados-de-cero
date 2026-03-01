@@ -1,5 +1,5 @@
-
-
+@import '../../../../../shared/styles/theme-name-item.css';
+@import '../../../../../shared/styles/glass-container.css';
 
 :host {
   display: grid;
@@ -19,21 +19,19 @@ section {
 article {
   display: grid;
   place-items: center;
-  width: 40%;
-  min-width: 300px;
+  width: 30%;
+  min-width: 260px;
   height: 74%;
   min-height: 400px;
   max-height: 500px;
   border-radius: 10px;
-  background: linear-gradient(154.84deg, rgba(238, 230, 255, 0.9) 31.18%, rgba(162, 121, 249, 0.9) 54.45%);
-  opacity: 0.9;
 }
 
 .card {
   display: grid;
   grid-template-rows: 20% 80%;
-  width: 86%;
-  height: 90%;
+  width: 98%;
+  height: 98%;
   border-radius: 10px;
 }
 
@@ -61,5 +59,6 @@ ul {
 }
 
 li {
+  font-size: 22px;
   list-style-type: none;
 }
