@@ -4,18 +4,11 @@
   --level-color: #6640B7;
   --tematic-color: #4DAAD7;
 
-<<<<<<< HEAD
-  --play-gradient: radial-gradient(ellipse at left bottom, #263578 0%, #4662DE 100%);
-  --play-hover-border-gradient: linear-gradient(90deg,rgba(235, 197, 84, 1) 0%, rgba(70, 98, 222, 1) 100%);
-
-  --theme-gradient-clear: linear-gradient(296.88deg, #CDEFFF 38.09%, #ECF9FF 65.3%);
-=======
   --level-gradient: linear-gradient(70deg, var(--level-color), #A980FF);
 
   --play-gradient: radial-gradient(ellipse at left bottom, #263578 0%, #4662DE 100%);
   --play-hover-border-gradient: linear-gradient(90deg,rgba(235, 197, 84, 1) 0%, rgba(70, 98, 222, 1) 100%);
 
->>>>>>> cef947a651ad877d5d55d0e0a8f9b47b94421c69
   --theme-gradient: radial-gradient(ellipse at left bottom, #4DAAD7 40.22%, #8FDAFF 100%);
   --theme-hover-gradient: linear-gradient(90deg, rgba(235, 197, 84, 1) 0%, rgba(143, 218, 255, 1) 100%);
 
