@@ -14,11 +14,3 @@
   width: 100%;
   max-width: 360px;
 }
-
-@media screen and (min-width: 768px) {
-  .egc-container{
-    display: flex;
-    flex-direction: row;
-    gap:3vw;
-  }
-}

@@ -1,14 +1,33 @@
 
 
 @media screen and (min-width: 768px) {
-  desktop-card{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
+
+  section {
+    height: 100%;
+  }
+
+  .desktop-card {
+    grid-template-columns: 50% 50%;
     width: 100%;
-    min-height: 80%;
-    background-color: var(--clear-background);
-    gap:25px;
-    padding-block: 25px;
+    max-width: none;
+    height: 100%;
+    gap: 0px;
+    margin: 0;
+    padding: 0;
+    border-radius: 0;
+  }
+
+  .results-container {
+    order: 1;
+    align-self: flex-start;
+    display: grid;
+    grid-template-rows: 30% 50%;
+    width: 100%;
+    background-color: var(--primary-color);
+  }
+
+  .buttons-containers {
+    width: 100%;
+    order: 0;
   }
 }
