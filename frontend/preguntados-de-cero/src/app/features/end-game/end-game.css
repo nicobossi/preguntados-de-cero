@@ -1,5 +1,6 @@
 section{
+  display: grid;
+  grid-template-rows: 20vh minmax(80vh, auto);
   width: 100vw;
-  min-height: 100vh;
-  height: auto;
+  height: 100vh;
 }

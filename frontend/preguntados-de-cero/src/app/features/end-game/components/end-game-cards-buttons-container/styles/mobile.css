@@ -1,4 +1,7 @@
 
+:host {
+  background-color: var(--clear-background);
+}
 
 section{
   display: flex;
@@ -20,7 +23,7 @@ section{
 
 @media screen and (min-width: 400px) {
 
-  .desktop-card{
+  .desktop-card {
     width: 90%;
     max-width: 400px;
     padding-top: 40px;
