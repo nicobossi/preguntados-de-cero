@@ -1,11 +1,15 @@
 
 
 :host{
+  display: grid;
+  place-items: center;
   width: 100%;
-  max-width: 350px;
 }
 
 .theme-card-wrapper{
+  width: 100%;
+  max-width: 350px;
+  height: auto;
   overflow: hidden;
   transition: transform 0.2s;
 }
