@@ -36,5 +36,6 @@
   .buttons-containers {
     order: 0;
     width: 100%;
+    background-color: var(--clear-background);
   }
 }
