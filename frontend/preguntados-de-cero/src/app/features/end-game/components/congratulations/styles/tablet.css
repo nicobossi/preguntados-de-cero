@@ -4,6 +4,7 @@
 
   .congrats-container {
     width: 60%;
+    min-width: 260px;
     height: 80%;
     border-radius: 2vw;
     background-color: #FFF;
