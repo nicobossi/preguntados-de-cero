@@ -1,4 +1,7 @@
-<div class="correct-answer-card" [ngClass]="{'incorrect-answer-card': !isCorrect()}">
+<div [ngClass]="{
+  'correct-answer-card': isCorrect(),
+  'incorrect-answer-card': !isCorrect()
+}">
   <p class="question-order-t"> Pregunta {{getOrder()}} </p>
   <p class="question-t"> {{getQuestionText()}} </p>
   <p class="player-answer-t"> <span class="player-answer-b"> Tu respuesta: </span> {{getSelectedAnswer()}} </p>

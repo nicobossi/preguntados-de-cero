@@ -32,6 +32,6 @@ export class ResultService {
   }
 
   get getResultGame() : QuestionResult[] {
-    return this.resultGame();
+    return this.resultGame.asReadonly()();
   }
 }

@@ -7,7 +7,7 @@
   justify-content: center;
 }
 
-.correct-answer-card{
+.correct-answer-card, .incorrect-answer-card {
   width: 80%;
   min-height: 200px;
 
@@ -22,10 +22,13 @@
   border-width: 0.5vh;
   border-style: double;
   border-color: transparent;
-  background-image: linear-gradient(white, white), var(--assert-gradient);
   background-origin: border-box;
   background-clip: padding-box, border-box;
   box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.correct-answer-card{
+  background-image: linear-gradient(white, white), var(--assert-gradient);
 }
 
 .incorrect-answer-card{
