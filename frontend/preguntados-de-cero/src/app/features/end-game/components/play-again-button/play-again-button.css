@@ -43,6 +43,7 @@ button:active {
 
 @media screen and (min-width: 768px) {
   button{
+    height: 12vh;
     font-size: 22px;
   }
 }
