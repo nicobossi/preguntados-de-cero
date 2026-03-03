@@ -13,7 +13,7 @@ section {
   place-items: center;
   width: 100%;
   height: 100%;
-  background-color: var(--level-color);
+  background-color: #a896e1;
 }
 
 article {
