@@ -13,10 +13,10 @@ section {
   place-items: center;
   width: 100%;
   height: 100%;
-  background-color: #a896e1;
+  background-color: #CCC2EE;
 }
 
-article {
+.glass-container {
   display: grid;
   place-items: center;
   width: 30%;
@@ -24,18 +24,19 @@ article {
   height: 74%;
   min-height: 400px;
   max-height: 500px;
-  border-radius: 10px;
+  border-radius: 2vh;
+  background: linear-gradient(154.84deg, rgba(231, 219, 255, 0.9) 31.18%, rgba(198, 171, 255, 0.9) 54.45%);
 }
 
 .card {
   display: grid;
   grid-template-rows: 20% 80%;
-  width: 98%;
-  height: 98%;
-  border-radius: 10px;
+  width: 92%;
+  height: 92%;
+  border-radius: 2vh;
 }
 
-article header {
+.glass-container header {
   display: grid;
   place-items: center;
   width: 100%;
@@ -45,7 +46,7 @@ article header {
   background: linear-gradient(296.88deg, #beebff 38.09%, #ddf2fc 65.3%);
 }
 
-article .theme-names-container {
+.glass-container .theme-names-container {
   width: 100%;
   border-radius: 0 0 10px 10px;
   background-color: #FFF;
