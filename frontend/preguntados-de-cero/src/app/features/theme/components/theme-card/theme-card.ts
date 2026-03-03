@@ -10,7 +10,7 @@ import {ThemeDescription} from '@/app/features/theme/components/theme-descriptio
   imports: [
     ThemesButtonsContainer,
     ThemeDescription
-  ],
+],
   templateUrl: './theme-card.html',
   styleUrl: './theme-card.css',
 })

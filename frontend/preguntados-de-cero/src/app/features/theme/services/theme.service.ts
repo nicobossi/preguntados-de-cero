@@ -2,12 +2,9 @@ import {inject, Injectable, signal} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import GameTheme from '@/app/shared/types/gameTheme';
 import { LoadStateService } from '@/app/core/services/load-state/load-state.service';
-import { Theme } from '../../theme';
 
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class ThemeService {
 
   private http = inject(HttpClient);

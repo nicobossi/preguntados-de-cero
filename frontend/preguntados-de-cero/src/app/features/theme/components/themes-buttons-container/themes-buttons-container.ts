@@ -1,4 +1,4 @@
-import {Component, Input, Signal, WritableSignal} from '@angular/core';
+import {Component, Input, WritableSignal} from '@angular/core';
 import GameTheme from '@/app/shared/types/gameTheme';
 import {ThemeButton} from '@/app/features/theme/components/theme-button/theme-button';
 import {InfoButton} from '@/app/features/theme/components/info-button/info-button';

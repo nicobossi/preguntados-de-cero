@@ -1,5 +1,7 @@
 <section>
-  @for(theme of getThemes; track theme.id) {
-    <app-theme-card [theme]="theme" />
-  }
+  <div>
+    @for(theme of getThemes; track theme.id) {
+      <app-theme-card [theme]="theme" />
+    }
+  </div>
 </section>

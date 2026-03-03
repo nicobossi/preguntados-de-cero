@@ -1,0 +1,23 @@
+
+
+:host{
+  display: grid;
+  place-items: center;
+  width: 100%;
+}
+
+.theme-card-wrapper{
+  width: 100%;
+  max-width: 350px;
+  height: auto;
+  overflow: hidden;
+  transition: transform 0.2s;
+}
+
+.theme-card-wrapper {
+  border-radius: 20px;
+}
+
+.theme-card-wrapper:hover {
+  transform: scale(1.05, 1.05)
+}
