@@ -30,7 +30,7 @@ button {
 button:hover {
   cursor: pointer;
   border: 2px solid var(--level-color);
-  background: #FFFF;
+  background-color: #FFFF;
   color: var(--level-color);
   transform: scale(1.02, 1.02)
 }

@@ -1,4 +1,4 @@
-import { Component, inject, input, output, signal } from '@angular/core';
+import { Component, inject, input, output } from '@angular/core';
 import { LevelHeader } from '../level-header/level-header';
 import { ThemeNamesContainer } from '../theme-names-container/theme-names-container';
 import { LevelButton } from '../level-button/level-button';
@@ -16,7 +16,6 @@ export class LevelSheet {
   difficulty = input.required<Difficulty>();
   isChange = input.required<boolean>();
   onOffChange = output<void>();
-  protected isHover = signal<boolean>(false);
   navegateService = inject(NavegateService);
 
   onFinishAnimation() {
@@ -29,10 +28,6 @@ export class LevelSheet {
 
   onOffGlass() {
     this.onOffChange.emit();
-  }
-
-  onHover() : void {
-    this.isHover.update(v => !v);
   }
 
   cardContainerClass() : string {

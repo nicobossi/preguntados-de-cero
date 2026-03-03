@@ -2,12 +2,10 @@
   (animationend)="onFinishAnimation()"
   class="glass-card-container glass-container">
     <div
-      (mouseenter)="onHover()"
-      (mouseleave)="onHover()"
       [class]="cardContainerClass()">
       <div class="card" [class]="cardClass()">
         <app-level-header [level]="difficulty().level" />
-        <app-theme-names-container [themeNames]="difficulty().themeNames" [isHover]="isHover()" />
+        <app-theme-names-container [themeNames]="difficulty().themeNames" />
         <app-level-button (navegate)="navegate()"/>
       </div>
     </div>
