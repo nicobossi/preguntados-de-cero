@@ -3,8 +3,8 @@
 @media screen and (min-width: 768px) {
 
   .eg-incorrect-card {
+    min-height: 28vh;
     border-style: none;
-    border-color: none;
   }
 
   .incorrect-card-text {
