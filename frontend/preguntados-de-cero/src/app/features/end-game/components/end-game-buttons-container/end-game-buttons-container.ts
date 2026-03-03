@@ -1,14 +1,10 @@
 import {Component, inject} from '@angular/core';
-import {PlayAgainButton} from '@/app/features/end-game/components/play-again-button/play-again-button';
-import {RecapButton} from '@/app/features/end-game/components/recap-button/recap-button';
 import {NavegateService} from '@/app/core/services/navegate/navegate.services';
+import { ButtonNavegate } from '../button-navegate/button-navegate';
 
 @Component({
   selector: 'app-end-game-buttons-container',
-  imports: [
-    PlayAgainButton,
-    RecapButton
-  ],
+  imports: [ButtonNavegate],
   templateUrl: './end-game-buttons-container.html',
   styleUrl: './end-game-buttons-container.css',
 })

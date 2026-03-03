@@ -1,5 +1,5 @@
 <div class="egb-container">
   <h3>Partida Finalizada</h3>
-  <app-recap-button (navegate)="navegateToRecap()" />
-  <app-play-again-button (navegate)="navegateToLevel()"/>
+  <app-button-navegate text="Revisión" (onNavegate)="navegateToRecap()" />
+  <app-button-navegate text="Volver a jugar" (onNavegate)="navegateToLevel()"/>
 </div>
