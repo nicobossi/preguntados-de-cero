@@ -1,6 +1,8 @@
 
 
 .theme-name-item {
+  font-size: 20px;
+  text-align: start;
   background: var(--level-gradient);
   -webkit-background-clip: text;
   background-clip: text;

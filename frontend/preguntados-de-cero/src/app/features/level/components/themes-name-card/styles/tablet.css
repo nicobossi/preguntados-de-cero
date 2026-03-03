@@ -51,15 +51,15 @@ article .theme-names-container {
   background-color: #FFF;
 }
 
+.theme-names-container {
+  display: grid;
+  place-items: center;
+}
+
 ul {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  align-items: center;
+  width: 90%;
   height: 90%;
-}
-
-li {
-  font-size: 20px;
-  list-style-type: none;
 }
