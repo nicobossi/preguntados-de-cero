@@ -1,0 +1,12 @@
+
+
+@media screen and (min-width: 768px) {
+
+  .egc-container {
+    gap: 0px;
+    justify-content: space-evenly;
+    min-width: 260px;
+    width: 60%;
+    max-width: none;
+  }
+}

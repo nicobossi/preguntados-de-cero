@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RecapButton } from './recap-button';
+import { ButtonNavegate } from './button-navegate';
 
-describe('RecapButton', () => {
-  let component: RecapButton;
-  let fixture: ComponentFixture<RecapButton>;
+describe('ButtonNavegate', () => {
+  let component: ButtonNavegate;
+  let fixture: ComponentFixture<ButtonNavegate>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [RecapButton]
+      imports: [ButtonNavegate]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(RecapButton);
+    fixture = TestBed.createComponent(ButtonNavegate);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });
