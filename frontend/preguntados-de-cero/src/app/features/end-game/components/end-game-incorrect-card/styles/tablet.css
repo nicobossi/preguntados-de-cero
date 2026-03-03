@@ -1,0 +1,15 @@
+
+
+@media screen and (min-width: 768px) {
+
+  .eg-incorrect-card {
+    border-style: none;
+    border-color: none;
+  }
+
+  .incorrect-card-text {
+    background: linear-gradient(120deg, #DE6075, #ff8f8f);
+    background-clip: text;
+    color: transparent;
+  }
+}
