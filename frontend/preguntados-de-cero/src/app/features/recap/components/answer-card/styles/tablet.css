@@ -1,0 +1,19 @@
+
+
+@media screen and (min-width: 768px) {
+  .question-order-t{
+    font-size: 20px;
+  }
+
+  .question-t{
+    font-size: 18px;
+  }
+
+  .player-answer-t{
+    font-size: 18px;
+  }
+
+  .correct-answer-t{
+    font-size: 18px;
+  }
+}
