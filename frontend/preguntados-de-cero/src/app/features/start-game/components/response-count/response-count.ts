@@ -1,6 +1,5 @@
 import { Component, inject } from '@angular/core';
 import { GameService } from '../../services/game.service';
-import { GradientResultDirective } from "../../directives/gradient-result";
 import { TotalCounter } from "../total-counter/total-counter";
 import { AssertsCounter } from "../asserts-counter/asserts-counter";
 

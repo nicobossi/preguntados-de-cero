@@ -2,14 +2,6 @@
 
 @media screen and (min-width: 768px) {
 
-  div {
-    border-radius: 0 0 3vw 3vw;
-  }
-
-  ul {
-    display: none;
-  }
-
   p {
     display: block;
     font-size: 24px;

@@ -4,13 +4,12 @@
 
   .glass-card-container, .open-card {
     min-width: 30vw;
-    height: 52vh;
+    height: 70%;
     border-radius: 3vw;
     max-height: none;
   }
 
   .card, .float-container {
     min-width: 26vw;
-    height: 46vh;
   }
 }
