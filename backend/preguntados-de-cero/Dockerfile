@@ -12,7 +12,7 @@ RUN ./gradlew clean build -x test
 
 #STAGE 2
 
-FROM sapmachine:21.0.10.0.1-jre-alpine-3.22
+FROM eclipse-temurin:21-jre-alpine
 
 WORKDIR /preguntados-de-cero
 

@@ -7,10 +7,18 @@ services:
       - .env.prod.backend
     depends_on:
       - sql
+
+  frontend:
+    build: "frontend/preguntados-de-cero"
+    ports:
+      - "4200:80"
+    depends_on:
+      - backend
+
   sql:
     container_name: "sql_preguntados-de-cero"
     image: postgres:17-alpine
     ports:
-      - "5432:5432"
+      - "5433:5432"
     env_file:
       - .env.prod.db
