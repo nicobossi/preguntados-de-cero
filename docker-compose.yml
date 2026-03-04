@@ -7,6 +7,14 @@ services:
       - .env.prod.backend
     depends_on:
       - sql
+
+  frontend:
+    build: "frontend/preguntados-de-cero"
+    ports:
+      - "4200:80"
+    depends_on:
+      - backend
+
   sql:
     image: postgres:17-bookworm
     ports:
