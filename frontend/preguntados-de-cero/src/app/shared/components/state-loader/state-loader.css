@@ -1,0 +1,62 @@
+
+:host {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+
+section {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+}
+
+
+div {
+  display: grid;
+  place-items: center;
+  position: relative;
+  width: 100px;
+  height: 100px;
+  background: conic-gradient(
+    var(--primary-color),
+    transparent 60%
+  );
+  mask: radial-gradient(
+    circle,
+    transparent 60%,
+    #000 61%
+  );
+  border-radius: 200px;
+  animation: loader 1s linear infinite;
+}
+
+div::before {
+  content: "";
+  position: absolute;
+  width: 80%;
+  height: 80%;
+  border-radius: 200px;
+}
+
+
+/*linear-gradient(#FF0000, #FF5700, #FFFF00, #00FFFF, #0000FF, #000060,#000090)*/
+/*Rojo: #FF0000
+Naranja: #FF5700
+Amarillo: #FFFF00
+Verde: #00FFFF
+Azul: #0000FF
+Índigo: #000060
+Violeta: #000090*/
+
+@keyframes loader {
+  to {
+    transform: rotate(0deg);
+  }
+  from {
+    transform: rotate(360deg);
+  }
+}
