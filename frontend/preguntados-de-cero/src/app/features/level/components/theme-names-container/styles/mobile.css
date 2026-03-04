@@ -9,14 +9,15 @@ div {
 }
 
 ul {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
   height: 90%;
   width: 78%;
   border-radius: 10px;
   overflow-y: auto;
   list-style-type: none;
+}
+
+li {
+  margin-top: 8px;
 }
 
 p {
