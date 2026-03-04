@@ -16,7 +16,7 @@ FROM sapmachine:21.0.10.0.1-jre-alpine-3.22
 
 WORKDIR /preguntados-de-cero
 
-COPY --from=builder build/libs/*.jar /preguntados-de-cero/app.jar
+COPY --from=builder /preguntados-de-cero/build/libs/*.jar /preguntados-de-cero/app.jar
 
 EXPOSE 8080
 
