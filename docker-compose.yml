@@ -16,7 +16,8 @@ services:
       - backend
 
   sql:
-    image: postgres:17-bookworm
+    container_name: "sql_preguntados-de-cero"
+    image: postgres:17-alpine
     ports:
       - "5433:5432"
     env_file:
