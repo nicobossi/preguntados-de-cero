@@ -12,6 +12,7 @@ section {
   width: 100%;
   height: 100%;
   background-color: transparent;
+  animation: show-slow 0.2s;
 }
 
 
@@ -42,15 +43,14 @@ div::before {
   border-radius: 200px;
 }
 
-
-/*linear-gradient(#FF0000, #FF5700, #FFFF00, #00FFFF, #0000FF, #000060,#000090)*/
-/*Rojo: #FF0000
-Naranja: #FF5700
-Amarillo: #FFFF00
-Verde: #00FFFF
-Azul: #0000FF
-Índigo: #000060
-Violeta: #000090*/
+@keyframes show-slow {
+  to {
+    opacity: 0;
+  }
+  from {
+    opacity: 1;
+  }
+}
 
 @keyframes loader {
   to {
