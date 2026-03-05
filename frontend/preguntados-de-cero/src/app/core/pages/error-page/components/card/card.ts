@@ -3,6 +3,7 @@ import {ErrorCode} from '@/app/core/pages/error-page/components/error-code/error
 import {ErrorDescription} from '@/app/core/pages/error-page/components/error-description/error-description';
 import { ButtonNavegate } from "@/app/features/end-game/components/button-navegate/button-navegate";
 import { Router } from '@angular/router';
+import { NavegateService } from '@/app/core/services/navegate/navegate.services';
 
 @Component({
   selector: 'app-card',
@@ -16,8 +17,9 @@ import { Router } from '@angular/router';
 })
 export class Card {
   private router = inject(Router);
+  private navegate = inject(NavegateService);
 
   onClick() {
-    this.router.navigate(['']);
+    this.navegate.goHome();
   }
 }

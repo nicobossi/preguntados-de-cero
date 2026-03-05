@@ -8,7 +8,12 @@ import { Router } from "@angular/router";
   providedIn: 'root'
 })
 export class NavegateService {
+
   private router = inject(Router);
+
+  goHome() {
+    this.router.navigate(['']);
+  }
 
   goLevel() {
     this.router.navigate([LEVEL_URL]);
