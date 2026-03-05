@@ -4,12 +4,12 @@ import { ActivatedRoute } from '@angular/router';
 import { QuestionContainer } from "./components/question-container/question-container";
 import { OptionListContainer } from "./components/option-list-container/option-list-container";
 import { GameService } from './services/game.service';
-import { CounterService } from '../../core/services/counter-game/counter.service';
 import { OptionService } from './services/option.service';
+import { StateLoader } from "@/app/shared/components/state-loader/state-loader";
 
 @Component({
   selector: 'app-start-game',
-  imports: [QuestionContainer, OptionListContainer],
+  imports: [QuestionContainer, OptionListContainer, StateLoader],
   providers: [
     QuestionService,
     GameService,
