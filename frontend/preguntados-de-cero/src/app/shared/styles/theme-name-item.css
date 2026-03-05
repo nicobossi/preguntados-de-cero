@@ -1,6 +1,7 @@
 
 
 .theme-name-item {
+  position: relative;
   font-size: 20px;
   text-align: start;
   background: var(--level-gradient);
@@ -8,4 +9,15 @@
   background-clip: text;
   -webkit-text-fill-color: transparent;
   color: transparent;
+}
+
+.theme-name-item::before {
+  display: inline-block;
+  content: "";
+  width: 10px;
+  height: 10px;
+  margin-right: 10px;
+  background: var(--level-gradient);
+  border-radius: 50%;
+  opacity: 0.9;
 }

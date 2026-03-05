@@ -58,9 +58,10 @@ section {
 }
 
 ul {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
   width: 90%;
   height: 90%;
+}
+
+li {
+  margin-top: 8px;
 }
