@@ -1,8 +1,8 @@
 import {Component, inject} from '@angular/core';
-import { InitDesktopImage } from "./components/init-desktop-image/init-desktop-image";
 import { NameForm } from "./components/name-form/name-form";
 import { PlayerName } from '@/app/core/services/player-name/player-name';
 import { InitForm } from './services/init-form.service';
+import { InitDesktopImage } from '@/app/shared/components/init-desktop-image/init-desktop-image';
 
 @Component({
   selector: 'app-init-game',

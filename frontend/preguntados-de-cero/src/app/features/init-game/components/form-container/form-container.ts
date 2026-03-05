@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {NameForm} from '@/app/features/init-game/components/name-form/name-form';
-import {InitDesktopImage} from '@/app/features/init-game/components/init-desktop-image/init-desktop-image';
+import {InitDesktopImage} from '@/app/shared/components/init-desktop-image/init-desktop-image';
 
 @Component({
   selector: 'app-form-container',
