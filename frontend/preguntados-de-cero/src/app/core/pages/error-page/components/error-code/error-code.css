@@ -6,6 +6,12 @@
   justify-content: center;
 }
 
+h1, p {
+  background: linear-gradient(160deg, rgb(87, 87, 239), var(--primary-color));
+  background-clip: text;
+  color: transparent
+}
+
 .error-code-elements-container{
   width: 80%;
   display: flex;
