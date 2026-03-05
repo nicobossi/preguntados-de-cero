@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { Card } from './card';
+import { ErrorServerPage } from './error-server-page';
 
-describe('Card', () => {
-  let component: Card;
-  let fixture: ComponentFixture<Card>;
+describe('ErrorServerPage', () => {
+  let component: ErrorServerPage;
+  let fixture: ComponentFixture<ErrorServerPage>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Card]
+      imports: [ErrorServerPage]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(Card);
+    fixture = TestBed.createComponent(ErrorServerPage);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });
