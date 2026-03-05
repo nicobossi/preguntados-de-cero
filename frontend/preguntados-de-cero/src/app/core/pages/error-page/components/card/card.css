@@ -9,14 +9,14 @@
 
 .card-elements-container{
   width: 90dvw;
-  min-height: 95dvh;
+  min-height: 80dvh;
   display: grid;
   grid-template-rows: 0.5fr 1fr 0.5fr;
   place-items: center;
 }
 
 app-button-navegate {
-  max-width: 360px;
+  max-width: 400px;
 }
 
 @media screen and (min-width: 768px) {
