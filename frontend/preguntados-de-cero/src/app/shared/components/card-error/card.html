@@ -1,0 +1,10 @@
+<div class="card-elements-container">
+  <app-error-code
+    [code]="code()"
+    [message]="codeMessage()">
+  </app-error-code>
+  <app-error-description
+    [errorDescription]="errorDescription()">
+  </app-error-description>
+  <app-button-navegate [text]="'Ir a inicio'" (onNavegate)="onClick()" />
+</div>

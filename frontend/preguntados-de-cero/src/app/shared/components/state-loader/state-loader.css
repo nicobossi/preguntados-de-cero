@@ -1,0 +1,62 @@
+
+:host {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+
+section {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  animation: show-slow 0.2s;
+}
+
+
+div {
+  display: grid;
+  place-items: center;
+  position: relative;
+  width: 100px;
+  height: 100px;
+  background: conic-gradient(
+    var(--primary-color),
+    transparent 60%
+  );
+  mask: radial-gradient(
+    circle,
+    transparent 60%,
+    #000 61%
+  );
+  border-radius: 200px;
+  animation: loader 1s linear infinite;
+}
+
+div::before {
+  content: "";
+  position: absolute;
+  width: 80%;
+  height: 80%;
+  border-radius: 200px;
+}
+
+@keyframes show-slow {
+  to {
+    opacity: 0;
+  }
+  from {
+    opacity: 1;
+  }
+}
+
+@keyframes loader {
+  to {
+    transform: rotate(0deg);
+  }
+  from {
+    transform: rotate(360deg);
+  }
+}

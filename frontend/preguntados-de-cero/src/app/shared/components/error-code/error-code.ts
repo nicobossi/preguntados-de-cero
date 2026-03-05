@@ -1,11 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
 
 @Component({
   selector: 'app-error-code',
-  imports: [],
   templateUrl: './error-code.html',
   styleUrl: './error-code.css',
 })
 export class ErrorCode {
 
+  code = input.required<number>();
+  message = input.required<string>();
 }

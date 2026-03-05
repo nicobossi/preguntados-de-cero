@@ -1,3 +1,8 @@
 <section>
-  <app-card></app-card>
+  <app-card-error
+    [code]="404"
+    [codeMessage]="'Página no encontrada'"
+    [errorDescription]="errorDescription"
+  />
+  <app-init-desktop-image />
 </section>
