@@ -21,7 +21,7 @@ public class PreguntadosDeCeroApplication {
                 registry.addMapping("/**")
                         .allowedOrigins(
                                 "http://localhost:4200",
-                                "https://earnest-quietude-production-d60d.up.railway.app"
+                                "https://preguntadosdecero.up.railway.app"
                         )
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                         .allowedHeaders("*");
