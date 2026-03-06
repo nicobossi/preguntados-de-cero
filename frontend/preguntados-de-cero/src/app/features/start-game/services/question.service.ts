@@ -3,6 +3,7 @@ import { HttpClient } from "@angular/common/http";
 import { inject, Injectable } from "@angular/core";
 import { GameService } from "./game.service";
 import { LoadStateService } from "@/app/core/services/load-state/load-state.service";
+import { environment } from '@/environments/environment';
 
 
 @Injectable()
@@ -11,7 +12,7 @@ export class QuestionService {
   private gameService = inject(GameService);
   private http = inject(HttpClient);
   private loadService = inject(LoadStateService<GameService>);
-  private path = "http://localhost:8080/api/question";
+  private path = environment.apiBackendUrl + "/api/question";
 
   getAll(themeId : number) : void {
 
