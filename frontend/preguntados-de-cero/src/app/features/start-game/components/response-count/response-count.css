@@ -16,10 +16,10 @@ section {
   animation-delay: 0.4s;
 }
 
-@media screen and (min-width: 564px) {
+@media screen and (min-width: 768px) {
   section {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     width: 100%;
     max-width: none;
   }
@@ -34,7 +34,7 @@ section {
     height: 30%;
   }
   section {
-    width: 95%;
+    width: 99%;
     justify-content: space-between;
   }
 }
