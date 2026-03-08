@@ -2,7 +2,10 @@
 
 .theme-name-item {
   position: relative;
-  font-size: 20px;
+  font-family: Inter, sans-serif;
+  /*font-size: 24px;*/
+  font-size: clamp(1.25rem, 1vw + 1.0199rem, 1.5rem);
+  font-weight: 540;
   text-align: start;
   background: var(--level-gradient);
   -webkit-background-clip: text;

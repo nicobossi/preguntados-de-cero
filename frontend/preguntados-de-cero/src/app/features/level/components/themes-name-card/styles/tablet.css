@@ -40,7 +40,10 @@ section {
   display: grid;
   place-items: center;
   width: 100%;
-  font-size: 20px;
+  font-family: Inter, sans-serif;
+  font-weight: bold;
+  /*font-size: 30px;*/
+  font-size: clamp(1.5rem, 1vw + 1rem, 1.875rem);
   border-radius: 10px 10px 0 0;
   color: var(--dark-color);
   background: linear-gradient(296.88deg, #beebff 38.09%, #ddf2fc 65.3%);

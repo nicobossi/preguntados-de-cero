@@ -19,7 +19,9 @@ div {
 button {
   width: 80%;
   height: 60%;
-  font-size: 18px;
+  /*font-size: 20px;*/
+  font-family: Inter, sans-serif;
+  font-size: clamp(1.25rem, 1vw + 1.0199rem, 1.5rem);
   border-radius: 30px;
   border-style: none;
   color: #FFFFFF;

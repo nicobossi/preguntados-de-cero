@@ -16,6 +16,9 @@ button {
   cursor: pointer;
   color: #FFF;
   background-color: #202438;
+  font-family: Inter, sans-serif;
+  /*font-size: 18px;*/
+  font-size: clamp(1.125rem, 0.3125vw + 1rem, 1.375rem);
 }
 
 .disable {
