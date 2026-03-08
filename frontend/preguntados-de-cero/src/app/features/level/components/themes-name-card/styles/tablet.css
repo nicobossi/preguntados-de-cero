@@ -41,7 +41,6 @@ section {
   place-items: center;
   width: 100%;
   font-family: Inter, sans-serif;
-  font-weight: bold;
   /*font-size: 30px;*/
   font-size: clamp(1.5rem, 1vw + 1rem, 1.875rem);
   border-radius: 10px 10px 0 0;
