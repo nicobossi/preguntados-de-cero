@@ -8,6 +8,8 @@
   display: none;
   color: #111;
   background: var(--oro-gradient);
+  font-size: clamp(1.125rem, 0.417vw + 1rem, 1.5rem);
+  font-family: Inter, sans-serif;
 }
 
 @media screen and (min-width: 564px) {
@@ -41,3 +43,6 @@
     min-width: 20vw;
   }
 }
+
+
+
