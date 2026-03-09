@@ -9,3 +9,4 @@ import { Component } from '@angular/core';
 export class HeaderGame {
 
 }
+// ¿BORRAR COMPONENTE?
