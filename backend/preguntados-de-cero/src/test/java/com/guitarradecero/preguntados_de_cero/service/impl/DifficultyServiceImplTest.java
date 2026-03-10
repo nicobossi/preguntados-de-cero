@@ -1,23 +1,25 @@
 package com.guitarradecero.preguntados_de_cero.service.impl;
 
+
+import com.guitarradecero.preguntados_de_cero.IntegrationTest;
 import com.guitarradecero.preguntados_de_cero.dto.difficulty.DifficultyDescription;
 import com.guitarradecero.preguntados_de_cero.model.difficulty.Difficulty;
 import com.guitarradecero.preguntados_de_cero.model.theme.Theme;
 import com.guitarradecero.preguntados_de_cero.model.difficulty.LevelRepeatException;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
+import org.testcontainers.junit.jupiter.Testcontainers;
 
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
+@Testcontainers
 @ActiveProfiles("test")
-class DifficultyServiceImplTest {
+class DifficultyServiceImplTest extends IntegrationTest {
 
     @Autowired
     private DifficultyServiceImpl service;
@@ -83,7 +85,6 @@ class DifficultyServiceImplTest {
         assertFalse(description1.getThemeNames().stream().toList().isEmpty());
         assertFalse(description2.getThemeNames().stream().toList().isEmpty());
     }
-
 
     @AfterEach
     void tearDown() {
