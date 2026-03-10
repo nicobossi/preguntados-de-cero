@@ -61,7 +61,9 @@ class ThemeServiceImplTest extends IntegrationTest {
 
         Theme theme2 = new Theme("Theme A", "Description of theme A");
 
-        assertThrows(ThemeNameRepeatException.class, () -> themeService.saveTheme(theme2, persistedDifficulty1.getId()));
+        RuntimeException exception = assertThrows(ThemeNameRepeatException.class, () -> themeService.saveTheme(theme2, persistedDifficulty1.getId()));
+        assertEquals(exception.getMessage(), themeService.themeNameRepeatMessage(theme2));
+
     }
 
     @Test

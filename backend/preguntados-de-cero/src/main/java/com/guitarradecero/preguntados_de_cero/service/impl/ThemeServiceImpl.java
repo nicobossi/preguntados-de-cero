@@ -37,18 +37,29 @@ public class ThemeServiceImpl implements ThemeService {
 
     @Override
     public Theme saveTheme(Theme theme, Long difficultyId) {
-        Difficulty difficulty = getDifficultyDao().findById(difficultyId)
-                .orElseThrow(() -> new NotFoundException(
-                        "Difficulty not found with id: " + difficultyId));
-
+        Difficulty difficulty = difficultyWithId(difficultyId);
         difficulty.addTheme(theme);
 
         try {
             return getThemeDao().saveAndFlush(theme);
         }
         catch(DataIntegrityViolationException e) {
-            throw new ThemeNameRepeatException("name: " + theme.getName() + " is repeat");
+            throw new ThemeNameRepeatException(themeNameRepeatMessage(theme));
         }
+    }
+
+    private Difficulty difficultyWithId(Long difficultyId) {
+        return getDifficultyDao().findById(difficultyId)
+                .orElseThrow(() -> new NotFoundException(
+                        difficultyNotFoundMessage(difficultyId)));
+    }
+
+    String themeNameRepeatMessage(Theme theme) {
+        return "name: " + theme.getName() + " is repeat";
+    }
+
+    String difficultyNotFoundMessage(Long difficultyId) {
+        return "Difficulty not found with id: " + difficultyId;
     }
 
     void clearAll(){
