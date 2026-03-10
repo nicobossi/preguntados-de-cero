@@ -4,6 +4,7 @@ package com.guitarradecero.preguntados_de_cero.service.impl;
 import com.guitarradecero.preguntados_de_cero.IntegrationTest;
 import com.guitarradecero.preguntados_de_cero.model.difficulty.Difficulty;
 import com.guitarradecero.preguntados_de_cero.model.theme.Theme;
+import com.guitarradecero.preguntados_de_cero.model.theme.ThemeNameRepeatException;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -49,6 +50,18 @@ class ThemeServiceImplTest extends IntegrationTest {
         assertNotNull(persistedThemeA.getId());
 
         assertEquals(themeA, persistedThemeA);
+    }
+
+    @Test
+    void testSiSePersisteUnaTematicaConNombreRepetido_HayExcepcion() {
+
+        Theme theme1 = new Theme("Theme A", "Description of theme A");
+
+        themeService.saveTheme(theme1, persistedDifficulty1.getId());
+
+        Theme theme2 = new Theme("Theme A", "Description of theme A");
+
+        assertThrows(ThemeNameRepeatException.class, () -> themeService.saveTheme(theme2, persistedDifficulty1.getId()));
     }
 
     @Test
