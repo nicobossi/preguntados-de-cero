@@ -1,53 +1,5 @@
 @import '../../animations/select-container.css';
-
-:host {
-  height: 100%;
-}
-
-.total_answer-container {
-  height: 100%;
-  display: grid;
-  font-size: 18px;
-  /*font-size: clamp(1.125rem, 0.417vw + 1rem, 1.5rem);*/
-  /*font-size: clamp(1.125rem, 0.1vw + 1rem, 1.5rem);*/
-  /*font-size: clamp(1.125rem, 0.17vw + 1rem, 1.5rem);*/
-  place-items: center;
-  /*font-size: 18px;*/
-  font-size: clamp(1.125rem, 0.417vw + 1rem, 1.5rem);
-  font-family: Inter, sans-serif;
-  padding-left: 10px;
-  padding-right: 10px;
-  border-radius: 10px;
-  box-shadow: 2px 2px 4px #CCC;
-  color: #FFF;
-  background: var(--play-gradient);
-}
-
-.total_answer-container div {
-  width: 100%;
-  max-width: 260px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-@media screen and (min-width: 1200px) {
-
-  .total_answer-container {
-    min-width: 20vw;
-    font-size: clamp(1.375rem, 0.5vw + 1rem, 1.625rem);
-  }
-  .total_answer-container div{
-    flex-direction: column;
-    max-width: none;
-  }
-}
-
-@media screen and (min-width: 564px) {
-
-  .total_answer-container div{
-    flex-direction: column;
-    height: 50%;
-  }
-}
-
+@import './styles/mobile.css';
+@import './styles/big-mobile.css';
+@import './styles/tablet.css';
+@import './styles/desktop.css';

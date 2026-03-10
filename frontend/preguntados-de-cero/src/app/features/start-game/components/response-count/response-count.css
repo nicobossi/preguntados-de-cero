@@ -1,40 +1,7 @@
 @import '../../../../shared/animations/falling-container.css';
+@import './styles/mobile.css';
+@import './styles/big-mobile.css';
+@import './styles/tablet.css';
+@import './styles/desktop.css';
 
-:host {
-  display: grid;
-  place-items: center;
-  width: 100%;
-  height: 100%;
-}
 
-section {
-  width: 80%;
-  height: 50%;
-}
-
-.falling-container {
-  animation-delay: 0.4s;
-}
-
-@media screen and (min-width: 564px) {
-  section {
-    display: flex;
-    justify-content: space-evenly;
-    width: 100%;
-    max-width: none;
-  }
-}
-
-@media screen and (min-width: 1200px) {
-  :host {
-    position: absolute;
-    left: 0;
-    top: 10%;
-    width: 100vw;
-    height: 30%;
-  }
-  section {
-    width: 95%;
-    justify-content: space-between;
-  }
-}

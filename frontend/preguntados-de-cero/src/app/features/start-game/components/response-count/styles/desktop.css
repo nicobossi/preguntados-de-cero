@@ -1,0 +1,13 @@
+@media screen and (min-width: 1200px) {
+  :host {
+    position: absolute;
+    left: 0;
+    top: 10%;
+    width: 100vw;
+    height: 30%;
+  }
+  section {
+    width: 95%;
+    justify-content: space-between;
+  }
+}

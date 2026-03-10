@@ -1,0 +1,13 @@
+@media screen and (min-width: 565px) {
+
+  .option-list_buttons {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 30px;
+  }
+
+  .option-list_buttons--text {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
