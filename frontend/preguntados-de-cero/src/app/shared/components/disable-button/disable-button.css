@@ -1,37 +1,4 @@
+@import './styles/mobile.css';
+@import './styles/tablet.css';
+@import './styles/desktop.css';
 
-
-
-:host {
-  display: grid;
-  place-items: center;
-  width: 100%;
-}
-
-button {
-  max-width: 320px;
-  width: 100%;
-  height: 40px;
-  border-radius: 40px;
-  border-style: none;
-  cursor: pointer;
-  color: #FFF;
-  background-color: #202438;
-  font-family: Inter, sans-serif;
-  /*font-size: 18px;*/
-  font-size: clamp(1.125rem, 0.3125vw + 1rem, 1.375rem);
-}
-
-.disable {
-  background-color: #687096;
-  cursor: initial;
-}
-
-@media screen and (min-width: 565px) {
-  :host {
-    position: relative;
-  }
-
-  button {
-    position: absolute;
-  }
-}

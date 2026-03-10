@@ -1,0 +1,52 @@
+:host {
+  display: grid;
+  place-items: center;
+  width: 70%;
+  height: 30%;
+}
+
+.flash-gradient {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 3vw;
+  box-shadow: 2px 2px 2px #888;
+  background-color: #FFF;
+}
+
+.flash-gradient::before {
+  border-radius: 3vw;
+}
+
+div {
+  display: grid;
+  grid-template-rows: 30% 70%;
+  place-items: center;
+  height: 80%;
+}
+
+h3 {
+  font-size: 22px;
+  font-family: Inter, sans-serif;
+  font-weight: bold;
+  background: var(--theme-gradient);
+  background-clip: text;
+  color: transparent;
+}
+
+p {
+  font-family: Inter, sans-serif;
+  font-size: 18px;
+  text-align: center;
+  padding: 0 20px 0 20px
+}
+
+@media screen and (min-width: 768px) {
+  h3{
+    font-size: clamp(1.375rem, 1.0929vw + 0.8503rem, 1.875rem); /* crece hasta que la pantalla tiene 1500px, donde se queda en 30px*/
+  }
+  p{
+    font-size: clamp(1.125rem, 1.0929vw + 0.6003rem, 1.625rem); /* crece hasta que la pantalla tiene 1500px, donde se queda en 26px*/
+  }
+}

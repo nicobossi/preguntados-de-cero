@@ -1,0 +1,5 @@
+@media screen and (min-width: 1200px) {
+  section {
+    max-width: 80%;
+  }
+}

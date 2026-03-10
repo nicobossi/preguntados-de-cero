@@ -1,42 +1,6 @@
+@import './styles/mobile.css';
+@import './styles/big-mobile.css';
+@import './styles/tablet.css';
+@import './styles/desktop.css';
 
 
-:host {
-  display: grid;
-  place-items: center;
-  width: 100%;
-}
-
-button {
-  width: 100%;
-  max-width: 320px;
-  height: 40px;
-  font-size: 14px;
-  border-radius: 40px;
-  border-style: none;
-  box-shadow: 2px 2px 2px #DDD;
-  cursor: pointer;
-  background-color: #FFF;
-  transition: box-shadow 0.4s, font-size 0.4s, font-weight 0.4s, transform 0.4s;
-}
-
-button:hover {
-  font-size: 15px;
-  font-weight: 500;
-  box-shadow: 2px 2px 6px #AAA;
-  transform: scale(1.05, 1.05);
-}
-
-.fail_button {
-  background: var(--fail-gradient);
-}
-
-.correct_button {
-  background: var(--assert-gradient);
-}
-
-@media screen and (min-width: 566px) {
-  button {
-    min-height: 80px;
-    width: 90%;
-  }
-}

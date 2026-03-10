@@ -1,0 +1,9 @@
+@media screen and (min-width: 1200px) {
+  input {
+    font-size: clamp(1.25rem, 1.333vw + 0.25rem, 1.5rem); /* crece hasta que la pantalla tiene 1500px, donde se queda en 24px*/
+  }
+
+  input::placeholder {
+    font-size: clamp(1.25rem, 1.333vw + 0.25rem, 1.5rem); /* crece hasta que la pantalla tiene 1500px, donde se queda en 24px*/
+  }
+}

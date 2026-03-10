@@ -1,6 +1,7 @@
 package com.guitarradecero.preguntados_de_cero.service.impl;
 
 
+import com.guitarradecero.preguntados_de_cero.IntegrationTest;
 import com.guitarradecero.preguntados_de_cero.model.difficulty.Difficulty;
 import com.guitarradecero.preguntados_de_cero.model.theme.Theme;
 import org.junit.jupiter.api.AfterEach;
@@ -9,14 +10,14 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
-
+import org.testcontainers.junit.jupiter.Testcontainers;
 import java.util.List;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
+@Testcontainers
 @ActiveProfiles("test")
-class ThemeServiceImplTest {
+class ThemeServiceImplTest extends IntegrationTest {
 
     @Autowired
     private ThemeServiceImpl themeService;

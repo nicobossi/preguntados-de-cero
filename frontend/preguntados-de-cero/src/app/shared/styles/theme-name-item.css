@@ -3,9 +3,8 @@
 .theme-name-item {
   position: relative;
   font-family: Inter, sans-serif;
-  /*font-size: 24px;*/
-  font-size: clamp(1.25rem, 1vw + 1.0199rem, 1.5rem);
-  font-weight: 540;
+  font-size: 19px;
+
   text-align: start;
   background: var(--level-gradient);
   -webkit-background-clip: text;
@@ -23,4 +22,10 @@
   background: var(--level-gradient);
   border-radius: 50%;
   opacity: 0.9;
+}
+
+@media screen and (min-width: 768px){
+  .theme-name-item{
+    font-size: clamp(1.1875rem, 0.8197vw + 0.7940rem, 1.5625rem); /* crece hasta que la pantalla tiene 1500px, donde se queda en 25px*/
+  }
 }

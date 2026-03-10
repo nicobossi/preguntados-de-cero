@@ -1,0 +1,25 @@
+@media screen and (min-width: 564px) {
+  .correct_answer-container {
+    height: 100%;
+    display: grid;
+    place-items: center;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 4px #CCC;
+  }
+
+  .correct_answer-container div {
+    width: 100%;
+    max-width: 260px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    height: 50%;
+  }
+
+  .correct_answer-container {
+    min-width: 46%;
+  }
+}

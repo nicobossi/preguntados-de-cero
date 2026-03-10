@@ -1,5 +1,6 @@
 package com.guitarradecero.preguntados_de_cero.controller.theme;
 
+import com.guitarradecero.preguntados_de_cero.IntegrationTest;
 import com.guitarradecero.preguntados_de_cero.model.difficulty.Difficulty;
 import com.guitarradecero.preguntados_de_cero.model.theme.Theme;
 import com.guitarradecero.preguntados_de_cero.persistence.sql.theme.ThemeDAO;
@@ -14,51 +15,33 @@ import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
-import org.testcontainers.containers.PostgreSQLContainer;
-
+import org.testcontainers.junit.jupiter.Container;
+import org.testcontainers.junit.jupiter.Testcontainers;
+import org.testcontainers.postgresql.PostgreSQLContainer;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.collection.IsCollectionWithSize.hasSize;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@Testcontainers
 @ActiveProfiles("test")
-class ThemeControllerRESTTest {
+class ThemeControllerRESTTest extends IntegrationTest {
+
     @LocalServerPort
     private Integer port;
 
-    static PostgreSQLContainer<?> postgres = new PostgreSQLContainer<>(
-            "postgres:17-alpine"
-    );
-
-    @BeforeAll
-    static void beforeAll() {
-        postgres.start();
-    }
-
-    @AfterAll
-    static void afterAll() {
-        postgres.stop();
-    }
-
-    @DynamicPropertySource
-    static void configureProperties(DynamicPropertyRegistry registry) {
-        registry.add("spring.datasource.url", postgres::getJdbcUrl);
-        registry.add("spring.datasource.username", postgres::getUsername);
-        registry.add("spring.datasource.password", postgres::getPassword);
-        registry.add("spring.datasource.driver-class-name", () -> "org.postgresql.Driver");
-    }
-
     @Autowired
     ThemeDAO themeDAO;
+
     @Autowired
     ThemeServiceImpl themeService;
+
     @Autowired
     DifficultyService difficultyService;
 
     @BeforeEach
     void setUp() {
         RestAssured.baseURI = "http://localhost:" + port;
-//        themeDAO.deleteAll();
     }
 
     @Test

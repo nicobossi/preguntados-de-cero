@@ -1,6 +1,4 @@
 
-
-
 header {
   display: grid;
   place-items: center;
@@ -11,10 +9,8 @@ header {
 }
 
 p {
-  /*font-size: 30px;*/
+  font-size: 22px;
   font-family: Inter, sans-serif;
-  font-size: clamp(1.5rem, 1vw + 1rem, 1.875rem);
-  font-weight: bold;
   text-align: center;
   color: #FFF;
 }

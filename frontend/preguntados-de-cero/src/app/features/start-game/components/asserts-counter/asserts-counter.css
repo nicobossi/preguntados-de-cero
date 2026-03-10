@@ -1,52 +1,5 @@
 @import '../../animations/select-container.css';
-
-:host {
-  width: 100%;
-  height: 100%;
-}
-
-.correct_answer-container {
-  display: none;
-  color: #111;
-  background: var(--oro-gradient);
-  font-size: clamp(1.125rem, 0.417vw + 1rem, 1.5rem);
-  font-family: Inter, sans-serif;
-}
-
-@media screen and (min-width: 768px) {
-
-  :host {
-    width: 80%;
-    max-width: 300px;
-  }
-
-  .correct_answer-container {
-    height: 100%;
-    display: grid;
-    place-items: center;
-    border-radius: 10px;
-    box-shadow: 2px 2px 4px #CCC;
-  }
-
-  .correct_answer-container div {
-    width: 100%;
-    max-width: 260px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .correct_answer-container {
-    min-width: 46%;
-  }
-}
-
-@media screen and (min-width: 1200px) {
-
-  .correct_answer-container {
-    min-width: 20vw;
-  }
-}
-
-
-
+@import './styles/mobile.css';
+@import './styles/big-mobile.css';
+@import './styles/tablet.css';
+@import './styles/desktop.css';

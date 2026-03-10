@@ -1,50 +1,5 @@
 @import '../../animations/select-container.css';
-
-:host {
-  display: grid;
-  place-items: center;
-  height: 100%;
-}
-
-.total_answer-container {
-  width: 100%;
-  max-width: 320px;
-  height: 100%;
-  display: grid;
-  place-items: center;
-  /*font-size: 18px;*/
-  font-size: clamp(1.125rem, 0.417vw + 1rem, 1.5rem);
-  font-family: Inter, sans-serif;
-  border-radius: 10px;
-  box-shadow: 2px 2px 4px #CCC;
-  color: #FFF;
-  background: var(--play-gradient);
-}
-
-.total_answer-container div {
-  width: 90%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-@media screen and (min-width: 768px) {
-
-  :host {
-    width: 80%;
-    max-width: 300px;
-  }
-
-  .total_answer-container {
-    max-width: none;
-  }
-}
-
-
-@media screen and (min-width: 1200px) {
-
-  .total_answer-container {
-    min-width: 20vw;
-  }
-}
-
+@import './styles/mobile.css';
+@import './styles/big-mobile.css';
+@import './styles/tablet.css';
+@import './styles/desktop.css';
