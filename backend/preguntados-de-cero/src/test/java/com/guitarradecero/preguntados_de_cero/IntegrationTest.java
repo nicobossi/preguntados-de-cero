@@ -1,15 +1,15 @@
 package com.guitarradecero.preguntados_de_cero;
 
+import com.guitarradecero.preguntados_de_cero.testContainers.PostgresContainer;
 import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
 import org.testcontainers.postgresql.PostgreSQLContainer;
 
 public abstract class IntegrationTest {
 
-    static PostgreSQLContainer container;
+    static PostgreSQLContainer container = PostgresContainer.getInstance();
 
     static {
-        container = new PostgreSQLContainer("postgres:17-alpine");
         container.start();
     }
 
