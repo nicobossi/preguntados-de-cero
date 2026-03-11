@@ -30,7 +30,7 @@ public class Option {
 
     public void adddedQuestion(Question question) {
         if(isRepeatStatementIn(question)) {
-            throw new RepeatedStatementOptionException("");
+            throw new RepeatedStatementOptionException(repeatedStatementOptionMessage(question));
         }
         if(getIsCorrect()) {
             question.addCorrectOption(this);
@@ -42,5 +42,9 @@ public class Option {
 
     private boolean isRepeatStatementIn(Question question) {
         return question.optionsStatements().stream().anyMatch(statement -> Objects.equals(statement, getText()));
+    }
+
+    String repeatedStatementOptionMessage(Question question) {
+        return "La pregunta " + question.getId() + " ya tiene una opción con el enunciado " + getText();
     }
 }

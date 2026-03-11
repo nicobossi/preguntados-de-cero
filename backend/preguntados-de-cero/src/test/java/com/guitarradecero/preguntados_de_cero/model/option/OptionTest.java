@@ -1,5 +1,6 @@
 package com.guitarradecero.preguntados_de_cero.model.option;
 
+import com.guitarradecero.preguntados_de_cero.model.ModelException;
 import com.guitarradecero.preguntados_de_cero.model.question.Question;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -43,7 +44,9 @@ class OptionTest {
         statements.add("a");
         when(question.optionsStatements()).thenReturn(statements);
 
-        assertThrows(RepeatedStatementOptionException.class, () -> correctOption.adddedQuestion(question));
+        ModelException exception = assertThrows(RepeatedStatementOptionException.class, () -> correctOption.adddedQuestion(question));
+
+        assertEquals(exception.getMessage(), correctOption.repeatedStatementOptionMessage(question));
 
         verify(question).optionsStatements();
     }
