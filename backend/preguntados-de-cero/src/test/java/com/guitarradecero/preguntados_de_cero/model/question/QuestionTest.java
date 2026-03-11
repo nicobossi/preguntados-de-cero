@@ -95,4 +95,58 @@ class QuestionTest {
 
         assertThrows(RepeatedStatementOptionException.class, () -> question.addOption(option2));
     }
+
+    @Test
+    void testSeVerificaTodasLasOpcionesCandidatasSinFallos() {
+        List<Option> options = new ArrayList<>();
+        Option option1 = new Option("a", true);
+        options.add(option1);
+
+        Option option2 = new Option("b", false);
+        options.add(option2);
+
+        Option option3 = new Option("c", false);
+        options.add(option3);
+
+        Option option4 = new Option("d", false);
+        options.add(option4);
+
+        assertDoesNotThrow(() -> question.verifyCandidatesOptions(options));
+    }
+
+    @Test
+    void testSeVerificaQueTodasLasPreguntasCandidatasTengasEnunciadosDistintos() {
+        List<Option> options = new ArrayList<>();
+        Option option1 = new Option("a", true);
+        options.add(option1);
+
+        Option option2 = new Option("b", false);
+        options.add(option2);
+
+        Option failOption = new Option("a", false);
+        options.add(failOption);
+
+        Option option4 = new Option("d", false);
+        options.add(option4);
+
+        assertThrows(RepeatedStatementOptionException.class, () -> question.verifyCandidatesOptions(options));
+    }
+
+    @Test
+    void testSeVerificaQueSoloExistaUnaPreguntaCandidataCorrecta() {
+        List<Option> options = new ArrayList<>();
+        Option option1 = new Option("a", true);
+        options.add(option1);
+
+        Option option2 = new Option("b", false);
+        options.add(option2);
+
+        Option failOption = new Option("c", true);
+        options.add(failOption);
+
+        Option option4 = new Option("d", false);
+        options.add(option4);
+
+        assertThrows(RepeatedCorrectOptionException.class, () -> question.verifyCandidatesOptions(options));
+    }
 }

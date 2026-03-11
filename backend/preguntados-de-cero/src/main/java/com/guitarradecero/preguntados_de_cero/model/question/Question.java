@@ -7,6 +7,7 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.jspecify.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,6 +47,10 @@ public class Question {
 
     public void addTheme(Theme theme) {
         setTheme(theme);
+    }
+
+    public void verifyCandidatesOptions(List<Option> options) {
+        options.forEach(this::addOption);
     }
 
     public void addOption(Option option) {
