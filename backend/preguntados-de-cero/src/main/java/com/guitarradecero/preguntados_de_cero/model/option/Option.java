@@ -13,6 +13,8 @@ import java.util.Objects;
 @Getter
 @Setter(AccessLevel.PROTECTED)
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "option_type", discriminatorType = DiscriminatorType.STRING)
 public abstract class Option {
 
     @Id
