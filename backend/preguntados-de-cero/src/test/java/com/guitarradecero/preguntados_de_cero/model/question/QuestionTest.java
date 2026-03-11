@@ -1,5 +1,6 @@
 package com.guitarradecero.preguntados_de_cero.model.question;
 
+import com.guitarradecero.preguntados_de_cero.model.ModelException;
 import com.guitarradecero.preguntados_de_cero.model.option.Option;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -55,23 +56,16 @@ class QuestionTest {
     }
 
     @Test
-    void testUnaPreguntaSabeSiTieneSoloUnaOpcionCorrecta() {
+    void testSiSeAgregaMasDeUnaOpcionCorrecta_HayExcepcion() {
+        Option option1 = spy(Option.class);
+        Option option2 = spy(Option.class);
+
         when(option1.getIsCorrect()).thenReturn(true);
-        when(option2.getIsCorrect()).thenReturn(false);
-        when(option3.getIsCorrect()).thenReturn(false);
-        when(option4.getIsCorrect()).thenReturn(false);
+        when(option2.getIsCorrect()).thenReturn(true);
+        question.addOption(option1);
 
-        assertTrue(question.haveOnlyACorrectOption());
-    }
-
-    @Test
-    void testUnaPreguntaSabeSiTieneMasDeUnaOpcionCorrecta() {
-        when(option1.getIsCorrect()).thenReturn(true);
-        when(option2.getIsCorrect()).thenReturn(false);
-        when(option3.getIsCorrect()).thenReturn(true);
-        when(option4.getIsCorrect()).thenReturn(false);
-
-        assertFalse(question.haveOnlyACorrectOption());
+        ModelException exception = assertThrows(RepeatedCorrectOptionException.class, () -> question.addOption(option2));
+        assertEquals(exception.getMessage(), question.repeatedCorrectOptionMessage(option2));
     }
 
     @Test

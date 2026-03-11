@@ -36,6 +36,7 @@ public class Question {
     @JoinColumn(name = "id_question")
     private List<Option> options = new ArrayList<>();
 
+    @Getter(AccessLevel.PRIVATE)
     @Transient
     private Boolean haveCorrectOption;
 
@@ -48,14 +49,6 @@ public class Question {
 
     public void addTheme(Theme theme) {
         setTheme(theme);
-    }
-
-    Boolean haveOnlyACorrectOption() {
-        return assertsCount() == 1;
-    }
-
-    private Integer assertsCount() {
-        return getOptions().stream().filter(Option::getIsCorrect).toList().size();
     }
 
     Boolean existDifferentOptions() {
@@ -73,7 +66,14 @@ public class Question {
     }
 
     public void addOption(Option option) {
+        if(getHaveCorrectOption()) {
+            throw new RepeatedCorrectOptionException(repeatedCorrectOptionMessage(option));
+        }
         option.adddedQuestion(this);
+    }
+
+    String repeatedCorrectOptionMessage(Option option) {
+        return "La opción " + option.getText() + " no puede ser la correcta porque la pregunta " + getText() + " ya tiene una opción correcta";
     }
 
     public void addCorrectOption(Option option) {
@@ -100,7 +100,6 @@ public class Question {
 
         Final:
             - Recibir una opción por parametro para agregar.
-            - Delegar en la opción, pasarle la pregunta.
             - Si existe una opción correcta en el campo Optional, lanzar excepción.
             - Validar si el enunciado de la opción a agregar es único. Si lo es agregarla, sino lanzar error.
                 1. Delegar en la opción, pasarle la pregunta.
