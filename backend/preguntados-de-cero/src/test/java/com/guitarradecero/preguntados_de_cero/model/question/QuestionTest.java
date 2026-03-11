@@ -2,6 +2,7 @@ package com.guitarradecero.preguntados_de_cero.model.question;
 
 import com.guitarradecero.preguntados_de_cero.model.ModelException;
 import com.guitarradecero.preguntados_de_cero.model.option.Option;
+import com.guitarradecero.preguntados_de_cero.model.option.RepeatedStatementOptionException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -69,23 +70,29 @@ class QuestionTest {
     }
 
     @Test
-    void testUnaPreguntaSabeSiLaRespuestaDeCadaOpcionEsUnica() {
+    void testUnaPreguntaDevuelveLosEnunciadosDeSusOpciones() {
+        Option option1 = spy(Option.class);
         when(option1.getText()).thenReturn("a");
-        when(option2.getText()).thenReturn("b");
-        when(option3.getText()).thenReturn("c");
-        when(option4.getText()).thenReturn("d");
+        when(option1.getIsCorrect()).thenReturn(true);
+        question.addOption(option1);
 
-        assertTrue(question.existDifferentOptions());
+        List<String> optionsStatements = question.optionsStatements();
+
+        assertTrue(optionsStatements.contains(option1.getText()));
     }
 
     @Test
-    void testUnaPreguntaSabeSiHayUnaRespuestaRepetidaEntreLasOpciones() {
+    void testSiExisteUnaOpcionCandidataConEnunciadoRepetido_HayExcepcion() {
+        Option option1 = spy(Option.class);
+        when(option1.getIsCorrect()).thenReturn(true);
         when(option1.getText()).thenReturn("a");
-        when(option2.getText()).thenReturn("b");
-        when(option3.getText()).thenReturn("a");
-        when(option4.getText()).thenReturn("d");
 
-        assertFalse(question.existDifferentOptions());
+        Option option2 = spy(Option.class);
+        when(option2.getIsCorrect()).thenReturn(false);
+        when(option2.getText()).thenReturn("a");
+
+        question.addOption(option1);
+
+        assertThrows(RepeatedStatementOptionException.class, () -> question.addOption(option2));
     }
-
 }

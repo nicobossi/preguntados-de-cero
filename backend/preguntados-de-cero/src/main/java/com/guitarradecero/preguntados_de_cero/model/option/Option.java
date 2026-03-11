@@ -7,6 +7,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.Objects;
+
 @Entity
 @Getter
 @Setter(AccessLevel.PRIVATE)
@@ -27,11 +29,18 @@ public class Option {
     }
 
     public void adddedQuestion(Question question) {
+        if(isRepeatStatementIn(question)) {
+            throw new RepeatedStatementOptionException("");
+        }
         if(getIsCorrect()) {
             question.addCorrectOption(this);
         }
         else {
             question.addFailOption(this);
         }
+    }
+
+    private boolean isRepeatStatementIn(Question question) {
+        return question.optionsStatements().stream().anyMatch(statement -> Objects.equals(statement, getText()));
     }
 }

@@ -10,9 +10,6 @@ import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
-import java.util.stream.Collectors;
 
 import static jakarta.persistence.GenerationType.AUTO;
 
@@ -51,29 +48,11 @@ public class Question {
         setTheme(theme);
     }
 
-    Boolean existDifferentOptions() {
-
-        List<Option> options = new ArrayList<>(getOptions());
-
-        while(!options.isEmpty() && existDifferentOption(options.getFirst(), options)) {}
-
-        return options.isEmpty();
-    }
-
-    private Boolean existDifferentOption(Option first, List<Option> options) {
-        options.removeFirst();
-        return options.stream().allMatch(option -> !Objects.equals(option.getText(), first.getText()));
-    }
-
     public void addOption(Option option) {
-        if(getHaveCorrectOption()) {
+        if(isCandidatedOption(option)) {
             throw new RepeatedCorrectOptionException(repeatedCorrectOptionMessage(option));
         }
         option.adddedQuestion(this);
-    }
-
-    String repeatedCorrectOptionMessage(Option option) {
-        return "La opción " + option.getText() + " no puede ser la correcta porque la pregunta " + getText() + " ya tiene una opción correcta";
     }
 
     public void addCorrectOption(Option option) {
@@ -84,20 +63,20 @@ public class Question {
     public void addFailOption(Option failOption) {
         getOptions().add(failOption);
     }
+
+    public List<String> optionsStatements() {
+        return getOptions().stream().map(Option::getText).toList();
+    }
+
+    private Boolean isCandidatedOption(Option option) {
+        return getHaveCorrectOption() && option.getIsCorrect();
+    }
+
+    String repeatedCorrectOptionMessage(Option option) {
+        return "La opción " + option.getText() + " no puede ser la correcta porque la pregunta " + getText() + " ya tiene una opción correcta";
+    }
 }
     /*
-       a -> [] = true
-       b -> [a] = b.text es unico en [a] && hay una opción correcta en [a]
-       c -> [a, b] = c.text es unico en [a, b] && hay una opción correcta en [a, b]
-       d -> [a, b, c] = d.text es unico en [a, b, c] && hay una opción correcta en [a, b, c]
-
-       Observaciones:
-        - Se hace la validación cada vez que se quiere agregar una nueva opción.
-        - Permite no tener un objeto inconsistente en el dominio, a la primera que la opción no cumple
-          hay error.
-        - El peor caso en cuanto a la performance es que todas las opciones sean validas.
-
-
         Final:
             - Recibir una opción por parametro para agregar.
             - Si existe una opción correcta en el campo Optional, lanzar excepción.
