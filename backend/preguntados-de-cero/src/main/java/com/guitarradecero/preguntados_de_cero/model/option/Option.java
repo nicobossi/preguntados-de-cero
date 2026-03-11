@@ -1,5 +1,6 @@
 package com.guitarradecero.preguntados_de_cero.model.option;
 
+import com.guitarradecero.preguntados_de_cero.model.question.Question;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -23,5 +24,14 @@ public class Option {
     public Option(String text, Boolean isCorrect) {
         setText(text);
         setIsCorrect(isCorrect);
+    }
+
+    public void adddedQuestion(Question question) {
+        if(getIsCorrect()) {
+            question.addCorrectOption(this);
+        }
+        else {
+            question.addFailOption(this);
+        }
     }
 }

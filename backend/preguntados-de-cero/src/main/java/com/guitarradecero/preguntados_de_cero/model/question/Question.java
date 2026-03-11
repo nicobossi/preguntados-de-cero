@@ -10,6 +10,9 @@ import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 import static jakarta.persistence.GenerationType.AUTO;
 
@@ -33,12 +36,78 @@ public class Question {
     @JoinColumn(name = "id_question")
     private List<Option> options = new ArrayList<>();
 
+    @Transient
+    private Boolean haveCorrectOption;
+
     public Question(String text, List<Option> options) {
         setText(text);
-        setOptions(options);
+        //setOptions(options);
+        setOptions(new ArrayList<>());
+        setHaveCorrectOption(false);
     }
 
     public void addTheme(Theme theme) {
         setTheme(theme);
     }
+
+    Boolean haveOnlyACorrectOption() {
+        return assertsCount() == 1;
+    }
+
+    private Integer assertsCount() {
+        return getOptions().stream().filter(Option::getIsCorrect).toList().size();
+    }
+
+    Boolean existDifferentOptions() {
+
+        List<Option> options = new ArrayList<>(getOptions());
+
+        while(!options.isEmpty() && existDifferentOption(options.getFirst(), options)) {}
+
+        return options.isEmpty();
+    }
+
+    private Boolean existDifferentOption(Option first, List<Option> options) {
+        options.removeFirst();
+        return options.stream().allMatch(option -> !Objects.equals(option.getText(), first.getText()));
+    }
+
+    public void addOption(Option option) {
+        option.adddedQuestion(this);
+    }
+
+    public void addCorrectOption(Option option) {
+        getOptions().add(option);
+        setHaveCorrectOption(true);
+    }
+
+    public void addFailOption(Option failOption) {
+        getOptions().add(failOption);
+    }
 }
+    /*
+       a -> [] = true
+       b -> [a] = b.text es unico en [a] && hay una opción correcta en [a]
+       c -> [a, b] = c.text es unico en [a, b] && hay una opción correcta en [a, b]
+       d -> [a, b, c] = d.text es unico en [a, b, c] && hay una opción correcta en [a, b, c]
+
+       Observaciones:
+        - Se hace la validación cada vez que se quiere agregar una nueva opción.
+        - Permite no tener un objeto inconsistente en el dominio, a la primera que la opción no cumple
+          hay error.
+        - El peor caso en cuanto a la performance es que todas las opciones sean validas.
+
+
+        Final:
+            - Recibir una opción por parametro para agregar.
+            - Delegar en la opción, pasarle la pregunta.
+            - Si existe una opción correcta en el campo Optional, lanzar excepción.
+            - Validar si el enunciado de la opción a agregar es único. Si lo es agregarla, sino lanzar error.
+                1. Delegar en la opción, pasarle la pregunta.
+                2. Hacer que la pregunta devuelva todos los enunciados para la opción.
+                3. Comparar si alguna es igual al de la opción actual.
+                    - Si es lanzar excepción
+                    - Sino agregar la opción
+            - Sí la opción es correcta, agregarla a la lista y a la variable de instancia optional.
+            - Si la opción es incorrecta, agregarla solo a la lista.
+    */
