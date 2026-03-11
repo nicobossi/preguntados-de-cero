@@ -15,6 +15,7 @@ public interface QuestionMapper {
     QuestionMapper INSTANCE = Mappers.getMapper(QuestionMapper.class);
 
     @Mapping(target = "id", ignore = true)
+    @Mapping(target = "options", ignore = true)
     Question dtoToModel(QuestionRequestDTO dto);
 
     QuestionResponseDTO modelToDto(Question question);

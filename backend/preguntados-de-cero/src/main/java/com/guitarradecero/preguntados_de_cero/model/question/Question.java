@@ -7,7 +7,6 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.jspecify.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,9 +37,8 @@ public class Question {
     @Transient
     private Boolean haveCorrectOption;
 
-    public Question(String text, List<Option> options) {
+    public Question(String text) {
         setText(text);
-        //setOptions(options);
         setOptions(new ArrayList<>());
         setHaveCorrectOption(false);
     }
@@ -57,7 +55,7 @@ public class Question {
         if(isCandidatedOption(option)) {
             throw new RepeatedCorrectOptionException(repeatedCorrectOptionMessage(option));
         }
-        option.adddedQuestion(this);
+        option.verifyQuestion(this);
     }
 
     public void addCorrectOption(Option option) {

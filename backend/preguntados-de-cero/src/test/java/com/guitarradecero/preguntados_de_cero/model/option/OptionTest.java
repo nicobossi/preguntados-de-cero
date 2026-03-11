@@ -19,21 +19,21 @@ class OptionTest {
 
     @BeforeEach
     void setUp() {
-        correctOption = new Option("a", true);
-        failOption = new Option("a", false);
+        correctOption = new CorrectOption("a");
+        failOption = new FailOption("a");
         question = mock(Question.class);
     }
 
     @Test
     void testLaOpcionCorrectaSeAniadeAUnaPregunta() {
-        correctOption.adddedQuestion(question);
+        correctOption.verifyQuestion(question);
 
         verify(question).addCorrectOption(correctOption);
     }
 
     @Test
     void testUnaOpcionFalsaSeAniadeAUnaPregunta() {
-        failOption.adddedQuestion(question);
+        failOption.verifyQuestion(question);
 
         verify(question).addFailOption(failOption);
     }
@@ -44,7 +44,7 @@ class OptionTest {
         statements.add("a");
         when(question.optionsStatements()).thenReturn(statements);
 
-        ModelException exception = assertThrows(RepeatedStatementOptionException.class, () -> correctOption.adddedQuestion(question));
+        ModelException exception = assertThrows(RepeatedStatementOptionException.class, () -> correctOption.verifyQuestion(question));
 
         assertEquals(exception.getMessage(), correctOption.repeatedStatementOptionMessage(question));
 

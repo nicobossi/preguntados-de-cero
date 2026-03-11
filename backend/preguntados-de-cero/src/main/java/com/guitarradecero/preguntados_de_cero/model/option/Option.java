@@ -11,9 +11,9 @@ import java.util.Objects;
 
 @Entity
 @Getter
-@Setter(AccessLevel.PRIVATE)
+@Setter(AccessLevel.PROTECTED)
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class Option {
+public abstract class Option {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -28,17 +28,14 @@ public class Option {
         setIsCorrect(isCorrect);
     }
 
-    public void adddedQuestion(Question question) {
+    public void verifyQuestion(Question question) {
         if(isRepeatStatementIn(question)) {
             throw new RepeatedStatementOptionException(repeatedStatementOptionMessage(question));
         }
-        if(getIsCorrect()) {
-            question.addCorrectOption(this);
-        }
-        else {
-            question.addFailOption(this);
-        }
+        addedQuestion(question);
     }
+
+    public abstract void addedQuestion(Question question);
 
     private boolean isRepeatStatementIn(Question question) {
         return question.optionsStatements().stream().anyMatch(statement -> Objects.equals(statement, getText()));

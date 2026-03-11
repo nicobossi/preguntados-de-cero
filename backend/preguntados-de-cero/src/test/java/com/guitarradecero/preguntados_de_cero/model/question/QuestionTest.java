@@ -1,6 +1,8 @@
 package com.guitarradecero.preguntados_de_cero.model.question;
 
 import com.guitarradecero.preguntados_de_cero.model.ModelException;
+import com.guitarradecero.preguntados_de_cero.model.option.CorrectOption;
+import com.guitarradecero.preguntados_de_cero.model.option.FailOption;
 import com.guitarradecero.preguntados_de_cero.model.option.Option;
 import com.guitarradecero.preguntados_de_cero.model.option.RepeatedStatementOptionException;
 import org.junit.jupiter.api.BeforeEach;
@@ -58,8 +60,8 @@ class QuestionTest {
 
     @Test
     void testSiSeAgregaMasDeUnaOpcionCorrecta_HayExcepcion() {
-        Option option1 = spy(Option.class);
-        Option option2 = spy(Option.class);
+        Option option1 = spy(CorrectOption.class);
+        Option option2 = spy(CorrectOption.class);
 
         when(option1.getIsCorrect()).thenReturn(true);
         when(option2.getIsCorrect()).thenReturn(true);
@@ -71,7 +73,7 @@ class QuestionTest {
 
     @Test
     void testUnaPreguntaDevuelveLosEnunciadosDeSusOpciones() {
-        Option option1 = spy(Option.class);
+        Option option1 = spy(CorrectOption.class);
         when(option1.getText()).thenReturn("a");
         when(option1.getIsCorrect()).thenReturn(true);
         question.addOption(option1);
@@ -83,11 +85,11 @@ class QuestionTest {
 
     @Test
     void testSiExisteUnaOpcionCandidataConEnunciadoRepetido_HayExcepcion() {
-        Option option1 = spy(Option.class);
+        Option option1 = spy(CorrectOption.class);
         when(option1.getIsCorrect()).thenReturn(true);
         when(option1.getText()).thenReturn("a");
 
-        Option option2 = spy(Option.class);
+        Option option2 = spy(FailOption.class);
         when(option2.getIsCorrect()).thenReturn(false);
         when(option2.getText()).thenReturn("a");
 
@@ -99,16 +101,16 @@ class QuestionTest {
     @Test
     void testSeVerificaTodasLasOpcionesCandidatasSinFallos() {
         List<Option> options = new ArrayList<>();
-        Option option1 = new Option("a", true);
+        Option option1 = new CorrectOption("a");
         options.add(option1);
 
-        Option option2 = new Option("b", false);
+        Option option2 = new FailOption("b");
         options.add(option2);
 
-        Option option3 = new Option("c", false);
+        Option option3 = new FailOption("c");
         options.add(option3);
 
-        Option option4 = new Option("d", false);
+        Option option4 = new FailOption("d");
         options.add(option4);
 
         assertDoesNotThrow(() -> question.verifyCandidatesOptions(options));
@@ -117,16 +119,16 @@ class QuestionTest {
     @Test
     void testSeVerificaQueTodasLasPreguntasCandidatasTengasEnunciadosDistintos() {
         List<Option> options = new ArrayList<>();
-        Option option1 = new Option("a", true);
+        Option option1 = new CorrectOption("a");
         options.add(option1);
 
-        Option option2 = new Option("b", false);
+        Option option2 = new FailOption("b");
         options.add(option2);
 
-        Option failOption = new Option("a", false);
+        Option failOption = new FailOption("a");
         options.add(failOption);
 
-        Option option4 = new Option("d", false);
+        Option option4 = new FailOption("b");
         options.add(option4);
 
         assertThrows(RepeatedStatementOptionException.class, () -> question.verifyCandidatesOptions(options));
@@ -135,16 +137,16 @@ class QuestionTest {
     @Test
     void testSeVerificaQueSoloExistaUnaPreguntaCandidataCorrecta() {
         List<Option> options = new ArrayList<>();
-        Option option1 = new Option("a", true);
+        Option option1 = new CorrectOption("a");
         options.add(option1);
 
-        Option option2 = new Option("b", false);
+        Option option2 = new FailOption("b");
         options.add(option2);
 
-        Option failOption = new Option("c", true);
+        Option failOption = new CorrectOption("c");
         options.add(failOption);
 
-        Option option4 = new Option("d", false);
+        Option option4 = new FailOption("d");
         options.add(option4);
 
         assertThrows(RepeatedCorrectOptionException.class, () -> question.verifyCandidatesOptions(options));
