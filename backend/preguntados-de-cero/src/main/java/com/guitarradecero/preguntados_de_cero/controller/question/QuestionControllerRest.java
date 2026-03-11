@@ -1,10 +1,12 @@
 package com.guitarradecero.preguntados_de_cero.controller.question;
 
 
+import com.guitarradecero.preguntados_de_cero.adapter.option.OptionMapper;
 import com.guitarradecero.preguntados_de_cero.adapter.question.QuestionMapper;
 import com.guitarradecero.preguntados_de_cero.dto.question.QuestionRequestDTO;
 import com.guitarradecero.preguntados_de_cero.dto.question.QuestionResponseDTO;
 import com.guitarradecero.preguntados_de_cero.dto.question.QuestionWithOptions;
+import com.guitarradecero.preguntados_de_cero.model.option.Option;
 import com.guitarradecero.preguntados_de_cero.model.question.Question;
 import com.guitarradecero.preguntados_de_cero.service.QuestionService;
 import jakarta.validation.Valid;
@@ -37,7 +39,8 @@ public class QuestionControllerRest {
     @PostMapping("/add/{themeId}")
     public ResponseEntity<QuestionResponseDTO> postQuestion(@Valid @RequestBody QuestionRequestDTO questionDto, @PathVariable Long themeId) {
         Question question = QuestionMapper.INSTANCE.dtoToModel(questionDto);
-        Question persistQuestion = getService().add(question, themeId);
+        List<Option> options = questionDto.options().stream().map(OptionMapper.INSTANCE::dtoToModal).toList();
+        Question persistQuestion = getService().add(question, themeId, options);
         return ResponseEntity.ok(QuestionMapper.INSTANCE.modelToDto(persistQuestion));
     }
 }

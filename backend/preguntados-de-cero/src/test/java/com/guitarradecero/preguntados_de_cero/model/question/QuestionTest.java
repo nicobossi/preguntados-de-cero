@@ -33,7 +33,7 @@ class QuestionTest {
         options.add(option2);
         options.add(option3);
         options.add(option4);
-        question = new Question("¿Cuantos dedos se necesitan para hacer Do?", options);
+        question = new Question("¿Cuantos dedos se necesitan para hacer Do?");
     }
 
     @Test

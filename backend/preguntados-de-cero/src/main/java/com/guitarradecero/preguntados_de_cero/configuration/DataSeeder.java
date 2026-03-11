@@ -41,7 +41,7 @@ public class DataSeeder implements CommandLineRunner {
         options.add(new FailOption("ccc"));
         options.add(new FailOption("ddd"));
 
-        questionService.add(new Question("Esta es una pregunta de prueba para ver si funciona el dataseeder", options), persistedTheme1.getId());
+        questionService.add(new Question("Esta es una pregunta de prueba para ver si funciona el dataseeder"), persistedTheme1.getId(), options);
 
         System.out.println("DATA SEEDER FINALIZO SU TRABAJO");
     }

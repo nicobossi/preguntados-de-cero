@@ -9,9 +9,12 @@ import com.guitarradecero.preguntados_de_cero.model.option.Option;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.ObjectFactory;
+import org.mapstruct.factory.Mappers;
 
 @Mapper
 public interface OptionMapper {
+
+    OptionMapper INSTANCE = Mappers.getMapper(OptionMapper.class);
 
     @ObjectFactory
     default Option createOption(OptionRequestDTO dto) {
