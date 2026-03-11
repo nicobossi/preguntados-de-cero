@@ -76,16 +76,3 @@ public class Question {
         return "La opción " + option.getText() + " no puede ser la correcta porque la pregunta " + getText() + " ya tiene una opción correcta";
     }
 }
-    /*
-        Final:
-            - Recibir una opción por parametro para agregar.
-            - Si existe una opción correcta en el campo Optional, lanzar excepción.
-            - Validar si el enunciado de la opción a agregar es único. Si lo es agregarla, sino lanzar error.
-                1. Delegar en la opción, pasarle la pregunta.
-                2. Hacer que la pregunta devuelva todos los enunciados para la opción.
-                3. Comparar si alguna es igual al de la opción actual.
-                    - Si es lanzar excepción
-                    - Sino agregar la opción
-            - Sí la opción es correcta, agregarla a la lista y a la variable de instancia optional.
-            - Si la opción es incorrecta, agregarla solo a la lista.
-    */
