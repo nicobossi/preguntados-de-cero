@@ -11,5 +11,7 @@
     background: linear-gradient(120deg, #DE6075, #ff8f8f);
     background-clip: text;
     color: transparent;
+    /*font-size: clamp(1.25rem, 0.5464vw + 0.9877rem, 1.5rem);!*21px a 25px; corta en 1500px*!*/
+    font-size: clamp(1.25rem, 1.0929vw + 0.7253rem, 1.75rem); /* 21px a 25px; corta en 1500px */
   }
 }

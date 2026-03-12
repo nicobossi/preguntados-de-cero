@@ -17,7 +17,7 @@
 
   h3 {
     display: block;
-    font-size: 35px;
+    font-size: clamp(1.875rem, 1.3661vw + 1.2193rem, 2.5rem); /* 30 a 40; hasta 1500px*/
     text-align: center;
   }
 }
