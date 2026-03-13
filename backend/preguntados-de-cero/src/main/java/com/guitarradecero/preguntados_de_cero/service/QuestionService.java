@@ -1,12 +1,13 @@
 package com.guitarradecero.preguntados_de_cero.service;
 
 import com.guitarradecero.preguntados_de_cero.dto.question.QuestionWithOptions;
+import com.guitarradecero.preguntados_de_cero.model.option.Option;
 import com.guitarradecero.preguntados_de_cero.model.question.Question;
 
 import java.util.List;
 
 public interface QuestionService {
-    List<QuestionWithOptions> findQuestionsByTheme(Long themeId);
 
-    Question add(Question question, Long themeId);
+    List<QuestionWithOptions> findQuestionsByTheme(Long themeId);
+    Question add(Question question, Long id, List<Option> options);
 }

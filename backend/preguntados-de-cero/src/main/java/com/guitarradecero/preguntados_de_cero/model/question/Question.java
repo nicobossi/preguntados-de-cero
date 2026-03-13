@@ -33,12 +33,49 @@ public class Question {
     @JoinColumn(name = "id_question")
     private List<Option> options = new ArrayList<>();
 
-    public Question(String text, List<Option> options) {
+    @Getter(AccessLevel.PRIVATE)
+    @Transient
+    private Boolean haveCorrectOption;
+
+    public Question(String text) {
         setText(text);
-        setOptions(options);
+        setOptions(new ArrayList<>());
+        setHaveCorrectOption(false);
     }
 
     public void addTheme(Theme theme) {
         setTheme(theme);
+    }
+
+    public void verifyCandidatesOptions(List<Option> options) {
+        options.forEach(this::addOption);
+    }
+
+    public void addOption(Option option) {
+        if(isCandidatedOption(option)) {
+            throw new RepeatedCorrectOptionException(repeatedCorrectOptionMessage(option));
+        }
+        option.verifyQuestion(this);
+    }
+
+    public void addCorrectOption(Option option) {
+        getOptions().add(option);
+        setHaveCorrectOption(true);
+    }
+
+    public void addFailOption(Option failOption) {
+        getOptions().add(failOption);
+    }
+
+    public List<String> optionsStatements() {
+        return getOptions().stream().map(Option::getText).toList();
+    }
+
+    private Boolean isCandidatedOption(Option option) {
+        return getHaveCorrectOption() && option.getIsCorrect();
+    }
+
+    String repeatedCorrectOptionMessage(Option option) {
+        return "La opción " + option.getText() + " no puede ser la correcta porque la pregunta " + getText() + " ya tiene una opción correcta";
     }
 }

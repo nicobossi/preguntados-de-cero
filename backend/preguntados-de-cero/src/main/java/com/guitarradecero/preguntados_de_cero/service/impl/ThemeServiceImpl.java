@@ -2,6 +2,7 @@ package com.guitarradecero.preguntados_de_cero.service.impl;
 
 import com.guitarradecero.preguntados_de_cero.model.difficulty.Difficulty;
 import com.guitarradecero.preguntados_de_cero.model.theme.Theme;
+import com.guitarradecero.preguntados_de_cero.model.theme.ThemeNameRepeatException;
 import com.guitarradecero.preguntados_de_cero.persistence.sql.difficulty.DifficultyDAO;
 import com.guitarradecero.preguntados_de_cero.persistence.sql.theme.ThemeDAO;
 import com.guitarradecero.preguntados_de_cero.service.ThemeService;
@@ -9,6 +10,7 @@ import com.guitarradecero.preguntados_de_cero.service.exception.NotFoundExceptio
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -35,13 +37,29 @@ public class ThemeServiceImpl implements ThemeService {
 
     @Override
     public Theme saveTheme(Theme theme, Long difficultyId) {
-        Difficulty difficulty = getDifficultyDao().findById(difficultyId)
-                .orElseThrow(() -> new NotFoundException(
-                        "Difficulty not found with id: " + difficultyId));
-
+        Difficulty difficulty = difficultyWithId(difficultyId);
         difficulty.addTheme(theme);
 
-        return getThemeDao().save(theme);
+        try {
+            return getThemeDao().saveAndFlush(theme);
+        }
+        catch(DataIntegrityViolationException e) {
+            throw new ThemeNameRepeatException(themeNameRepeatMessage(theme));
+        }
+    }
+
+    private Difficulty difficultyWithId(Long difficultyId) {
+        return getDifficultyDao().findById(difficultyId)
+                .orElseThrow(() -> new NotFoundException(
+                        difficultyNotFoundMessage(difficultyId)));
+    }
+
+    String themeNameRepeatMessage(Theme theme) {
+        return "name: " + theme.getName() + " is repeat";
+    }
+
+    String difficultyNotFoundMessage(Long difficultyId) {
+        return "Difficulty not found with id: " + difficultyId;
     }
 
     void clearAll(){

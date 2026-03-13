@@ -1,6 +1,7 @@
 package com.guitarradecero.preguntados_de_cero.service.impl;
 
 import com.guitarradecero.preguntados_de_cero.dto.question.QuestionWithOptions;
+import com.guitarradecero.preguntados_de_cero.model.option.Option;
 import com.guitarradecero.preguntados_de_cero.model.question.Question;
 import com.guitarradecero.preguntados_de_cero.model.theme.Theme;
 import com.guitarradecero.preguntados_de_cero.persistence.sql.question.QuestionDAO;
@@ -33,12 +34,13 @@ public class QuestionServiceImpl implements QuestionService {
     }
 
     @Override
-    public Question add(Question question, Long themeId) {
+    public Question add(Question question, Long themeId, List<Option> options) {
         Theme theme = getThemeDao().
                 findById(themeId).
                     orElseThrow(() -> new NotFoundException("Theme not found with id: " + themeId));
 
         question.addTheme(theme);
+        question.verifyCandidatesOptions(options);
 
         return getQuestionDao().save(question);
     }

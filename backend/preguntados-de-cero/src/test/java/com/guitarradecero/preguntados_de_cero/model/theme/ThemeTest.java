@@ -25,7 +25,7 @@ class ThemeTest {
 
     @Test
     void testSeAsociaUnaDifficultyAUnTheme(){
-        theme.asociateDifficulty(difficulty);
+        theme.addDifficulty(difficulty);
 
         assertEquals(1, theme.getDifficultyLevel());
     }
