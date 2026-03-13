@@ -1,6 +1,8 @@
 package com.guitarradecero.preguntados_de_cero.configuration;
 
 import com.guitarradecero.preguntados_de_cero.model.difficulty.Difficulty;
+import com.guitarradecero.preguntados_de_cero.model.option.CorrectOption;
+import com.guitarradecero.preguntados_de_cero.model.option.FailOption;
 import com.guitarradecero.preguntados_de_cero.model.option.Option;
 import com.guitarradecero.preguntados_de_cero.model.question.Question;
 import com.guitarradecero.preguntados_de_cero.model.theme.Theme;
@@ -34,12 +36,12 @@ public class DataSeeder implements CommandLineRunner {
 
         // preguntas
         List<Option> options = new ArrayList<>();
-        options.add(new Option("aaa", false));
-        options.add(new Option("bbb", true));
-        options.add(new Option("ccc", false));
-        options.add(new Option("ddd", false));
+        options.add(new CorrectOption("aaa"));
+        options.add(new FailOption("bbb"));
+        options.add(new FailOption("ccc"));
+        options.add(new FailOption("ddd"));
 
-        questionService.add(new Question("Esta es una pregunta de prueba para ver si funciona el dataseeder", options), persistedTheme1.getId());
+        questionService.add(new Question("Esta es una pregunta de prueba para ver si funciona el dataseeder"), persistedTheme1.getId(), options);
 
         System.out.println("DATA SEEDER FINALIZO SU TRABAJO");
     }
