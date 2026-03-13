@@ -1,6 +1,5 @@
 :host{
   width: 100%;
-  height: 100%;
 }
 
 section{
@@ -9,6 +8,7 @@ section{
   align-items: center;
   justify-content: center;
   width: 100%;
-  min-height: 80%;
+  min-height: 80vh;
   gap:5vh;
+  margin-bottom: 5vh;
 }

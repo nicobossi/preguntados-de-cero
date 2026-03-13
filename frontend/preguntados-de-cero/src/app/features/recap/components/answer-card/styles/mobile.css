@@ -29,7 +29,7 @@
     #60CB48,
     white
   ) border-box;
-  animation: 4s rotate linear infinite;
+  animation: 20s rotate linear infinite;
 }
 
 .incorrect-answer-card{

@@ -15,12 +15,16 @@
   --theme-hover-gradient: linear-gradient(90deg, rgba(235, 197, 84, 1) 0%, rgba(143, 218, 255, 1) 100%);
 
 
+
   --assert-gradient: linear-gradient(120deg, #60CB48, #E7FFE2);
   --fail-gradient: linear-gradient(120deg, #DE6075, #FFD3D3);
   --oro-gradient: radial-gradient(#EBC554, #FFE2A5);
 
 
   --clear-background: #F1F1F1;
+  /*--gradient-background: linear-gradient(180deg, #FFFFFF 21.61%, #d8d8d8 100%);*/
+  --gradient-background: linear-gradient(0deg,rgb(232, 241, 255) 0%, rgb(250, 250, 250) 100%);
+
 
   --app-font: Inter;
 }

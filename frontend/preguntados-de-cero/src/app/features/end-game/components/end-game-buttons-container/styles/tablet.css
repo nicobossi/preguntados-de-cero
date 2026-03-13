@@ -19,5 +19,6 @@
     display: block;
     font-size: clamp(1.875rem, 1.3661vw + 1.2193rem, 2.5rem); /* 30 a 40; hasta 1500px*/
     text-align: center;
+    font-weight: 400;
   }
 }
