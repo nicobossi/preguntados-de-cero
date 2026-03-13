@@ -8,7 +8,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 import static jakarta.persistence.GenerationType.AUTO;
@@ -35,6 +34,6 @@ public class Difficulty {
 
     public void addTheme(Theme theme) {
         getThemes().add(theme);
-        theme.asociateDifficulty(this);
+        theme.addDifficulty(this);
     }
 }
