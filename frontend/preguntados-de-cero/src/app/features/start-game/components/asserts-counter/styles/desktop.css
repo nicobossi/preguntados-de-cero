@@ -1,0 +1,9 @@
+@media screen and (min-width: 1200px) {
+  .correct_answer-container {
+    min-width: 20vw;
+  }
+  .correct_answer-container div{
+    flex-direction: column;
+    max-width: none;
+  }
+}

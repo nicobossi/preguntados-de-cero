@@ -1,11 +1,13 @@
 
-
-
 @media screen and (min-width: 768px) {
-
   header {
     height: 100%;
     border-radius: 20vw;
     background: none;
   }
+
+  p{
+    font-size: clamp(1.375rem, 0.8197vw + 0.9815rem, 1.75rem); /* crece hasta que la pantalla tiene 1500px, donde se queda en 28px*/
+  }
 }
+

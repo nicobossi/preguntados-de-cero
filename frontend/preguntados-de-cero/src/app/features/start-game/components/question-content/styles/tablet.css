@@ -1,0 +1,6 @@
+@media screen and (min-width: 768px){
+  p {
+    font-size: clamp(1.125rem, 0.5464vw + 0.8627rem, 1.375rem);/* crece hasta que la pantalla tiene 1500px, donde se queda en 22px*/
+  }
+
+}

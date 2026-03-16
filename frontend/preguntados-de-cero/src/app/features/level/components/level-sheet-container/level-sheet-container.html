@@ -1,4 +1,9 @@
 <section>
+  <app-themes-name-card
+    (onOffChange)="onOffChange()"
+    [themeNames]="getDifficulty.themeNames"
+    [isChange]="getIsChange"
+  />
   <div class="level-sheet-container">
     <app-level-sheet
       (onOffChange)="onOffChange()"
@@ -7,9 +12,4 @@
     />
     <app-movement-buttons />
   </div>
-  <app-themes-name-card
-      (onOffChange)="onOffChange()"
-      [themeNames]="getDifficulty.themeNames"
-      [isChange]="getIsChange"
-    />
 </section>

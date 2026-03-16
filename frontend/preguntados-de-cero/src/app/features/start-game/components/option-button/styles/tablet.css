@@ -1,0 +1,5 @@
+@media screen and (min-width: 768px) {
+  button{
+    font-size: clamp(1rem, 0.2732vw + 0.8688rem, 1.125rem); /* crece hasta que la pantalla tiene 1500px, donde se queda en 18px*/
+  }
+}

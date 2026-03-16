@@ -1,43 +1,5 @@
 @import '../../animations/select-container.css';
-
-:host {
-  height: 100%;
-}
-
-.correct_answer-container {
-  display: none;
-  color: #111;
-  background: var(--oro-gradient);
-}
-
-@media screen and (min-width: 564px) {
-
-  .correct_answer-container {
-    height: 100%;
-    display: grid;
-    place-items: center;
-    padding-left: 10px;
-    padding-right: 10px;
-    border-radius: 10px;
-    box-shadow: 2px 2px 4px #CCC;
-  }
-
-  .correct_answer-container div {
-    width: 100%;
-    max-width: 260px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .correct_answer-container {
-    min-width: 46%;
-  }
-}
-
-@media screen and (min-width: 1200px) {
-
-  .correct_answer-container {
-    min-width: 20vw;
-  }
-}
+@import './styles/mobile.css';
+@import './styles/big-mobile.css';
+@import './styles/tablet.css';
+@import './styles/desktop.css';

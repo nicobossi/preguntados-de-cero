@@ -2,13 +2,14 @@ import {inject, Injectable, signal} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import GameTheme from '@/app/shared/types/gameTheme';
 import { LoadStateService } from '@/app/core/services/load-state/load-state.service';
+import { environment } from '@/environments/environment';
 
 
 @Injectable()
 export class ThemeService {
 
   private http = inject(HttpClient);
-  private baseUrl: string = 'http://localhost:8080/api/theme';
+  private baseUrl: string = environment.apiBackendUrl + '/api/theme';
   private loadService = inject(LoadStateService);
   private data = signal<GameTheme[]>([]);
 

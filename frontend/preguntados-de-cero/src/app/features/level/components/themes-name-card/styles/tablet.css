@@ -40,7 +40,8 @@ section {
   display: grid;
   place-items: center;
   width: 100%;
-  font-size: 20px;
+  font-family: Inter, sans-serif;
+  font-size: 22px;
   border-radius: 10px 10px 0 0;
   color: var(--dark-color);
   background: linear-gradient(296.88deg, #beebff 38.09%, #ddf2fc 65.3%);
@@ -64,4 +65,11 @@ ul {
 
 li {
   margin-top: 8px;
+}
+
+
+@media screen and (min-width: 768px) {
+  .glass-container header{
+    font-size: clamp(1.375rem, 0.8197vw + 0.9815rem, 1.75rem); /* crece hasta que la pantalla tiene 1500px, donde se queda en 28px*/
+  }
 }

@@ -2,5 +2,5 @@
 section{
   width: 100vw;
   min-height: 100vh;
-  background-color: var(--clear-background);
+  background: var(--gradient-background);
 }

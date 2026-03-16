@@ -1,45 +1,7 @@
 @import '../../../../shared/animations/flash-content.css';
+@import './styles/mobile.css';
+@import './styles/big-mobile.css';
+@import './styles/tablet.css';
+@import './styles/desktop.css';
 
-:host {
-  display: grid;
-  place-items: center;
-  width: 100%;
-  height: 100%;
-}
-
-.flash-gradient {
-  display: grid;
-  place-items: center;
-  align-self: self-start;
-  width: 80%;
-  height: 90%;
-  border-radius: 16px;
-  box-shadow: 2px 2px 4px #CCC;
-  background-color: #FFF;
-}
-
-.flash-gradient::before {
-  border-radius: 16px;
-}
-
-p {
-  padding: 5px;
-  text-align: center;
-}
-
-@media screen and (min-width: 564px) {
-
-  .flash-gradient {
-    width: 92%;
-  }
-}
-
-
-@media screen and (min-width: 1200px) {
-
-  :host {
-    height: 80%;
-    align-self: end;
-  }
-}
 

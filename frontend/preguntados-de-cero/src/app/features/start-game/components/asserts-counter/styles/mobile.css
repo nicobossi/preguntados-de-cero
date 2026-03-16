@@ -1,0 +1,17 @@
+:host {
+  height: 100%;
+}
+
+.correct_answer-container {
+  display: none;
+  color: #111;
+  background: var(--oro-gradient);
+}
+
+.correct_answer-container p {
+  font-size: 19px;
+  font-family: Inter, sans-serif;
+}
+
+
+

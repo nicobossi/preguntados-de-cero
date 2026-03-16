@@ -1,5 +1,3 @@
-
-
 @media screen and (min-width: 768px) {
 
   .congrats-container {
@@ -11,10 +9,11 @@
   }
 
   .title{
-    font-size: 22px;
+    font-size: clamp(1.5rem, 0.5464vw + 1.2377rem, 1.75rem); /*24px a 28px; corta en 1500px*/
+    text-align: center;
   }
 
   .subtitle{
-    font-size: 20px;
+    font-size: clamp(1.3125rem, 0.5464vw + 1.0502rem, 1.5625rem); /*21px a 25px; corta en 1500px*/
   }
 }

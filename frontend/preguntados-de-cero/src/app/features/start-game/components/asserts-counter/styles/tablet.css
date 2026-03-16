@@ -1,0 +1,5 @@
+@media screen and (min-width: 768px) {
+  .correct_answer-container p {
+    font-size: clamp(1.1875rem, 0.5464vw + 0.9252rem, 1.4375rem); /* crece hasta que la pantalla tiene 1500px, donde se queda en 23px*/
+  }
+}

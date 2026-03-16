@@ -1,0 +1,13 @@
+.validator-container{
+  width: 242px;
+  height: 28px;
+}
+
+p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 28px;
+  font-size: 16px;
+  color: #DE6075;
+}

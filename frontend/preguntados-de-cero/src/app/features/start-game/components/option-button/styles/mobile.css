@@ -1,0 +1,41 @@
+:host {
+  display: grid;
+  place-items: center;
+  width: 100%;
+}
+
+button {
+  width: 100%;
+  max-width: 320px;
+
+  min-height: 40px;
+
+  font-size: 16px;
+  /*text-align: justify;*/
+  /*text-align-last: center;*/
+  text-align: center;
+
+  border-radius: 40px;
+  border-style: none;
+  box-shadow: 2px 2px 2px #DDD;
+  cursor: pointer;
+  background-color: #FFF;
+  transition: box-shadow 0.4s, font-size 0.4s, font-weight 0.4s, transform 0.4s;
+  padding: 7px 30px;
+}
+
+button:hover {
+  font-weight: 500;
+  box-shadow: 2px 2px 6px #AAA;
+  transform: scale(1.05, 1.05);
+}
+
+.fail_button {
+  background: var(--fail-gradient);
+}
+
+.correct_button {
+  background: var(--assert-gradient);
+}
+
+

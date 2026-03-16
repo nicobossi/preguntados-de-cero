@@ -1,0 +1,28 @@
+:host {
+  height: 100%;
+}
+
+.total_answer-container {
+  height: 100%;
+  display: grid;
+  place-items: center;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 4px #CCC;
+  color: #FFF;
+  background: var(--play-gradient);
+}
+
+.total_answer-container div {
+  width: 100%;
+  max-width: 260px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.total_answer-container p {
+  font-size: 19px;
+  font-family: Inter, sans-serif;
+}

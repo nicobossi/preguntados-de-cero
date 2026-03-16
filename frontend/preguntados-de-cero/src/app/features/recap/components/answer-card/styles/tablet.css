@@ -1,19 +1,25 @@
-
-
 @media screen and (min-width: 768px) {
-  .question-order-t{
-    font-size: 20px;
+  .correct-question-order-t {
+    font-size: clamp(1.125rem, 1.3661vw + 0.4693rem, 1.75rem); /* 18 a 28, hasta 1500px */
   }
 
-  .question-t{
-    font-size: 18px;
+  .incorrect-question-order-t{
+    font-size: clamp(1.125rem, 1.3661vw + 0.4693rem, 1.75rem); /* 18 a 28, hasta 1500px */
+  }
+
+  .correct-question-t{
+    font-size: clamp(1rem, 1.0929vw + 0.4753rem, 1.5rem); /* 16 a 24, hasta 1500px */
+  }
+
+  .incorrect-question-t{
+    font-size: clamp(1rem, 1.0929vw + 0.4753rem, 1.5rem); /* 16 a 24, hasta 1500px */
   }
 
   .player-answer-t{
-    font-size: 18px;
+    font-size: clamp(1rem, 1.0929vw + 0.4753rem, 1.5rem); /* 16 a 24, hasta 1500px */
   }
 
   .correct-answer-t{
-    font-size: 18px;
+    font-size: clamp(1rem, 1.0929vw + 0.4753rem, 1.5rem); /* 16 a 24, hasta 1500px */
   }
 }
