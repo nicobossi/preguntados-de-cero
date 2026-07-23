@@ -1,9 +1,6 @@
 package com.guitarradecero.preguntados_de_cero.model.user;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,6 +11,7 @@ import static jakarta.persistence.GenerationType.AUTO;
 @Setter(AccessLevel.PRIVATE)
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
+@Table(name = "admin")
 public class User {
     @Id
     @GeneratedValue(strategy = AUTO)
