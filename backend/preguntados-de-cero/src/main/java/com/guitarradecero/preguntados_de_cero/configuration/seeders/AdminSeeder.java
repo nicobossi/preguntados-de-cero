@@ -1,9 +1,8 @@
-package com.guitarradecero.preguntados_de_cero.configuration.security.user;
+package com.guitarradecero.preguntados_de_cero.configuration.seeders;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.stereotype.Component;
 
 //@Component
 public class AdminSeeder implements CommandLineRunner {
