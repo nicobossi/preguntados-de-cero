@@ -24,7 +24,7 @@ public class SecurityConfig {
                                         "/api/auth/**",
                                         "/api/difficulty",
                                         "/api/question/*",
-                                        "/api/theme/*"
+                                        "/api/theme/*" //prueba git
                                 ).permitAll()
                                 .anyRequest().authenticated()
                 )
