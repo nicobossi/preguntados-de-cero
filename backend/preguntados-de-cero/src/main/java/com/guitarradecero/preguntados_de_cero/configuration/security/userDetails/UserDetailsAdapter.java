@@ -9,14 +9,14 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.Collection;
 import java.util.List;
 
-public class UserDetailsImpl implements UserDetails {
+public class UserDetailsAdapter implements UserDetails {
 
     private final Long id;
     private final String email;
     private final String password;
     private final Role role;
 
-    public UserDetailsImpl(User user){
+    public UserDetailsAdapter(User user){
         this.id = user.getId();
         this.email = user.getEmail();
         this.password = user.getPassword();
