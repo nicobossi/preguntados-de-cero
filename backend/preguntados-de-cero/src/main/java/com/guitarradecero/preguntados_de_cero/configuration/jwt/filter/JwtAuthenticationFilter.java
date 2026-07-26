@@ -1,6 +1,6 @@
-package com.guitarradecero.preguntados_de_cero.configuration.jwt;
+package com.guitarradecero.preguntados_de_cero.configuration.jwt.filter;
 
-import com.guitarradecero.preguntados_de_cero.service.JwtService;
+import com.guitarradecero.preguntados_de_cero.configuration.jwt.jwtService.JwtService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -28,7 +28,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
             throws ServletException, IOException {
 
-        final String token = this.getTokenFromRequets(request);
+        final String token = this.getTokenFromRequest(request);
         final String email;
 
         if(token==null){
@@ -41,7 +41,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         if(email != null && SecurityContextHolder.getContext().getAuthentication() == null){
             UserDetails userDetails  = userDetailsService.loadUserByUsername(email);
 
-            if(jwtService.isTokenValid(token, userDetails)){
+            if(jwtService.isValidToken(token, userDetails)){
                 UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
 
                 authToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
@@ -53,7 +53,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         filterChain.doFilter(request, response);
     }
 
-    private String getTokenFromRequets(HttpServletRequest request) {
+    private String getTokenFromRequest(HttpServletRequest request) {
         final String authHeader = request.getHeader(HttpHeaders.AUTHORIZATION);
 
         if(StringUtils.hasText(authHeader) && authHeader.startsWith("Bearer ")){

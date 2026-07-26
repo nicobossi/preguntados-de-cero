@@ -1,13 +1,11 @@
 package com.guitarradecero.preguntados_de_cero.service.impl;
 
 import com.guitarradecero.preguntados_de_cero.configuration.security.userDetails.UserDetailsAdapter;
-import com.guitarradecero.preguntados_de_cero.dto.auth.UserAuthRequestDTO;
-import com.guitarradecero.preguntados_de_cero.dto.auth.UserAuthResponseDTO;
 import com.guitarradecero.preguntados_de_cero.model.user.Role;
 import com.guitarradecero.preguntados_de_cero.model.user.User;
 import com.guitarradecero.preguntados_de_cero.persistence.sql.user.UserDAO;
 import com.guitarradecero.preguntados_de_cero.service.AuthService;
-import com.guitarradecero.preguntados_de_cero.service.JwtService;
+import com.guitarradecero.preguntados_de_cero.configuration.jwt.jwtService.JwtService;
 import com.guitarradecero.preguntados_de_cero.service.UserDetailsAdapterService;
 import lombok.Getter;
 import lombok.Setter;
@@ -39,18 +37,20 @@ public class AuthServiceImpl implements AuthService {
     }
 
     @Override
-    public UserAuthResponseDTO login(UserAuthRequestDTO request) {
-        authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(request.email(), request.password()));
-        UserDetails user = userDetailsAdapterService.findUserByEmail(request.email());
-        return new UserAuthResponseDTO(jwtService.getToken(user));
+    public UserDetails login(User user) {
+        getAuthenticationManager().authenticate(new UsernamePasswordAuthenticationToken(user.getEmail(), user.getPassword()));
+        return getUserDetailsAdapterService().findUserByEmail(user.getEmail());
     }
 
     @Override
-    public UserAuthResponseDTO register(UserAuthRequestDTO request) { // esto deberia retornar User
-        User user = new User(request.email(), passwordEncoder.encode(request.password()), Role.ADMIN); // unico usuario
-        UserDetails userDetails = new UserDetailsAdapter(getUserDAO().save(user)); // adapter?
+    public UserDetails register(User user) {
+        User persistedUser = getUserDAO().save(encryptPasswordAndSetRole(user));
+        return new UserDetailsAdapter(persistedUser);
+    }
 
-        return new UserAuthResponseDTO(getJwtService().getToken(userDetails));
-
+    private User encryptPasswordAndSetRole(User user) {
+        user.setPassword(getPasswordEncoder().encode(user.getPassword()));
+        user.setRole(Role.ADMIN);
+        return user;
     }
 }

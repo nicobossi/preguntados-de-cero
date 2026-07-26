@@ -1,6 +1,6 @@
 package com.guitarradecero.preguntados_de_cero.configuration.security;
 
-import com.guitarradecero.preguntados_de_cero.configuration.jwt.JwtAuthenticationFilter;
+import com.guitarradecero.preguntados_de_cero.configuration.jwt.filter.JwtAuthenticationFilter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

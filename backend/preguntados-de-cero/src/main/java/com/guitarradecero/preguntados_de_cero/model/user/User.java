@@ -8,7 +8,7 @@ import lombok.Setter;
 import static jakarta.persistence.GenerationType.AUTO;
 
 @Getter
-@Setter(AccessLevel.PRIVATE)
+@Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
 @Table(name = "users")

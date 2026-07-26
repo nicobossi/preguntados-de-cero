@@ -1,9 +1,8 @@
-package com.guitarradecero.preguntados_de_cero.service.impl;
+package com.guitarradecero.preguntados_de_cero.configuration.jwt.jwtService.impl;
 
-import com.guitarradecero.preguntados_de_cero.service.JwtService;
+import com.guitarradecero.preguntados_de_cero.configuration.jwt.jwtService.JwtService;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
 import lombok.Getter;
@@ -23,7 +22,7 @@ import java.util.function.Function;
 @Service
 public class JwtServiceImpl implements JwtService {
 
-    @Value("${jwt.secret}") // esto es para no hardcodear el valor y obtenerlo desde las variables de entorno
+    @Value("${jwt.secret}") // para no hardcodear el valor y obtenerlo desde las variables de entorno
     private String SECRET_KEY;
 
     @Override
@@ -37,8 +36,8 @@ public class JwtServiceImpl implements JwtService {
                 .claims(extraClaims)
                 .subject(user.getUsername())
                 .issuedAt(new Date(System.currentTimeMillis()))
-                .expiration(new Date(System.currentTimeMillis() + 1000 * 60 * 60 * 24)) // dura un 24hs el token
-                .signWith(getKey()) // esto calcula el algoritmo en base a longitud del string que devuelva el metodo
+                .expiration(new Date(System.currentTimeMillis() + 1000 * 60 * 60 * 24)) // 24hs
+                .signWith(getKey())
                 .compact();
     }
 
@@ -53,9 +52,9 @@ public class JwtServiceImpl implements JwtService {
     }
 
     @Override
-    public boolean isTokenValid(String token, UserDetails userDetails) {
+    public boolean isValidToken(String token, UserDetails userDetails) {
         final String email = getEmailFromToken(token);
-        return email.equals(userDetails.getUsername()) && !isTokenExpired(token);
+        return email.equals(userDetails.getUsername()) && !isExpiredToken(token);
     }
 
     private Claims getAllClaims(String token){
@@ -76,7 +75,7 @@ public class JwtServiceImpl implements JwtService {
         return getClaim(token, Claims::getExpiration);
     }
 
-    private boolean isTokenExpired(String token){
+    private boolean isExpiredToken(String token){
         return getExpiration(token).before(new Date());
     }
 }
