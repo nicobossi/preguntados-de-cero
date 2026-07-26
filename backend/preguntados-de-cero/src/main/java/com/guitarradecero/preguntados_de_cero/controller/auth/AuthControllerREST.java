@@ -8,6 +8,7 @@ import com.guitarradecero.preguntados_de_cero.service.AuthService;
 import com.guitarradecero.preguntados_de_cero.configuration.jwt.jwtService.JwtService;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -28,14 +29,18 @@ public class AuthControllerREST {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<UserAuthResponseDTO> login(@RequestBody UserAuthRequestDTO userAuthDto){
+    public ResponseEntity<Void> login(@RequestBody UserAuthRequestDTO userAuthDto){
         String token = authService.login(UserMapper.INSTANCE.dtoToModel(userAuthDto));
-        return ResponseEntity.ok(UserAuthMapper.INSTANCE.modelToDto(token));
+        return ResponseEntity.ok()
+                .header(HttpHeaders.AUTHORIZATION, "Bearer " + token)
+                .build();
     }
 
     @PostMapping("/register")
-    public ResponseEntity<UserAuthResponseDTO> register(@RequestBody UserAuthRequestDTO userAuthDto){
+    public ResponseEntity<Void> register(@RequestBody UserAuthRequestDTO userAuthDto){
         String token = authService.register(UserMapper.INSTANCE.dtoToModel(userAuthDto));
-        return ResponseEntity.ok(UserAuthMapper.INSTANCE.modelToDto(token));
+        return ResponseEntity.ok()
+                .header(HttpHeaders.AUTHORIZATION, "Bearer " + token)
+                .build();
     }
 }
