@@ -4,6 +4,7 @@ import com.guitarradecero.preguntados_de_cero.model.user.User;
 import com.guitarradecero.preguntados_de_cero.persistence.sql.user.UserDAO;
 import com.guitarradecero.preguntados_de_cero.service.UserService;
 import com.guitarradecero.preguntados_de_cero.service.exception.NotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -11,15 +12,17 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public class UserServiceImpl implements UserService {
     private UserDAO dao;
+    private PasswordEncoder encoder;
 
-    public UserServiceImpl(UserDAO dao) {
+    public UserServiceImpl(UserDAO dao, PasswordEncoder encoder) {
         this.dao = dao;
+        this.encoder = encoder;
     }
 
     @Override
     public User add(User user) {
-        //String password = encoder.encode(user.getPassword());
-        //user.updatePassword(password);
+        String password = encoder.encode(user.getPassword());
+        user.updatePassword(password);
         return dao.save(user);
     }
 
