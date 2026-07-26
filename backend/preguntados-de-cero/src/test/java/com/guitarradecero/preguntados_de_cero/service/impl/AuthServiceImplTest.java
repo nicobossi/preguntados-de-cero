@@ -19,7 +19,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @ActiveProfiles("test")
 class AuthServiceImplTest extends IntegrationTest {
     @Autowired
-    private AuthServiceImpl service;
+    private UserServiceImpl service;
 
     private User user;
 
