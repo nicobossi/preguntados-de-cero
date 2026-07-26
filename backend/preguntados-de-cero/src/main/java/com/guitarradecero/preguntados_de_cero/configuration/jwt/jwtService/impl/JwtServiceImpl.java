@@ -23,7 +23,7 @@ import java.util.function.Function;
 public class JwtServiceImpl implements JwtService {
 
     @Value("${jwt.secret}") // para no hardcodear el valor y obtenerlo desde las variables de entorno
-    private String SECRET_KEY;
+    private String secretKey;
 
     @Override
     public String getToken(UserDetails user) {
@@ -42,7 +42,7 @@ public class JwtServiceImpl implements JwtService {
     }
 
     private SecretKey getKey(){
-        byte[] keyBytes = Decoders.BASE64.decode(SECRET_KEY);
+        byte[] keyBytes = Decoders.BASE64.decode(secretKey);
         return Keys.hmacShaKeyFor(keyBytes);
     }
 

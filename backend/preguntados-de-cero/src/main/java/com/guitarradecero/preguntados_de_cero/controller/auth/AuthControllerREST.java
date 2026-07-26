@@ -22,22 +22,20 @@ import org.springframework.web.bind.annotation.RestController;
 public class AuthControllerREST {
 
     private final AuthService authService;
-    private final JwtService jwtService;
 
-    public AuthControllerREST(AuthService authService, JwtService jwtService){
+    public AuthControllerREST(AuthService authService){
         this.authService = authService;
-        this.jwtService = jwtService;
     }
 
     @PostMapping("/login")
     public ResponseEntity<UserAuthResponseDTO> login(@RequestBody UserAuthRequestDTO userAuthDto){
-        UserDetails user = getAuthService().login(UserMapper.INSTANCE.dtoToModel(userAuthDto));
-        return ResponseEntity.ok(UserAuthMapper.INSTANCE.modelToDto(getJwtService().getToken(user)));
+        String token = authService.login(UserMapper.INSTANCE.dtoToModel(userAuthDto));
+        return ResponseEntity.ok(UserAuthMapper.INSTANCE.modelToDto(token));
     }
 
     @PostMapping("/register")
     public ResponseEntity<UserAuthResponseDTO> register(@RequestBody UserAuthRequestDTO userAuthDto){
-        UserDetails user = getAuthService().register(UserMapper.INSTANCE.dtoToModel(userAuthDto));
-        return ResponseEntity.ok(UserAuthMapper.INSTANCE.modelToDto(getJwtService().getToken(user)));
+        String token = authService.register(UserMapper.INSTANCE.dtoToModel(userAuthDto));
+        return ResponseEntity.ok(UserAuthMapper.INSTANCE.modelToDto(token));
     }
 }

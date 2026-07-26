@@ -37,15 +37,17 @@ public class AuthServiceImpl implements AuthService {
     }
 
     @Override
-    public UserDetails login(User user) {
-        getAuthenticationManager().authenticate(new UsernamePasswordAuthenticationToken(user.getEmail(), user.getPassword()));
-        return getUserDetailsAdapterService().findUserByEmail(user.getEmail());
+    public String login(User user) {
+        authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(user.getEmail(), user.getPassword()));
+        UserDetails userDetails = userDetailsAdapterService.findUserByEmail(user.getEmail());
+        return jwtService.getToken(userDetails);
     }
 
     @Override
-    public UserDetails register(User user) {
-        User persistedUser = getUserDAO().save(encryptPasswordAndSetRole(user));
-        return new UserDetailsAdapter(persistedUser);
+    public String register(User user) {
+        User persistedUser = userDAO.save(encryptPasswordAndSetRole(user));
+        UserDetails userDetails = new UserDetailsAdapter(persistedUser);
+        return jwtService.getToken(userDetails);
     }
 
     private User encryptPasswordAndSetRole(User user) {
