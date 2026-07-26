@@ -23,8 +23,8 @@ public class AuthOrchestratorImpl implements AuthOrchestrator {
 
     @Override
     public Auth auth(String email, String password) {
-        User user = userService.getByEmail(email); // refactorizar este servicio creando un método que valide si el usuario existe, pero que no devuelva al usuario
-        authService.initAuthenticate(user);
+        authService.initAuthenticate(email, password);
+        User user = userService.getByEmail(email);
         String token = jwtService.generateToken(user);
         return authService.authenticate(user, token);
     }

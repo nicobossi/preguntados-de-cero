@@ -4,6 +4,7 @@ import com.guitarradecero.preguntados_de_cero.model.user.User;
 import com.guitarradecero.preguntados_de_cero.service.JwtService;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import java.security.Key;
 import java.util.Base64;
@@ -12,10 +13,11 @@ import java.util.Date;
 @Service
 public class JwtServiceImpl implements JwtService {
 
-    // hacer una variable de entorno para la firma del token
+    @Value("${jwt.secret}")
+    private String key;
+
     private Key getKey() {
-        byte[] keyBytes = Base64.getDecoder().decode("secret");
-        return Keys.hmacShaKeyFor(keyBytes);
+        return Keys.hmacShaKeyFor(key.getBytes());
     }
 
     @Override

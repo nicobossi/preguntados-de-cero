@@ -26,7 +26,7 @@ public class AuthController {
         Auth auth = orchestrator.auth(credentials.email(), credentials.password());
         AuthResponseDto authResponseDto = AuthMapper.INSTANCE.modelToDto(auth);
         return ResponseEntity.ok()
-                .header("Authorization", "Bearer ", auth.token())
+                .header("Authorization", "Bearer " + auth.token())
                 .body(authResponseDto);
     }
 }
