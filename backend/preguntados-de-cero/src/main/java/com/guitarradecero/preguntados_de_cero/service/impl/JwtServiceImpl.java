@@ -36,7 +36,7 @@ public class JwtServiceImpl implements JwtService {
     @Override
     public String getPayload(String token) {
         try {
-            Jws<Claims> claims = getClaimsJws(token.substring(7));
+            Jws<Claims> claims = getClaimsJws(tokenWithoutBearer(token));
             return claims.getPayload().getSubject();
         }
         catch(ExpiredJwtException e) {
@@ -51,6 +51,10 @@ public class JwtServiceImpl implements JwtService {
         catch(StringIndexOutOfBoundsException e) {
             throw new TokenException("El token se encuentra vacio");
         }
+    }
+
+    private String tokenWithoutBearer(String token) {
+        return token.substring(7);
     }
 
     private Jws<Claims> getClaimsJws(String token) {
