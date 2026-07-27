@@ -34,12 +34,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User getById(Long id) {
-        try {
-            return dao.getReferenceById(id);
-        }
-        catch(EntityNotFoundException e) {
-            throw new NotFoundException(getIdErrorMessage(id));
-        }
+        return dao.findById(id).orElseThrow(() -> new NotFoundException(getIdErrorMessage(id)));
     }
 
     private String getEmailErrorMessage(String email) {

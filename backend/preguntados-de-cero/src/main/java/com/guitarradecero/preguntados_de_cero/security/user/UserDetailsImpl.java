@@ -1,4 +1,4 @@
-package com.guitarradecero.preguntados_de_cero.security;
+package com.guitarradecero.preguntados_de_cero.security.user;
 
 import com.guitarradecero.preguntados_de_cero.model.user.User;
 import lombok.Getter;

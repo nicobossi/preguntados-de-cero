@@ -5,5 +5,6 @@ import com.guitarradecero.preguntados_de_cero.model.user.User;
 
 public interface AuthService {
     void initAuthenticate(String email, String password);
-    Auth authenticate(User user, String token);
+    Auth getAuth(User user, String token);
+    void authenticate(Long id);
 }

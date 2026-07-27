@@ -26,6 +26,6 @@ public class AuthOrchestratorImpl implements AuthOrchestrator {
         authService.initAuthenticate(email, password);
         User user = userService.getByEmail(email);
         String token = jwtService.generateToken(user);
-        return authService.authenticate(user, token);
+        return authService.getAuth(user, token);
     }
 }

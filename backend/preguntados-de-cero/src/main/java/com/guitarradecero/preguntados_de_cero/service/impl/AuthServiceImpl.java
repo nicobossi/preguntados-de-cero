@@ -2,19 +2,21 @@ package com.guitarradecero.preguntados_de_cero.service.impl;
 
 import com.guitarradecero.preguntados_de_cero.model.auth.Auth;
 import com.guitarradecero.preguntados_de_cero.model.user.User;
+import com.guitarradecero.preguntados_de_cero.security.user.UserDetailsAdapter;
 import com.guitarradecero.preguntados_de_cero.service.AuthService;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
 @Service
 public class AuthServiceImpl implements AuthService {
 
     private AuthenticationManager manager;
-    private UserDetailsService detailsService;
+    private UserDetailsAdapter detailsService;
 
-    public AuthServiceImpl(AuthenticationManager manager, UserDetailsService detailsService) {
+    public AuthServiceImpl(AuthenticationManager manager, UserDetailsAdapter detailsService) {
         this.manager = manager;
         this.detailsService = detailsService;
     }
@@ -26,7 +28,14 @@ public class AuthServiceImpl implements AuthService {
     }
 
     @Override
-    public Auth authenticate(User user, String token) {
+    public Auth getAuth(User user, String token) {
         return new Auth(user.getEmail(), user.getId(), user.getPassword(), token);
+    }
+
+    @Override
+    public void authenticate(Long id) {
+        UserDetails details = detailsService.loadUserById(id);
+        UsernamePasswordAuthenticationToken auth = new UsernamePasswordAuthenticationToken(details, null);
+        SecurityContextHolder.getContext().setAuthentication(auth);
     }
 }
