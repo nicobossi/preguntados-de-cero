@@ -1,5 +1,6 @@
 package com.guitarradecero.preguntados_de_cero.configuration;
 
+import com.guitarradecero.preguntados_de_cero.security.exceptions.TokenExceptionEntrypoint;
 import com.guitarradecero.preguntados_de_cero.security.filters.JwtFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -13,9 +14,11 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 public class JwtFilterConfig {
 
     private JwtFilter jwtFilter;
+    private TokenExceptionEntrypoint tokenException;
 
-    public JwtFilterConfig(JwtFilter jwtFilter) {
+    public JwtFilterConfig(JwtFilter jwtFilter, TokenExceptionEntrypoint tokenException) {
         this.jwtFilter = jwtFilter;
+        this.tokenException = tokenException;
     }
 
     @Bean
@@ -26,6 +29,7 @@ public class JwtFilterConfig {
                 .authorizeHttpRequests(
                         auth -> auth
                                 .requestMatchers("/api/**").permitAll())
+                .exceptionHandling(exception -> exception.authenticationEntryPoint(tokenException))
                 .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
