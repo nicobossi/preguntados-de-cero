@@ -1,4 +1,4 @@
-package com.guitarradecero.preguntados_de_cero.security;
+package com.guitarradecero.preguntados_de_cero.security.filters;
 
 import com.guitarradecero.preguntados_de_cero.service.AuthService;
 import com.guitarradecero.preguntados_de_cero.service.JwtService;

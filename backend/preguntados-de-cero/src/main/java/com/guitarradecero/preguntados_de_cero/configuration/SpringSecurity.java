@@ -1,6 +1,6 @@
 package com.guitarradecero.preguntados_de_cero.configuration;
 
-import com.guitarradecero.preguntados_de_cero.service.impl.UserDetailsServiceImpl;
+import com.guitarradecero.preguntados_de_cero.security.user.UserDetailsServiceImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;

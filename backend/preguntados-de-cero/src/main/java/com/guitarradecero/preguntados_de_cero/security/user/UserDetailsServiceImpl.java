@@ -1,7 +1,5 @@
-package com.guitarradecero.preguntados_de_cero.service.impl;
+package com.guitarradecero.preguntados_de_cero.security.user;
 
-import com.guitarradecero.preguntados_de_cero.security.user.UserDetailsAdapter;
-import com.guitarradecero.preguntados_de_cero.security.user.UserDetailsImpl;
 import com.guitarradecero.preguntados_de_cero.model.user.User;
 import com.guitarradecero.preguntados_de_cero.service.UserService;
 import org.springframework.security.core.userdetails.UserDetails;

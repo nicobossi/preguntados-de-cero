@@ -1,6 +1,6 @@
 package com.guitarradecero.preguntados_de_cero.configuration;
 
-import com.guitarradecero.preguntados_de_cero.security.JwtFilter;
+import com.guitarradecero.preguntados_de_cero.security.filters.JwtFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
@@ -24,8 +24,8 @@ public class JwtFilterConfig {
         http
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(
-                        auth ->
-                                auth.requestMatchers("/**").permitAll())
+                        auth -> auth
+                                .requestMatchers("/api/**").permitAll())
                 .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
 
         return http.build();

@@ -1,7 +1,7 @@
 package com.guitarradecero.preguntados_de_cero.service.impl;
 
 import com.guitarradecero.preguntados_de_cero.model.user.User;
-import com.guitarradecero.preguntados_de_cero.security.TokenException;
+import com.guitarradecero.preguntados_de_cero.security.filters.TokenException;
 import com.guitarradecero.preguntados_de_cero.service.JwtService;
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.security.Keys;
@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import javax.crypto.SecretKey;
 import java.security.Key;
-import java.security.SignatureException;
 import java.util.Date;
 
 @Service
