@@ -29,13 +29,13 @@ public class AuthServiceImpl implements AuthService {
 
     @Override
     public Auth getAuth(User user, String token) {
-        return new Auth(user.getEmail(), user.getId(), user.getPassword(), token);
+        return new Auth(user.getEmail(), user.getId(), token);
     }
 
     @Override
     public void authenticate(Long id) {
         UserDetails details = detailsService.loadUserById(id);
-        UsernamePasswordAuthenticationToken auth = new UsernamePasswordAuthenticationToken(details, null);
+        UsernamePasswordAuthenticationToken auth = new UsernamePasswordAuthenticationToken(details, null, details.getAuthorities());
         SecurityContextHolder.getContext().setAuthentication(auth);
     }
 }

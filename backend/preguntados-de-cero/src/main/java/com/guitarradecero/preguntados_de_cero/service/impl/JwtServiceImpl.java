@@ -50,6 +50,9 @@ public class JwtServiceImpl implements JwtService {
         catch(StringIndexOutOfBoundsException e) {
             throw new TokenException("El token se encuentra vacio");
         }
+        catch(NullPointerException e) {
+            throw new TokenException("El token se encuentra vacio");
+        }
     }
 
     private String tokenWithoutBearer(String token) {

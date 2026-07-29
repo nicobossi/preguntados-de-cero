@@ -1,6 +1,8 @@
 package com.guitarradecero.preguntados_de_cero.security.filters;
 
-public class TokenException extends RuntimeException {
+import org.springframework.security.core.AuthenticationException;
+
+public class TokenException extends AuthenticationException {
     public TokenException(String message) {
         super(message);
     }

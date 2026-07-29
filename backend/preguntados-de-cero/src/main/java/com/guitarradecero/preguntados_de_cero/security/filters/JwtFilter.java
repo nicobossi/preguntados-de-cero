@@ -6,10 +6,14 @@ import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.springframework.http.HttpMethod;
+import org.springframework.security.web.servlet.util.matcher.PathPatternRequestMatcher;
+import org.springframework.security.web.util.matcher.RequestMatcher;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
+import java.util.List;
 
 @Component
 public class JwtFilter extends OncePerRequestFilter {
@@ -22,9 +26,15 @@ public class JwtFilter extends OncePerRequestFilter {
         this.authService = authService;
     }
 
+    private static final List<RequestMatcher> PROTECTED_ENDPOINTS = List.of(
+            PathPatternRequestMatcher.withDefaults().matcher(HttpMethod.POST, "/api/difficulty/add"),
+            PathPatternRequestMatcher.withDefaults().matcher(HttpMethod.POST, "/api/theme/add/*"),
+            PathPatternRequestMatcher.withDefaults().matcher(HttpMethod.POST, "/api/question/add/*")
+    );
+
     @Override
     protected boolean shouldNotFilter(HttpServletRequest request) {
-        return request.getServletPath().startsWith("/api/auth/");
+        return PROTECTED_ENDPOINTS.stream().noneMatch(path -> path.matches(request));
     }
 
     @Override
