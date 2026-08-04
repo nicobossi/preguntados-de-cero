@@ -7,7 +7,7 @@ import org.testcontainers.postgresql.PostgreSQLContainer;
 
 public abstract class IntegrationTest {
 
-    static PostgreSQLContainer container = PostgresContainer.getInstance();
+    protected static PostgreSQLContainer container = PostgresContainer.getInstance();
 
     static {
         container.start();

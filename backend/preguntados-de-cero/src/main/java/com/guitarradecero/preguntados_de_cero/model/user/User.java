@@ -5,6 +5,8 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.jspecify.annotations.Nullable;
+
 import static jakarta.persistence.GenerationType.AUTO;
 
 @Getter
@@ -25,5 +27,9 @@ public class User {
     public User(String email, String password){
         this.email = email;
         this.password = password;
+    }
+
+    public void updatePassword(String encode) {
+        setPassword(encode);
     }
 }
