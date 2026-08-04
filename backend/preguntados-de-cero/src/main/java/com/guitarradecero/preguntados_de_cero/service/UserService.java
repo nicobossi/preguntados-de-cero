@@ -6,4 +6,5 @@ public interface UserService {
     User add(User user);
     User getByEmail(String email);
     User getById(Long username);
+    boolean existsByEmail(String email);
 }

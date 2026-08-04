@@ -37,6 +37,11 @@ public class UserServiceImpl implements UserService {
         return dao.findById(id).orElseThrow(() -> new NotFoundException(getIdErrorMessage(id)));
     }
 
+    @Override
+    public boolean existsByEmail(String email) {
+        return dao.getByEmail(email).isPresent();
+    }
+
     private String getEmailErrorMessage(String email) {
         return "El mail " + email + "no se encuentra regitrado";
     }
