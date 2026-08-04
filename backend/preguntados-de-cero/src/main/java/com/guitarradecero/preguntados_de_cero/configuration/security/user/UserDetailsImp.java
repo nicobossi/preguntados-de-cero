@@ -1,61 +1,56 @@
-package com.guitarradecero.preguntados_de_cero.configuration.security.userDetails;
+package com.guitarradecero.preguntados_de_cero.configuration.security.user;
 
-import com.guitarradecero.preguntados_de_cero.model.user.Role;
 import com.guitarradecero.preguntados_de_cero.model.user.User;
 import org.jspecify.annotations.Nullable;
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import java.util.Collection;
 import java.util.List;
 
-public class UserDetailsAdapter implements UserDetails {
+public class UserDetailsImp implements UserDetails {
 
     private final Long id;
     private final String email;
     private final String password;
-    private final Role role;
 
-    public UserDetailsAdapter(User user){
+    public UserDetailsImp(User user){
         this.id = user.getId();
         this.email = user.getEmail();
         this.password = user.getPassword();
-        this.role = user.getRole();
     }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of(new SimpleGrantedAuthority(role.name()));
+        return List.of();
     }
 
     @Override
     public @Nullable String getPassword() {
-        return this.password;
+        return "";
     }
 
     @Override
     public String getUsername() {
-        return this.email;
+        return "";
     }
 
-    // de aca para abajo lo revisa el jwtservice entonces no hacen falta estas verificaciones por eso el hardcodeo
     @Override
     public boolean isAccountNonExpired() {
-        return true;
+        return UserDetails.super.isAccountNonExpired();
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        return true;
+        return UserDetails.super.isAccountNonLocked();
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return true;
+        return UserDetails.super.isCredentialsNonExpired();
     }
 
     @Override
     public boolean isEnabled() {
-        return true;
+        return UserDetails.super.isEnabled();
     }
 }

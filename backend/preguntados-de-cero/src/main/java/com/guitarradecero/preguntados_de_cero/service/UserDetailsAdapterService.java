@@ -1,7 +1,0 @@
-package com.guitarradecero.preguntados_de_cero.service;
-
-import org.springframework.security.core.userdetails.UserDetails;
-
-public interface UserDetailsAdapterService {
-    UserDetails findUserByEmail(String email);
-}
