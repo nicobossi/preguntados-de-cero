@@ -7,5 +7,4 @@ import { Component } from '@angular/core';
   styleUrl: './button-container.css',
 })
 export class ButtonContainer {
-
 }
