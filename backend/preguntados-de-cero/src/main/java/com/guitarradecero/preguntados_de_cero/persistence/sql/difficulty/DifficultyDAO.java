@@ -21,4 +21,6 @@ public interface DifficultyDAO extends JpaRepository<Difficulty, Long> {
             nativeQuery = true
     )
     List<DifficultyDescription> findWithDescription();
+
+    List<Difficulty> findAllByOrderByLevel();
 }

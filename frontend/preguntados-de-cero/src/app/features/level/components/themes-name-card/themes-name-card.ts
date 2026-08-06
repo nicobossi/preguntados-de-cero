@@ -1,4 +1,5 @@
 import { Component, input, output } from '@angular/core';
+import GameTheme from '@/app/shared/types/gameTheme';
 
 @Component({
   selector: 'app-themes-name-card',
@@ -8,7 +9,7 @@ import { Component, input, output } from '@angular/core';
 export class ThemesNameCard {
 
   onOffChange = output<void>();
-  themeNames = input.required<string[]>();
+  themes = input.required<GameTheme[]>();
   isChange = input.required<boolean>();
 
   cardClass() : string {

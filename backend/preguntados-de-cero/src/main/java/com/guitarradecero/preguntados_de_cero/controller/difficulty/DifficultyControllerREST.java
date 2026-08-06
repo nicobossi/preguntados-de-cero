@@ -4,6 +4,7 @@ import com.guitarradecero.preguntados_de_cero.adapter.difficulty.DifficultyMappe
 import com.guitarradecero.preguntados_de_cero.dto.difficulty.DifficultyDescription;
 import com.guitarradecero.preguntados_de_cero.dto.difficulty.DifficultyRequestDTO;
 import com.guitarradecero.preguntados_de_cero.dto.difficulty.DifficultyResponseDTO;
+import com.guitarradecero.preguntados_de_cero.dto.difficulty.DifficultyWithThemesResponseDTO;
 import com.guitarradecero.preguntados_de_cero.model.difficulty.Difficulty;
 import com.guitarradecero.preguntados_de_cero.service.DifficultyService;
 import jakarta.validation.Valid;
@@ -26,10 +27,20 @@ public class DifficultyControllerREST {
         difficultyService = service;
     }
 
-    @GetMapping
+/*    @GetMapping
     public ResponseEntity<List<DifficultyDescription>> getAllNiveles() {
 
         List<DifficultyDescription> niveles = getDifficultyService().allLevelsWithDescription();
+
+        return ResponseEntity.ok(niveles);
+    }*/
+
+    @GetMapping
+    public ResponseEntity<List<DifficultyWithThemesResponseDTO>> getAllNiveles() {
+
+        List<DifficultyWithThemesResponseDTO> niveles = getDifficultyService().allLevelsWithThemes().stream()
+                .map(DifficultyMapper.INSTANCE::modelToDtoWithThemes)
+                .toList();
 
         return ResponseEntity.ok(niveles);
     }

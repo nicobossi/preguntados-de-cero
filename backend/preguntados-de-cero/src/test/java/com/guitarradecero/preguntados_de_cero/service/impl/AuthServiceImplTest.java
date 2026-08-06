@@ -16,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 @Testcontainers
-@ActiveProfiles("test")
+/*@ActiveProfiles("test")*/
 class AuthServiceImplTest extends IntegrationTest {
     @Autowired
     private UserServiceImpl service;
@@ -49,10 +49,5 @@ class AuthServiceImplTest extends IntegrationTest {
     @AfterEach
     void tearDownEach() {
         service.clearAll();
-    }
-
-    @AfterAll
-    static void tearDown() {
-        container.stop();
     }
 }

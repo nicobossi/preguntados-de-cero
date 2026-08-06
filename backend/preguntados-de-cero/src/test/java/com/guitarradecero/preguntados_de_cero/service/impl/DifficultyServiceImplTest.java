@@ -18,7 +18,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 @Testcontainers
-@ActiveProfiles("test")
 class DifficultyServiceImplTest extends IntegrationTest {
 
     @Autowired

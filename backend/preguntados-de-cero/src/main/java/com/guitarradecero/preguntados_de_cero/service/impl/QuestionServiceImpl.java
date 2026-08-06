@@ -45,8 +45,8 @@ public class QuestionServiceImpl implements QuestionService {
         return getQuestionDao().save(question);
     }
 
-    void crearAll() {
-        getQuestionDao().deleteAll();
+    void clearAll() {
         getThemeDao().deleteAll();
+        getQuestionDao().deleteAll();
     }
 }
