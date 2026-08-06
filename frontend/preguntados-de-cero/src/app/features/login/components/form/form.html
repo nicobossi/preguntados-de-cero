@@ -1,0 +1,10 @@
+<form [formGroup]="form">
+  <div>
+    <label for="">email</label>
+    <input type="email" id="email" name="email" placeholder="Ingrese su email" [formControl]="form.controls.email">
+  </div>
+  <div>
+    <label for="">contraseña</label>
+    <input type="password" id="password" name="password" placeholder="Ingrese su contraseña" [formControl]="form.controls.password">
+  </div>
+</form>
