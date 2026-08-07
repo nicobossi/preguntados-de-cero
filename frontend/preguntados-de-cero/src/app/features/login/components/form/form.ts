@@ -26,7 +26,6 @@ export class Form {
   });
 
   protected execute() {
-
     this.isInvalid = this.form.invalid;
 
     if(!this.isInvalid) {
@@ -37,11 +36,15 @@ export class Form {
     }
   }
 
-  protected isEmailError(): boolean {
-    return this.isInvalid && this.form.controls.email.invalid;
+  protected isEmptyEmail(): boolean {
+    return this.isInvalid && this.form.controls.email.hasError("required");
   }
 
-  protected isPasswordError(): boolean {
-    return this.isInvalid && this.form.controls.password.invalid;
+  protected isInvalidEmail(): boolean {
+    return this.isInvalid && this.form.controls.email.hasError("email");
+  }
+
+  protected isEmptyPassword(): boolean {
+    return this.isInvalid && this.form.controls.password.hasError("required");
   }
 }
