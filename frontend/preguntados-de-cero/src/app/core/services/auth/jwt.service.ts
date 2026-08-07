@@ -6,12 +6,15 @@ import { HttpHeaders } from "@angular/common/http";
   providedIn: 'root'
 })
 export class JwtService implements AuthenticationService<HttpHeaders> {
-
   auth(headers: HttpHeaders) {
-    const token = headers.get("Authorization")?.substring(7);
+    const token = headers.get('Authorization')?.substring(7);
 
     if(token) {
       localStorage.setItem("TOKEN_KEY", token);
     }
+  }
+
+  getToken() {
+    return localStorage.getItem("TOKEN_KEY");
   }
 }
