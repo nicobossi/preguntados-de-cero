@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Credentials } from '@/app/core/services/auth/types/credentials';
+import { Component, input, output } from '@angular/core';
 import { FormControl, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
@@ -8,6 +9,8 @@ import { FormControl, FormGroup, Validators, ReactiveFormsModule } from '@angula
   imports: [ReactiveFormsModule],
 })
 export class Form {
+  onLogin = output<Credentials>();
+  isInvalid = false;
   form = new FormGroup({
     email: new FormControl(
       '',
@@ -20,5 +23,25 @@ export class Form {
       [
         Validators.required
       ])
-  })
+  });
+
+  protected execute() {
+
+    this.isInvalid = this.form.invalid;
+
+    if(!this.isInvalid) {
+      this.onLogin.emit({
+        email: this.form.controls.email.value!,
+        password: this.form.controls.password.value!
+      });
+    }
+  }
+
+  protected isEmailError(): boolean {
+    return this.isInvalid && this.form.controls.email.invalid;
+  }
+
+  protected isPasswordError(): boolean {
+    return this.isInvalid && this.form.controls.password.invalid;
+  }
 }
