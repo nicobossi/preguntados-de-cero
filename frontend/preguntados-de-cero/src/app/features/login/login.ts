@@ -2,6 +2,7 @@ import { FormContainer } from '@/app/shared/components/form-container/form-conta
 import { Component } from '@angular/core';
 import { ButtonContainer } from './components/button-container/button-container';
 import { Form } from "./components/form/form";
+import { Credentials } from '@/app/core/services/auth/types/credentials';
 
 @Component({
   selector: 'app-login',
@@ -10,5 +11,7 @@ import { Form } from "./components/form/form";
   styleUrl: './login.css',
 })
 export class Login {
+  login(credentials: Credentials) {
 
+  }
 }
