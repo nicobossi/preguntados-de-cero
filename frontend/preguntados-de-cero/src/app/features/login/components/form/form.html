@@ -1,0 +1,19 @@
+<form [formGroup]="form" (ngSubmit)="execute()" id="loginForm">
+  <div>
+    <label for="">email</label>
+    <input type="email" id="email" name="email" placeholder="Ingrese su email" [formControl]="form.controls.email">
+    @if(isEmptyEmail()) {
+      <p>Ingrese un correo</p>
+    }
+    @if(isInvalidEmail()) {
+      <p>Ingrese un correo valido</p>
+    }
+  </div>
+  <div>
+    <label for="">contraseña</label>
+    <input type="password" id="password" name="password" placeholder="Ingrese su contraseña" [formControl]="form.controls.password">
+    @if(isEmptyPassword()) {
+      <p>Ingrese una contraseña</p>
+    }
+  </div>
+</form>

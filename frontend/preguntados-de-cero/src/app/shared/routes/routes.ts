@@ -9,3 +9,4 @@ export const QUESTION_PARAMS_URL = "question/:themeId";
 export const END_GAME_URL = "endgame";
 export const RECAP_URL = "recap";
 export const SERVER_ERROR_URL = "error";
+export const LOGIN_URL = "login";

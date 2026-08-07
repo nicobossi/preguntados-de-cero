@@ -1,0 +1,6 @@
+.login-container {
+  display: grid;
+  grid-template-rows: 65% 35%;
+  width: 100vw;
+  height: 100vh;
+}
