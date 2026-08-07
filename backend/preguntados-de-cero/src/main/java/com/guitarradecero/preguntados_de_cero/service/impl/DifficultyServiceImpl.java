@@ -1,6 +1,5 @@
 package com.guitarradecero.preguntados_de_cero.service.impl;
 
-import com.guitarradecero.preguntados_de_cero.dto.difficulty.DifficultyDescription;
 import com.guitarradecero.preguntados_de_cero.model.difficulty.Difficulty;
 import com.guitarradecero.preguntados_de_cero.persistence.sql.difficulty.DifficultyDAO;
 import com.guitarradecero.preguntados_de_cero.model.difficulty.LevelRepeatException;
@@ -27,11 +26,6 @@ public class DifficultyServiceImpl implements DifficultyService {
     public DifficultyServiceImpl(DifficultyDAO dao, ThemeDAO themeDAO){
         setThemeDAO(themeDAO);
         setDifficultyDao(dao);
-    }
-
-    @Override
-    public List<DifficultyDescription> allLevelsWithDescription() {
-        return getDifficultyDao().findWithDescription();
     }
 
     @Override
