@@ -8,8 +8,8 @@
       <header>Tematicas</header>
       <div class="theme-names-container">
         <ul>
-          @for(theme of themeNames(); track theme) {
-            <li class="theme-name-item">{{theme}}</li>
+          @for(theme of themes(); track theme.id) {
+            <li class="theme-name-item">{{theme.name}}</li>
           }
         </ul>
       </div>

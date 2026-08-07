@@ -16,7 +16,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.ActiveProfiles;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
 import java.util.ArrayList;
@@ -26,11 +25,10 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 @Testcontainers
-@ActiveProfiles("test")
 class QuestionServiceImplTest extends IntegrationTest {
 
     @Autowired
-    private QuestionServiceImpl service;
+    private QuestionServiceImpl questionService;
 
     @Autowired
     private ThemeServiceImpl themeService;
@@ -57,7 +55,7 @@ class QuestionServiceImplTest extends IntegrationTest {
 
         Question question = new Question("Pregunta");
 
-        Question persistQuestion = service.add(question, persistTheme.getId(), new ArrayList<>());
+        Question persistQuestion = questionService.add(question, persistTheme.getId(), new ArrayList<>());
 
         assertNotNull(persistQuestion.getId());
     }
@@ -69,7 +67,7 @@ class QuestionServiceImplTest extends IntegrationTest {
 
         Question question = new Question("Pregunta");
 
-        assertThrows(NotFoundException.class, () -> service.add(question, 8L, new ArrayList<>()));
+        assertThrows(NotFoundException.class, () -> questionService.add(question, 8L, new ArrayList<>()));
     }
 
     @Test
@@ -81,9 +79,9 @@ class QuestionServiceImplTest extends IntegrationTest {
 
         Question question = new Question("Pregunta");
 
-        service.add(question, persistTheme.getId(), new ArrayList<>());
+        questionService.add(question, persistTheme.getId(), new ArrayList<>());
 
-        List<QuestionWithOptions> questions = service.findQuestionsByTheme(persistTheme.getId());
+        List<QuestionWithOptions> questions = questionService.findQuestionsByTheme(persistTheme.getId());
 
         assertFalse(questions.isEmpty());
     }
@@ -101,7 +99,7 @@ class QuestionServiceImplTest extends IntegrationTest {
         options.add(new CorrectOption("a"));
         options.add(new CorrectOption("b"));
 
-        assertThrows(RepeatedCorrectOptionException.class, () -> service.add(question, persistTheme.getId(), options));
+        assertThrows(RepeatedCorrectOptionException.class, () -> questionService.add(question, persistTheme.getId(), options));
     }
 
     @Test
@@ -117,13 +115,12 @@ class QuestionServiceImplTest extends IntegrationTest {
         options.add(new FailOption("a"));
         options.add(new CorrectOption("a"));
 
-        assertThrows(RepeatedStatementOptionException.class, () -> service.add(question, persistTheme.getId(), options));
+        assertThrows(RepeatedStatementOptionException.class, () -> questionService.add(question, persistTheme.getId(), options));
     }
 
     @AfterEach
     void tearDown() {
-        service.crearAll();
-        themeService.clearAll();
+        questionService.clearAll();
         difficultyService.clearAll();
     }
 }

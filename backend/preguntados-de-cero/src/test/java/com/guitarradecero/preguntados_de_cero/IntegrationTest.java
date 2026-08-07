@@ -1,10 +1,12 @@
 package com.guitarradecero.preguntados_de_cero;
 
 import com.guitarradecero.preguntados_de_cero.testContainers.PostgresContainer;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
 import org.testcontainers.postgresql.PostgreSQLContainer;
 
+@ActiveProfiles("test")
 public abstract class IntegrationTest {
 
     protected static PostgreSQLContainer container = PostgresContainer.getInstance();
@@ -19,5 +21,6 @@ public abstract class IntegrationTest {
         registry.add("spring.datasource.username", container::getUsername);
         registry.add("spring.datasource.password", container::getPassword);
         registry.add("spring.datasource.driver-class-name", () -> "org.postgresql.Driver");
+        registry.add("jwt.secret", () -> "secret-key-secret-key-secret-key-secret-key=");
     }
 }

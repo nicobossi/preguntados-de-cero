@@ -2,14 +2,12 @@ package com.guitarradecero.preguntados_de_cero.service.impl;
 
 
 import com.guitarradecero.preguntados_de_cero.IntegrationTest;
-import com.guitarradecero.preguntados_de_cero.dto.difficulty.DifficultyDescription;
 import com.guitarradecero.preguntados_de_cero.model.difficulty.Difficulty;
 import com.guitarradecero.preguntados_de_cero.model.theme.Theme;
 import com.guitarradecero.preguntados_de_cero.model.difficulty.LevelRepeatException;
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.ActiveProfiles;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
 import java.util.List;
@@ -18,7 +16,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 @Testcontainers
-@ActiveProfiles("test")
 class DifficultyServiceImplTest extends IntegrationTest {
 
     @Autowired
@@ -55,15 +52,17 @@ class DifficultyServiceImplTest extends IntegrationTest {
         Difficulty persistDifficulty = service.save(difficulty);
         Difficulty persistDifficulty1 = service.save(difficulty1);
 
-        List<DifficultyDescription> difficulties = service.allLevelsWithDescription();
+        List<Difficulty> difficulties = service.allLevelsWithThemes();
 
-        DifficultyDescription foundDifficulty = difficulties.stream().filter(d -> d.getId().equals(persistDifficulty.getId())).toList().getFirst();
-        DifficultyDescription foundDifficulty1 = difficulties.stream().filter(d -> d.getId().equals(persistDifficulty1.getId())).toList().getFirst();
+        Difficulty foundDifficulty = difficulties.stream()
+                .filter(d -> d.getId().equals(persistDifficulty.getId())).toList().getFirst();
 
-        assertEquals(foundDifficulty.getId(), foundDifficulty.getId());
-        assertEquals(foundDifficulty1.getId(), foundDifficulty1.getId());
+        Difficulty foundDifficulty1 = difficulties.stream()
+                .filter(d -> d.getId().equals(persistDifficulty1.getId())).toList().getFirst();
+
+        assertEquals(persistDifficulty.getId(), foundDifficulty.getId());
+        assertEquals(persistDifficulty1.getId(), foundDifficulty1.getId());
     }
-
 
     @Test
     void testSeRecuperanTodasLasDificultadesConLaDescripcionDeSusTematicas() {
@@ -77,13 +76,13 @@ class DifficultyServiceImplTest extends IntegrationTest {
         service.save(difficulty1);
         service.save(difficulty2);
 
-        List<DifficultyDescription> difficulties = service.allLevelsWithDescription();
+        List<Difficulty> difficulties = service.allLevelsWithThemes();
 
-        DifficultyDescription description1 = difficulties.getFirst();
-        DifficultyDescription description2 = difficulties.getLast();
+        Difficulty difficultyWithThemes1 = difficulties.getFirst();
+        Difficulty difficultyWithThemes2 = difficulties.getLast();
 
-        assertFalse(description1.getThemeNames().stream().toList().isEmpty());
-        assertFalse(description2.getThemeNames().stream().toList().isEmpty());
+        assertFalse(difficultyWithThemes1.getThemes().isEmpty());
+        assertFalse(difficultyWithThemes2.getThemes().isEmpty());
     }
 
     @AfterEach

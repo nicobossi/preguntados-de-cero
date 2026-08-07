@@ -17,7 +17,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 @Testcontainers
-@ActiveProfiles("test")
 class ThemeServiceImplTest extends IntegrationTest {
 
     @Autowired
