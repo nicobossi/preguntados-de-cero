@@ -1,9 +1,9 @@
 package com.guitarradecero.preguntados_de_cero.controller.difficulty;
 
 import com.guitarradecero.preguntados_de_cero.adapter.difficulty.DifficultyMapper;
-import com.guitarradecero.preguntados_de_cero.dto.difficulty.DifficultyDescription;
 import com.guitarradecero.preguntados_de_cero.dto.difficulty.DifficultyRequestDTO;
 import com.guitarradecero.preguntados_de_cero.dto.difficulty.DifficultyResponseDTO;
+import com.guitarradecero.preguntados_de_cero.dto.difficulty.DifficultyWithThemesResponseDTO;
 import com.guitarradecero.preguntados_de_cero.model.difficulty.Difficulty;
 import com.guitarradecero.preguntados_de_cero.service.DifficultyService;
 import jakarta.validation.Valid;
@@ -11,7 +11,6 @@ import lombok.Getter;
 import lombok.Setter;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @Getter
@@ -27,9 +26,11 @@ public class DifficultyControllerREST {
     }
 
     @GetMapping
-    public ResponseEntity<List<DifficultyDescription>> getAllNiveles() {
+    public ResponseEntity<List<DifficultyWithThemesResponseDTO>> getAllNiveles() {
 
-        List<DifficultyDescription> niveles = getDifficultyService().allLevelsWithDescription();
+        List<DifficultyWithThemesResponseDTO> niveles = getDifficultyService().allLevelsWithThemes().stream()
+                .map(DifficultyMapper.INSTANCE::modelToDtoWithThemes)
+                .toList();
 
         return ResponseEntity.ok(niveles);
     }

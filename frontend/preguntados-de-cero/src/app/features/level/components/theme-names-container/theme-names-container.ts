@@ -1,4 +1,5 @@
 import { Component, input } from '@angular/core';
+import GameTheme from '@/app/shared/types/gameTheme';
 
 @Component({
   selector: 'app-theme-names-container',
@@ -7,9 +8,9 @@ import { Component, input } from '@angular/core';
 })
 export class ThemeNamesContainer {
 
-  themeNames = input<string[]>();
+  themes = input<GameTheme[]>();
 
-  protected get getNames() {
-    return this.themeNames()
+  protected get getThemes() {
+    return this.themes()
   }
 }

@@ -3,6 +3,7 @@ package com.guitarradecero.preguntados_de_cero.controller.theme;
 import com.guitarradecero.preguntados_de_cero.IntegrationTest;
 import com.guitarradecero.preguntados_de_cero.model.difficulty.Difficulty;
 import com.guitarradecero.preguntados_de_cero.model.theme.Theme;
+import com.guitarradecero.preguntados_de_cero.persistence.sql.difficulty.DifficultyDAO;
 import com.guitarradecero.preguntados_de_cero.persistence.sql.theme.ThemeDAO;
 import com.guitarradecero.preguntados_de_cero.service.DifficultyService;
 import com.guitarradecero.preguntados_de_cero.service.impl.ThemeServiceImpl;
@@ -24,7 +25,6 @@ import static org.hamcrest.collection.IsCollectionWithSize.hasSize;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @Testcontainers
-@ActiveProfiles("test")
 class ThemeControllerRESTTest extends IntegrationTest {
 
     @LocalServerPort
@@ -32,6 +32,9 @@ class ThemeControllerRESTTest extends IntegrationTest {
 
     @Autowired
     ThemeDAO themeDAO;
+
+    @Autowired
+    DifficultyDAO difficultyDAO;
 
     @Autowired
     ThemeServiceImpl themeService;
@@ -57,5 +60,11 @@ class ThemeControllerRESTTest extends IntegrationTest {
                 .then()
                 .statusCode(200)
                 .body(".", hasSize(2));
+    }
+
+    @AfterEach
+    void tearDown(){ // horrible, capaz conviene borrar directamente este test
+        themeDAO.deleteAll();
+        difficultyDAO.deleteAll();
     }
 }

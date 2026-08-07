@@ -1,7 +1,9 @@
+import GameTheme from './gameTheme';
+
 interface Difficulty {
   id: number,
   level: number
-  themeNames : string[]
+  themes: GameTheme[]
 }
 
 export default Difficulty;

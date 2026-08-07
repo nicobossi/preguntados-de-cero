@@ -1,9 +1,9 @@
 package com.guitarradecero.preguntados_de_cero.service.impl;
 
-import com.guitarradecero.preguntados_de_cero.dto.difficulty.DifficultyDescription;
 import com.guitarradecero.preguntados_de_cero.model.difficulty.Difficulty;
 import com.guitarradecero.preguntados_de_cero.persistence.sql.difficulty.DifficultyDAO;
 import com.guitarradecero.preguntados_de_cero.model.difficulty.LevelRepeatException;
+import com.guitarradecero.preguntados_de_cero.persistence.sql.theme.ThemeDAO;
 import com.guitarradecero.preguntados_de_cero.service.DifficultyService;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -21,14 +21,16 @@ import java.util.List;
 public class DifficultyServiceImpl implements DifficultyService {
 
     private DifficultyDAO difficultyDao;
+    private ThemeDAO themeDAO;
 
-    public DifficultyServiceImpl(DifficultyDAO dao){
+    public DifficultyServiceImpl(DifficultyDAO dao, ThemeDAO themeDAO){
+        setThemeDAO(themeDAO);
         setDifficultyDao(dao);
     }
 
     @Override
-    public List<DifficultyDescription> allLevelsWithDescription() {
-        return getDifficultyDao().findWithDescription();
+    public List<Difficulty> allLevelsWithThemes() {
+        return getDifficultyDao().findAllByOrderByLevel();
     }
 
     @Override
@@ -42,6 +44,7 @@ public class DifficultyServiceImpl implements DifficultyService {
     }
 
     void clearAll() {
+        getThemeDAO().deleteAll();
         getDifficultyDao().deleteAll();
     }
 }

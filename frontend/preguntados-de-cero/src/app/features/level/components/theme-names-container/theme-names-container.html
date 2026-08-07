@@ -1,7 +1,7 @@
 <div>
   <ul>
-    @for(theme of getNames; track theme) {
-      <li class="theme-name-item">{{theme}}</li>
+    @for(theme of getThemes; track theme.id) {
+      <li class="theme-name-item">{{theme.name}}</li>
     }
   </ul>
   <p class="theme-name-item">Elegí tu nivel</p>

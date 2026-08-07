@@ -25,7 +25,7 @@ public class Difficulty {
     @Column(unique = true)
     private Integer level;
 
-    @OneToMany(mappedBy = "difficulty", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "difficulty", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Set<Theme> themes = new HashSet<>();
 
     public Difficulty(Integer level) {

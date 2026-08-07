@@ -11,6 +11,7 @@ import com.guitarradecero.preguntados_de_cero.service.QuestionService;
 import com.guitarradecero.preguntados_de_cero.service.ThemeService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.stereotype.Component;
 
 import java.util.*;
 

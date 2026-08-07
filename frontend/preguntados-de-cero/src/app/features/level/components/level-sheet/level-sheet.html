@@ -5,7 +5,7 @@
       [class]="cardContainerClass()">
       <div class="card" [class]="cardClass()">
         <app-level-header [level]="difficulty().level" />
-        <app-theme-names-container [themeNames]="difficulty().themeNames" />
+        <app-theme-names-container [themes]="difficulty().themes" />
         <app-level-button (navegate)="navegate()"/>
       </div>
     </div>
