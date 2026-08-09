@@ -4,6 +4,7 @@ import { LoadStateService } from "@/app/core/services/load-state/load-state.serv
 import { HttpClient } from "@angular/common/http";
 import { JwtService } from "@/app/core/services/auth/jwt.service";
 import { NavegateService } from "@/app/core/services/navegate/navegate.services";
+import { environment } from "@/environments/environment.development";
 
 @Injectable({
   providedIn: 'root'
@@ -14,23 +15,35 @@ export class UserService {
   private httpClient = inject(HttpClient);
   private authService = inject(JwtService);
   private navegateService = inject(NavegateService);
-  private url = '/api/v1/user/me';
+  private url = environment.apiBackendUrl + '/api/user/me';
 
   save(user: User) {
     this.user.set(user);
   }
 
-  get getUser() {
-    if (this.user()) return this.user()
-    else if(this.authService.isAuthenticate()) return this.refreshMe();
-    this.navegateService.goLogin();
-
+  findUser() {
+    if(!this.authService.isAuthenticate()) {
+      this.navegateService.goLogin();
+    }
+    else {
+      this.setUser()
+    }
   }
 
-  private refreshMe() {
-    this.httpHandler.handleResponse(
-      () => this.httpClient.get(this.url),
-      this.save
-    )
+  get getUser() {
+    return this.user.asReadonly();
+  }
+
+  private setUser() {
+    if(!this.user()) {
+      this.httpHandler.handleResponse(
+        () => this.httpClient.get(this.url),
+        (user) => this.save(user)
+      )
+    }
+  }
+
+  isLoading() {
+    return this.httpHandler.getIsLoading;
   }
 }
