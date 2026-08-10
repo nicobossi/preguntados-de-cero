@@ -3,6 +3,7 @@ import { Level } from './features/level/level';
 import { InitGame } from './features/init-game/init-game';
 import {Theme} from '@/app/features/theme/theme';
 import {
+  ADD_PAGE_URL,
   END_GAME_URL,
   HOME_URL,
   LEVEL_URL,
@@ -18,6 +19,7 @@ import {Recap} from '@/app/features/recap/recap';
 import {EndGame} from '@/app/features/end-game/end-game';
 import { ErrorServerPage } from './core/pages/error-server-page/error-server-page';
 import { Login } from './features/login/login';
+import { Add } from './features/add/add';
 
 export const routes: Routes = [
   {
@@ -51,6 +53,10 @@ export const routes: Routes = [
   {
     path: LOGIN_URL,
     component: Login
+  },
+  {
+    path: ADD_PAGE_URL,
+    component: Add
   },
   {
     path: '**',

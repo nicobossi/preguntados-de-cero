@@ -17,7 +17,7 @@ public class TokenExceptionEntrypoint implements AuthenticationEntryPoint {
 
     @Override
     public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException authException) throws IOException, ServletException {
-        response.setStatus(HttpStatus.FORBIDDEN.value());
+        response.setStatus(HttpStatus.UNAUTHORIZED.value());
         response.setContentType("application/json");
         ErrorBodyResponse error = new ErrorBodyResponse(authException.getMessage(), "Token Invalido");
         ObjectMapper objectMapper = new ObjectMapper();

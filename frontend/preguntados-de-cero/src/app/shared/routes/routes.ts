@@ -1,5 +1,3 @@
-
-
 export const HOME_URL = "";
 export const LEVEL_URL = "level";
 export const THEME_URL = "theme";
@@ -10,3 +8,4 @@ export const END_GAME_URL = "endgame";
 export const RECAP_URL = "recap";
 export const SERVER_ERROR_URL = "error";
 export const LOGIN_URL = "login";
+export const ADD_PAGE_URL = "add"
