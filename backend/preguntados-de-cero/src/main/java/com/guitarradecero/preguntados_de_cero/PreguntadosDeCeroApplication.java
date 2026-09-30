@@ -24,7 +24,8 @@ public class PreguntadosDeCeroApplication {
                                 "https://preguntadosdecero.up.railway.app"
                         )
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
-                        .allowedHeaders("*");
+                        .allowedHeaders("*")
+                        .exposedHeaders("Authorization");
             }
         };
     }

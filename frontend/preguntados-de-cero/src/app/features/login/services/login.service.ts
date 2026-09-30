@@ -1,20 +1,23 @@
 import { inject, Injectable, signal } from "@angular/core";
 import { Credentials } from "../../../core/services/auth/types/credentials";
-import { LoadStateService } from "../../../core/services/load-state/load-state.service";
 import { HttpClient } from "@angular/common/http";
 import { User } from "@/app/shared/types/user";
 import { JwtService } from "@/app/core/services/auth/jwt.service";
+import { UserService } from "@/app/shared/services/user.service";
+import { NavegateService } from "@/app/core/services/navegate/navegate.services";
+import { environment } from "@/environments/environment";
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
   private httpClient = inject(HttpClient);
-  private user = signal<User | null>(null);
-  private error = signal<Error | null>(null);
   private jwtService = inject(JwtService);
+  private userService = inject(UserService);
+  private navegationService = inject(NavegateService);
+  private error = signal<Error | null>(null);
   private loading = signal(false);
-  private url = '/api/v1/auth/login';
+  private url = environment.apiBackendUrl + '/api/auth/login';
 
   execute(credentials: Credentials) {
     this.loading.set(true);
@@ -23,15 +26,12 @@ export class LoginService {
 
     user.subscribe({
       next: (response) => {
-        this.user.set(response.body);
         this.jwtService.auth(response.headers);
+        this.userService.save(response.body!);
+        this.navegationService.goAddAdmin();
       },
       error: (error) => this.error.set(error),
       complete: () => this.loading.set(false)
     })
-  }
-
-  get getUser() {
-    return this.user()
   }
 }
